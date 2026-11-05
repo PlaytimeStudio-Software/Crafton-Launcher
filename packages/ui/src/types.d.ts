@@ -9,3 +9,5 @@ declare module 'ace-builds' {
 		factory: (require: (id: string) => any, exports: any, module: any) => void,
 	): void
 }
+
+declare module 'ace-builds/src-noconflict/worker-*'

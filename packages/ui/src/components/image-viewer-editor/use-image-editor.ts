@@ -912,7 +912,7 @@ export function useImageEditor() {
 				originX: 'left',
 				originY: 'top',
 				fill: color.value,
-				fontFamily: 'Inter, sans-serif',
+				fontFamily: "'Inter Variable', Inter, sans-serif",
 				fontSize: fontSize.value,
 			})
 			setEditorMetadata(text, 'text')

@@ -15,9 +15,9 @@ import python from 'highlight.js/lib/languages/python'
 import scala from 'highlight.js/lib/languages/scala'
 import xml from 'highlight.js/lib/languages/xml'
 import yaml from 'highlight.js/lib/languages/yaml'
-import mcfunction from 'highlightjs-mcfunction'
 
 import { configuredXss, md } from '../parse'
+import mcfunction from './mcfunction'
 import skript from './skript'
 
 /* REGISTRATION */

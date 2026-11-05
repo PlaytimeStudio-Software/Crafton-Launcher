@@ -79,7 +79,7 @@ const chartOptions = ref({
 	chart: {
 		id: props.name,
 		fontFamily:
-			'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+			"'Inter Variable', Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif",
 		foreColor: 'var(--color-base)',
 		selection: {
 			enabled: true,
