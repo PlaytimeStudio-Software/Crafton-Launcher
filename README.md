@@ -41,7 +41,7 @@ Raise `version` in `apps/app-frontend/package.json`, then run:
 python scripts/release-launcher.py --notes "What changed"
 ```
 
-This builds the signed installer and publishes it to `PlaytimeStudio-Software/Crafton-Launcher-Releases`, where installed launchers pick it up automatically. Signing needs the private key at `%USERPROFILE%\.tauri\crafton-launcher.key`, which is not stored in this repository.
+This builds the signed installer and publishes it to this repository's releases, where installed launchers pick it up automatically. Signing needs the private key at `%USERPROFILE%\.tauri\crafton-launcher.key`, which is not stored in this repository.
 
 ## Workshop SMP modpack
 

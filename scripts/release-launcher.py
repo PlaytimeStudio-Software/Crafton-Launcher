@@ -9,7 +9,10 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-RELEASES_REPO = "PlaytimeStudio-Software/Crafton-Launcher-Releases"
+RELEASES_REPOS = [
+    "PlaytimeStudio-Software/Crafton-Launcher",
+    "PlaytimeStudio-Software/Crafton-Launcher-Releases",
+]
 ROOT = Path(__file__).resolve().parent.parent
 APP_DIR = ROOT / "apps" / "app"
 BUNDLE_DIR = ROOT / "target" / "release" / "bundle" / "nsis"
@@ -95,10 +98,16 @@ def main() -> None:
             sys.exit(f"Missing {path}. Build first, or check the version number.")
 
     asset_name = f"Crafton-Launcher_{v}_x64-setup.exe"
-    download_url = f"https://github.com/{RELEASES_REPO}/releases/download/{tag}/{asset_name}"
+    token = github_token()
+    for repo in RELEASES_REPOS:
+        publish(repo, v, tag, args.notes, installer, signature, asset_name, token)
+
+
+def publish(repo, v, tag, notes, installer, signature, asset_name, token) -> None:
+    download_url = f"https://github.com/{repo}/releases/download/{tag}/{asset_name}"
     latest = {
         "version": v,
-        "notes": args.notes,
+        "notes": notes,
         "pub_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "platforms": {
             "windows-x86_64": {
@@ -107,9 +116,7 @@ def main() -> None:
             }
         },
     }
-
-    token = github_token()
-    api = f"https://api.github.com/repos/{RELEASES_REPO}"
+    api = f"https://api.github.com/repos/{repo}"
     release = github(
         "POST",
         f"{api}/releases",
@@ -117,7 +124,7 @@ def main() -> None:
         body={
             "tag_name": tag,
             "name": f"Crafton Launcher {v}",
-            "body": args.notes or f"Crafton Launcher {v}",
+            "body": notes or f"Crafton Launcher {v}",
         },
     )
     upload = release["upload_url"].split("{")[0]
@@ -136,8 +143,6 @@ def main() -> None:
         content_type="application/json",
     )
     print(f"Published {release['html_url']}")
-    print(f"Installer: {download_url}")
-
 
 if __name__ == "__main__":
     main()

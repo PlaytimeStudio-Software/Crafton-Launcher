@@ -66,7 +66,7 @@
 		"updater": {
 			"pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDEyMThEQjRDQjAwMTVBOEYKUldTUFdnR3dUTnNZRXNOMXg3RTBYc0hPNzB3aVpnNW8wV3ZXYzJ1ZVBQdlJHbFpYemZPQlBPanQK",
 			"endpoints": [
-				"https://github.com/PlaytimeStudio-Software/Crafton-Launcher-Releases/releases/latest/download/latest.json"
+				"https://github.com/PlaytimeStudio-Software/Crafton-Launcher/releases/latest/download/latest.json"
 			],
 			"windows": {
 				"installMode": "passive"
