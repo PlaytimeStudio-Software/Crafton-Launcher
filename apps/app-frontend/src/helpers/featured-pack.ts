@@ -27,6 +27,13 @@ export interface FeaturedPackRecord {
 	instanceId: string
 	tag: string
 	applied?: { memory_mb?: number | null; java_args?: string[] }
+	packFiles?: string[]
+}
+
+export interface PackDrift {
+	added: string[]
+	missing: string[]
+	disabled: string[]
 }
 
 const RECORD_KEY = 'crafton.featuredPack'
@@ -39,13 +46,47 @@ export async function featured_pack_download(repo: string) {
 	return await invoke<FeaturedPackDownload>('plugin:utils|featured_pack_download', { repo })
 }
 
+export async function featured_pack_mod_files(path: string) {
+	return await invoke<string[]>('plugin:utils|featured_pack_mod_files', { path })
+}
+
+export async function featured_pack_instance_mods(instanceId: string) {
+	return await invoke<string[]>('plugin:utils|featured_pack_instance_mods', { instanceId })
+}
+
+export async function featured_pack_remove_mods(instanceId: string, files: string[]) {
+	return await invoke<void>('plugin:utils|featured_pack_remove_mods', { instanceId, files })
+}
+
+export function comparePackFiles(packFiles: string[], instanceFiles: string[]): PackDrift {
+	const pack = new Set(packFiles)
+	const present = new Set(instanceFiles)
+	const added: string[] = []
+	const disabled: string[] = []
+	for (const file of instanceFiles) {
+		if (pack.has(file)) continue
+		if (file.endsWith('.disabled') && pack.has(file.slice(0, -'.disabled'.length))) {
+			disabled.push(file)
+		} else {
+			added.push(file)
+		}
+	}
+	const missing = packFiles.filter((file) => !present.has(file) && !present.has(`${file}.disabled`))
+	return { added, missing, disabled }
+}
+
 function readFeaturedPackRecord(): FeaturedPackRecord | null {
 	try {
 		const raw = window.localStorage.getItem(RECORD_KEY)
 		if (!raw) return null
 		const record = JSON.parse(raw) as Partial<FeaturedPackRecord>
 		return record.instanceId && record.tag
-			? { instanceId: record.instanceId, tag: record.tag, applied: record.applied }
+			? {
+					instanceId: record.instanceId,
+					tag: record.tag,
+					applied: record.applied,
+					packFiles: record.packFiles,
+				}
 			: null
 	} catch {
 		return null

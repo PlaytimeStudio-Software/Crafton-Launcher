@@ -52,6 +52,9 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
             cache_remote_icon,
             featured_pack_latest,
             featured_pack_download,
+            featured_pack_mod_files,
+            featured_pack_instance_mods,
+            featured_pack_remove_mods,
         ])
         .build()
 }
@@ -83,6 +86,30 @@ pub async fn featured_pack_download(
         settings,
         path,
     })
+}
+
+#[tauri::command]
+pub async fn featured_pack_mod_files(path: PathBuf) -> Result<Vec<String>> {
+    Ok(crafton_core::featured_pack::pack_mod_files(path).await?)
+}
+
+#[tauri::command]
+pub async fn featured_pack_instance_mods(
+    instance_id: &str,
+) -> Result<Vec<String>> {
+    Ok(crafton_core::featured_pack::instance_mod_files(instance_id).await?)
+}
+
+#[tauri::command]
+pub async fn featured_pack_remove_mods(
+    instance_id: &str,
+    files: Vec<String>,
+) -> Result<()> {
+    Ok(crafton_core::featured_pack::remove_instance_mod_files(
+        instance_id,
+        files,
+    )
+    .await?)
 }
 
 #[tauri::command]

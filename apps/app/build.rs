@@ -330,6 +330,9 @@ fn main() {
                         "cache_remote_icon",
                         "featured_pack_latest",
                         "featured_pack_download",
+                        "featured_pack_mod_files",
+                        "featured_pack_instance_mods",
+                        "featured_pack_remove_mods",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,
