@@ -9,10 +9,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-RELEASES_REPOS = [
-    "PlaytimeStudio-Software/Crafton-Launcher",
-    "PlaytimeStudio-Software/Crafton-Launcher-Releases",
-]
+RELEASES_REPOS = ["PlaytimeStudio-Software/Crafton-Launcher"]
 ROOT = Path(__file__).resolve().parent.parent
 APP_DIR = ROOT / "apps" / "app"
 BUNDLE_DIR = ROOT / "target" / "release" / "bundle" / "nsis"

@@ -1,6 +1,6 @@
 # Copying
 
-Crafton Launcher is licensed under the GNU General Public License, Version 3 only. The full license text is in [apps/app/LICENSE](apps/app/LICENSE). Some packages in this repository use other licenses; see the `LICENSE` or `COPYING.md` file inside each package.
+Crafton Launcher is licensed under the GNU General Public License, Version 3 only. The full license text is in [LICENSE](LICENSE). Some packages in this repository use other licenses; see the `LICENSE` or `COPYING.md` file inside each package.
 
 ## Origin
 
