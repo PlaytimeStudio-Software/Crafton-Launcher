@@ -631,16 +631,23 @@ export const categoryHeaderMessages = defineMessages({
 	},
 })
 
+function lookupMessage(
+	messages: Record<string, MessageDescriptor>,
+	key: string,
+): MessageDescriptor | undefined {
+	return messages[key]
+}
+
 export function getTagMessage(
 	tag: string,
 	enforceType?: 'loader' | 'category',
 ): MessageDescriptor | undefined {
 	if (enforceType === 'loader') {
-		return loaderMessages[tag]
+		return lookupMessage(loaderMessages, tag)
 	} else if (enforceType === 'category') {
-		return categoryMessages[tag]
+		return lookupMessage(categoryMessages, tag)
 	} else {
-		return loaderMessages[tag] ?? categoryMessages[tag]
+		return lookupMessage(loaderMessages, tag) ?? lookupMessage(categoryMessages, tag)
 	}
 }
 
@@ -653,7 +660,7 @@ export function getCategoryMessage(category: string) {
 }
 
 export function getCategoryHeaderMessage(header: string): MessageDescriptor | undefined {
-	return categoryHeaderMessages[header]
+	return lookupMessage(categoryHeaderMessages, header)
 }
 
 export function formatTag(

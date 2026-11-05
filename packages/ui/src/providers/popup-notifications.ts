@@ -36,7 +36,7 @@ export type PopupNotificationToastType = 'instance-download' | 'instance-ready'
 interface PopupNotificationBase {
 	id: string | number
 	autoCloseMs?: number | null
-	timer?: NodeJS.Timeout
+	timer?: ReturnType<typeof setTimeout>
 }
 
 export interface PopupNotificationCustom<

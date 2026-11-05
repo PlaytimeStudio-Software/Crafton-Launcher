@@ -88,7 +88,7 @@ export interface ProjectInstallSelection {
 		name: string
 		iconUrl?: string
 		circle?: boolean
-		link: string | (() => void)
+		link?: string | (() => void)
 	} | null
 	compatibleLoaders: string[]
 	gameVersions: string[]

@@ -44,6 +44,10 @@ const PREFERRED_DARK_THEME_KEY = 'crafton-preferred-dark-theme'
 
 const RETIRED_THEMES: Record<string, ColorTheme> = { light: 'skyline', hangar: 'dark' }
 
+export function isColorTheme(theme: string): theme is ColorTheme {
+	return (THEME_OPTIONS as readonly string[]).includes(theme)
+}
+
 export function isDarkTheme(theme: string): theme is DarkTheme {
 	return (DARK_THEMES as readonly string[]).includes(theme)
 }

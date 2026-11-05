@@ -1,5 +1,8 @@
 import MarkdownIt from 'markdown-it'
+import type { IFilterXSSOptions } from 'xss'
 import xss from 'xss'
+
+import { getMarkdownUserCountry } from './markdown-user-country'
 
 // @ts-expect-error xss types don't reflect CJS default export shape
 const { escapeAttrValue, FilterXSS, safeAttrValue, whiteList } = xss
@@ -7,17 +10,9 @@ const { escapeAttrValue, FilterXSS, safeAttrValue, whiteList } = xss
 // Imgur is blocked in UK and Indonesia
 const imgurProxyCountries = new Set(['GB', 'ID'])
 
-type MarkdownUserCountryResolver = () => string | null | undefined
-
-let resolveMarkdownUserCountry: MarkdownUserCountryResolver = () => undefined
-
-export const setMarkdownUserCountryResolver = (resolver: MarkdownUserCountryResolver) => {
-	resolveMarkdownUserCountry = resolver
-}
-
 const shouldProxyImgur = () => {
 	try {
-		const country = resolveMarkdownUserCountry()
+		const country = getMarkdownUserCountry()
 		return country ? imgurProxyCountries.has(country.toUpperCase()) : false
 	} catch {
 		return false
@@ -196,7 +191,7 @@ export const configuredXss = new FilterXSS({
 
 		return safeAttrValue(tag, name, value, cssFilter)
 	},
-})
+} satisfies IFilterXSSOptions)
 
 export const md = (options = {}) => {
 	const md = new MarkdownIt('default', {

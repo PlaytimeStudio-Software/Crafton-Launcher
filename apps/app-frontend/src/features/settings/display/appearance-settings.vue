@@ -4,7 +4,13 @@ import { platform } from '@tauri-apps/plugin-os'
 import { computed, onBeforeUnmount, onMounted, watch } from 'vue'
 
 import { useAppSettings } from '@/composables/use-app-settings.ts'
-import { type ColorTheme, isDarkTheme, PICKER_THEMES, useTheme } from '@/composables/use-theme.ts'
+import {
+	type ColorTheme,
+	isColorTheme,
+	isDarkTheme,
+	PICKER_THEMES,
+	useTheme,
+} from '@/composables/use-theme.ts'
 import { injectAppSettingsModal } from '@/features/settings/app-settings-modal/context'
 import { type AppSettings, get, set } from '@/helpers/settings.ts'
 
@@ -62,8 +68,8 @@ const preferredDarkTheme = computed(() =>
 	isDarkTheme(current.value.theme) ? current.value.theme : theme.preferredDark,
 )
 
-function setTheme(value: ColorTheme): void {
-	current.value.theme = value
+function setTheme(value: string): void {
+	if (isColorTheme(value)) current.value.theme = value
 }
 
 function setSyncAcrossDevices(enabled: boolean): void {
@@ -135,7 +141,7 @@ provideAppearanceSettings({
 					set: setNativeDecorations,
 				}
 			: undefined,
-	updatePreferences: async () => {},
+	updatePreferences: async () => undefined,
 })
 </script>
 

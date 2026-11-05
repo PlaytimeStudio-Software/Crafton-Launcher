@@ -965,8 +965,6 @@ dependencies = [
  "compression-core",
  "flate2",
  "memchr",
- "zstd",
- "zstd-safe",
 ]
 
 [[package]]
@@ -1191,7 +1189,6 @@ name = "crafton_core"
 version = "1.0.0"
 dependencies = [
  "anyhow",
- "async-compression",
  "async-minecraft-ping",
  "async-recursion",
  "async-trait",
@@ -1284,15 +1281,12 @@ version = "1.0.0"
 dependencies = [
  "anyhow",
  "chrono",
- "core-foundation 0.10.1",
- "core-graphics",
  "crafton_core",
  "dashmap",
  "either",
  "enumset",
  "image",
  "native-dialog",
- "objc2-app-kit",
  "paste",
  "path-util",
  "rustls",
@@ -1311,16 +1305,13 @@ dependencies = [
  "tauri-plugin-single-instance",
  "tauri-plugin-updater",
  "tauri-plugin-window-state",
- "tempfile",
  "tokio",
  "tokio-util",
  "tracing",
  "url",
  "urlencoding",
  "uuid 1.28.0",
- "webview2-com",
  "windows 0.61.3",
- "windows-core 0.61.2",
  "zip 9.0.5",
 ]
 

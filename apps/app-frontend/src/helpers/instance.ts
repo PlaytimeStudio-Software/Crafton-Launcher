@@ -604,8 +604,10 @@ export async function kill(instanceId: string): Promise<void> {
 	return await invoke('plugin:instance|instance_kill', { instanceId })
 }
 
+export type InstanceEdit = { [K in keyof GameInstance]?: GameInstance[K] | null }
+
 // Edits an instance
-export async function edit(instanceId: string, editInstance: Partial<GameInstance>): Promise<void> {
+export async function edit(instanceId: string, editInstance: InstanceEdit): Promise<void> {
 	return await invoke('plugin:instance|instance_edit', { instanceId, editInstance })
 }
 

@@ -70,7 +70,6 @@ const props = withDefaults(defineProps<PageHeaderMetadataItemProps>(), {
 	tooltip: undefined,
 	ariaLabel: undefined,
 	to: undefined,
-	action: undefined,
 	disabled: false,
 })
 

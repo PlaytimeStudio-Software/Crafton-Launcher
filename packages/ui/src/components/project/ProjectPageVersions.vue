@@ -548,7 +548,6 @@ const props = withDefaults(
 		showFiles: false,
 		showEnvironmentColumn: false,
 		currentMember: false,
-		versionLink: undefined,
 	},
 )
 

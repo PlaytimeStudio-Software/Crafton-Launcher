@@ -106,7 +106,17 @@
 <script setup lang="ts">
 import { SearchIcon, TrashIcon, XIcon } from '@crafton/assets'
 import type { Terminal } from '@xterm/xterm'
-import { computed, isRef, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import {
+	computed,
+	isRef,
+	type MaybeRef,
+	nextTick,
+	onBeforeUnmount,
+	onMounted,
+	ref,
+	unref,
+	watch,
+} from 'vue'
 
 import Admonition from '#ui/components/base/Admonition.vue'
 import BaseTerminal from '#ui/components/base/BaseTerminal.vue'
@@ -171,8 +181,7 @@ const isFullscreen = ref(false)
 const fullscreenBodyClass = 'crafton-console-fullscreen-active'
 const fullscreenIntercomPadding = 20
 const fullscreenIntercomPaddingRequestId = Symbol('console-fullscreen')
-const isApp =
-	typeof window !== 'undefined' && !!(window as Record<string, unknown>).__TAURI_INTERNALS__
+const isApp = typeof window !== 'undefined' && !!Reflect.get(window, '__TAURI_INTERNALS__')
 const isSharing = ref(false)
 const { activeFilters, toggleFilter, buildFilterPredicate } = useConsoleFilters()
 const hasLogs = computed(() => ctx.logLines.value.length > 0)
@@ -239,9 +248,9 @@ const resolvedDisableInput = computed(() => {
 	return isRef(v) ? v.value : v
 })
 
-function unwrapMaybeRef<T>(value: T | { value: T } | undefined): T | undefined {
+function unwrapMaybeRef<T>(value: MaybeRef<T> | undefined): T | undefined {
 	if (value === undefined) return undefined
-	return isRef(value) ? value.value : value
+	return unref(value)
 }
 
 // needs historical log start/end flags on ws to be properly useful

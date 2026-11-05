@@ -225,7 +225,7 @@ export function createConsoleState() {
 	let wsEventCaptureEnabled = false
 
 	let lineBuffer: LogLine[] = []
-	let batchTimer: NodeJS.Timeout | null = null
+	let batchTimer: ReturnType<typeof setTimeout> | null = null
 	let initialHydrationQuietTimer: ReturnType<typeof setTimeout> | null = null
 	let initialHydrationMaxTimer: ReturnType<typeof setTimeout> | null = null
 	const isInitialLogHydrating = ref(false)

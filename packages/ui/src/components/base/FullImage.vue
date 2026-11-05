@@ -1,7 +1,7 @@
 <template>
 	<img
 		ref="img"
-		:src="src"
+		:src="src ?? undefined"
 		v-bind="$attrs"
 		@contextmenu="onContextMenu"
 		@pointerdown="onPointerDown"

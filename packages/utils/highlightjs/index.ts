@@ -15,9 +15,9 @@ import python from 'highlight.js/lib/languages/python'
 import scala from 'highlight.js/lib/languages/scala'
 import xml from 'highlight.js/lib/languages/xml'
 import yaml from 'highlight.js/lib/languages/yaml'
-import mcfunction from 'highlightjs-mcfunction'
 
 import { configuredXss, md } from '../parse'
+import mcfunction from './mcfunction'
 import skript from './skript'
 
 /* REGISTRATION */
@@ -57,10 +57,10 @@ hljs.registerAliases(['html', 'htm', 'xhtml', 'mcui', 'fxml'], { languageName: '
 
 export { hljs }
 
-export const renderHighlightedString = (string) =>
+export const renderHighlightedString = (string: string) =>
 	configuredXss.process(
 		md({
-			highlight(str, lang) {
+			highlight(str: string, lang: string) {
 				if (lang && hljs.getLanguage(lang)) {
 					try {
 						return hljs.highlight(str, { language: lang }).value

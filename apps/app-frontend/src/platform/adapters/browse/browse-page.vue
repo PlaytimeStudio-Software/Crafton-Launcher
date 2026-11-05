@@ -20,7 +20,7 @@ import {
 	useDebugLogger,
 	useVIntl,
 } from '@crafton/ui'
-import { useQuery, useQueryClient } from '@tanstack/vue-query'
+import { queryOptions, useQuery, useQueryClient } from '@tanstack/vue-query'
 import type { Ref } from 'vue'
 import { computed, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
 import type { LocationQuery } from 'vue-router'
@@ -79,10 +79,12 @@ const browseRouteActive = computed(() => route.path.startsWith('/browse/'))
 
 const initialInstanceId = computed(() => String(route.query.i ?? ''))
 const instanceQuery = useQuery(
-	computed(() => ({
-		...instanceDetailQueryOptions(initialInstanceId.value),
-		enabled: !!initialInstanceId.value,
-	})),
+	computed(() =>
+		queryOptions({
+			...instanceDetailQueryOptions(initialInstanceId.value),
+			enabled: !!initialInstanceId.value,
+		}),
+	),
 )
 const instance = computed(() => instanceQuery.data.value ?? null)
 const installedProjectIds: Ref<string[] | null> = ref(null)
@@ -527,7 +529,7 @@ async function chooseFilterMatchingInstallVersion(
 	const plan = await resolveInstallPlan({
 		project: {
 			project_id: project.project_id,
-			title: project.title,
+			title: project.name,
 			icon_url: project.icon_url,
 		},
 		contentType: projectTypeValue as BrowseInstallContentType,

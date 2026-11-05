@@ -996,7 +996,7 @@ const linkMarkdown = computed(() => {
 	return ''
 })
 
-const uploadImagesFromList = async (files: FileList): Promise<string> => {
+const uploadImagesFromList = async (files: ArrayLike<File>): Promise<string> => {
 	const file = files[0]
 	if (!props.onImageUpload) {
 		throw new Error(formatMessage(messages.uploadErrorNoHandler))
@@ -1015,7 +1015,7 @@ const uploadImagesFromList = async (files: FileList): Promise<string> => {
 	throw new Error(formatMessage(messages.uploadErrorNoFile))
 }
 
-const handleImageUpload = async (files: FileList) => {
+const handleImageUpload = async (files: ArrayLike<File>) => {
 	if (props.onImageUpload) {
 		try {
 			const uploadedURL = await uploadImagesFromList(files)

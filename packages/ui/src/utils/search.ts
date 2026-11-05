@@ -110,7 +110,7 @@ export type FilterType = {
 	ordering?: number
 } & (
 	| {
-			display: 'all' | 'scrollable' | 'none' | 'depends-on-project' | 'radio'
+			display: 'all' | 'scrollable' | 'none' | 'depends-on-project' | 'radio' | 'toggle'
 	  }
 	| {
 			display: 'expandable'

@@ -52,6 +52,7 @@ export const PROJECT_TYPE_ICONS: Record<ProjectType, Component> = {
 	plugin: PlugIcon,
 	datapack: BracesIcon,
 	project: BoxIcon,
+	server: ServerIcon,
 	minecraft_java_server: ServerIcon,
 }
 

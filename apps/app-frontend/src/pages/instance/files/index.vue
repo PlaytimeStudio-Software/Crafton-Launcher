@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { EditingFile, FileItem, UploadState } from '@crafton/ui'
+import type { EditingFile, ExtractDryRunResult, FileItem, UploadState } from '@crafton/ui'
 import {
 	commonMessages,
 	defineMessages,
@@ -273,7 +273,7 @@ async function handleUploadFiles(files: File[]) {
 
 async function handleExtractFile(path: string, override: boolean, dry: boolean) {
 	try {
-		return await invoke('plugin:files|file_extract_zip', {
+		return await invoke<ExtractDryRunResult | undefined>('plugin:files|file_extract_zip', {
 			instanceId: instanceId.value,
 			filePath: path,
 			overrideConflicts: override,

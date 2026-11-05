@@ -105,7 +105,7 @@ import {
 	useVIntl,
 	versionChangesGameVersion,
 } from '@crafton/ui'
-import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
+import { queryOptions, useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { open } from '@tauri-apps/plugin-dialog'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -209,10 +209,12 @@ const {
 } = useManagedContentPolicy(computed(() => instance.value))
 
 const contentQuery = useQuery(
-	computed(() => ({
-		...instanceContentQueryOptions(instancePage.instanceId.value),
-		enabled: !!instancePage.instanceId.value,
-	})),
+	computed(() =>
+		queryOptions({
+			...instanceContentQueryOptions(instancePage.instanceId.value),
+			enabled: !!instancePage.instanceId.value,
+		}),
+	),
 )
 const loading = ref(contentQuery.data.value === undefined)
 const projects = ref<ContentItem[]>([])
@@ -926,7 +928,7 @@ async function bulkUpdateSelections(selections: UpdateAllSelection[]) {
 }
 
 async function updateProject(mod: ContentItem) {
-	if (!canUpdateProject(mod) || mod.locked) return
+	if (!mod.file_path || !canUpdateProject(mod) || mod.locked) return
 	const operation = beginContentOperation(mod)
 	if (!operation) return
 
@@ -1031,7 +1033,7 @@ async function handleUpdate(id: string) {
 		},
 		modalStateBeforeFetch: {
 			updatingModpack: updatingModpack.value,
-			updatingProjectId: updatingProject.value?.id,
+			updatingProjectId: (updatingProject.value as ContentItem | null)?.id,
 			updatingProjectVersions: updatingProjectVersions.value.map((version) => ({
 				id: version.id,
 				versionNumber: version.version_number,
@@ -1204,7 +1206,7 @@ async function handleModpackUpdate() {
 		},
 		modalStateBeforeFetch: {
 			updatingModpack: updatingModpack.value,
-			updatingProjectId: updatingProject.value?.id,
+			updatingProjectId: (updatingProject.value as ContentItem | null)?.id,
 			updatingProjectVersions: updatingProjectVersions.value.map((version) => ({
 				id: version.id,
 				versionNumber: version.version_number,

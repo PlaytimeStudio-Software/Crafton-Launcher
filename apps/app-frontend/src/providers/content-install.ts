@@ -81,14 +81,22 @@ const RESOLVABLE_PROJECT_TYPES = new Set<ContentApi.Content.v3.ContentType>([
 	'modpack',
 ])
 
-function resolveContentType(projectType?: ContentApi.Projects.v2.ProjectType) {
-	return projectType && RESOLVABLE_PROJECT_TYPES.has(projectType) ? projectType : 'mod'
+function isResolvableProjectType(
+	projectType: string,
+): projectType is ContentApi.Content.v3.ContentType {
+	return (RESOLVABLE_PROJECT_TYPES as Set<string>).has(projectType)
+}
+
+function resolveContentType(
+	projectType?: ContentApi.Projects.v2.ProjectType,
+): ContentApi.Content.v3.ContentType {
+	return projectType && isResolvableProjectType(projectType) ? projectType : 'mod'
 }
 
 function isVersionCompatible(
 	version: ContentApi.Versions.v2.Version,
 	project: ContentApi.Projects.v2.Project,
-	instance: GameInstance,
+	instance: Pick<GameInstance, 'game_version' | 'loader'>,
 ) {
 	return (
 		version.game_versions.includes(instance.game_version) &&
@@ -101,7 +109,7 @@ function isVersionCompatible(
 function findPreferredVersion(
 	versions: ContentApi.Versions.v2.Version[],
 	project: ContentApi.Projects.v2.Project,
-	instance: GameInstance,
+	instance: Pick<GameInstance, 'game_version' | 'loader' | 'update_channel'>,
 ) {
 	const projectType = project.project_type ?? 'mod'
 
@@ -132,10 +140,9 @@ function sortLoaders(loaders: string[]): string[] {
 	})
 }
 
-type InstallTargetInstance = Pick<
-	GameInstance,
-	'id' | 'name' | 'icon_path' | 'game_version' | 'loader'
->
+type InstallTargetInstance = Pick<GameInstance, 'id' | 'name' | 'game_version' | 'loader'> & {
+	icon_path?: string | null
+}
 
 export interface ContentInstallContext {
 	instances: Ref<ContentInstallInstance[]>
@@ -659,7 +666,12 @@ export function createContentInstall(opts: {
 			return
 		}
 
-		const version = findPreferredVersion(currentVersions, currentProject, selectedInstance)
+		const updateChannel =
+			(await get(selectedInstance.id).catch(() => null))?.update_channel ?? 'release'
+		const version = findPreferredVersion(currentVersions, currentProject, {
+			...selectedInstance,
+			update_channel: updateChannel,
+		})
 		if (!version) {
 			if (currentVersions.length > 0 && incompatibilityWarningModalRef) {
 				const onIncompatibleInstall = (versionId?: string) => {

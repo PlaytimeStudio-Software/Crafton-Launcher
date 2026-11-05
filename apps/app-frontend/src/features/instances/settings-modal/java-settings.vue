@@ -19,7 +19,7 @@ import {
 	useVIntl,
 } from '@crafton/ui'
 import { open } from '@tauri-apps/plugin-dialog'
-import { computed, readonly, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import JavaDetectionModal from '@/components/ui/JavaDetectionModal.vue'
 import useJavaTest from '@/composables/useJavaTest'
@@ -38,7 +38,7 @@ const { instance } = injectInstanceSettings()
 
 const globalSettings = (await get().catch(handleError)) as unknown as AppSettings
 
-const optimalJava = readonly(await get_optimal_jre_key(instance.value.id).catch(handleError))
+const optimalJava = (await get_optimal_jre_key(instance.value.id).catch(handleError)) ?? null
 
 const overrideJavaInstall = ref(!!instance.value.java_path)
 const javaPath = ref(instance.value.java_path ?? optimalJava?.path ?? '')
@@ -58,6 +58,13 @@ const { testingJava, javaTestResult, testJavaInstallationDebounced, testJavaInst
 	useJavaTest()
 
 const hoveringTest = ref(false)
+const javaTestColor = computed(() =>
+	overrideJavaInstall.value && !hoveringTest.value && !testingJava.value
+		? javaTestResult.value === true
+			? 'green'
+			: 'red'
+		: undefined,
+)
 let hasInitialized = false
 
 watch(
@@ -267,34 +274,12 @@ const messages = defineMessages({
 								/>
 								<Button
 									type="quiet"
-									:color="
-										overrideJavaInstall && !hoveringTest && !testingJava
-											? javaTestResult === true
-												? 'green'
-												: 'red'
-											: undefined
-									"
+									:color="javaTestColor"
 									:disabled="!overrideJavaInstall || testingJava"
 									:style="{
-										'--legacy-button-color':
-											(overrideJavaInstall && !hoveringTest && !testingJava
-												? javaTestResult === true
-													? 'green'
-													: 'red'
-												: 'standard') &&
-											(overrideJavaInstall && !hoveringTest && !testingJava
-												? javaTestResult === true
-													? 'green'
-													: 'red'
-												: 'standard') !== 'standard'
-												? `var(--color-${
-														overrideJavaInstall && !hoveringTest && !testingJava
-															? javaTestResult === true
-																? 'green'
-																: 'red'
-															: 'standard'
-													})`
-												: undefined,
+										'--legacy-button-color': javaTestColor
+											? `var(--color-${javaTestColor})`
+											: undefined,
 									}"
 									class="!text-[var(--legacy-button-color,var(--color-base))] [&>svg]:!text-[var(--legacy-button-color,var(--color-primary))]"
 									@click="testJavaInstallation(activePath, null, true)"

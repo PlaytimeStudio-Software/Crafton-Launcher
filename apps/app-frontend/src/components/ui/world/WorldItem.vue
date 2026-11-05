@@ -38,7 +38,6 @@ import {
 	useVIntl,
 } from '@crafton/ui'
 import { getPingLevel } from '@crafton/utils/utils'
-import { autoToHTML } from '@sfirew/minecraft-motd-parser'
 import dayjs from 'dayjs'
 import type { Component } from 'vue'
 import { computed, useTemplateRef } from 'vue'
@@ -54,6 +53,7 @@ import {
 	type ServerWorld,
 	set_world_display_status,
 	type SingleplayerWorld,
+	stripMinecraftFormatting,
 	type World,
 } from '@/helpers/worlds.ts'
 
@@ -275,14 +275,13 @@ const messages = defineMessages({
 	},
 })
 
-const incompatibleVersionTooltip = computed(() => ({
-	content: `<span class="font-minecraft font-normal leading-5">${autoToHTML(
+const incompatibleVersionTooltip = computed(() =>
+	stripMinecraftFormatting(
 		formatMessage(messages.incompatibleVersion, {
 			version: props.serverStatus?.version?.name ?? '',
 		}),
-	)}</span>`,
-	html: true,
-}))
+	),
+)
 
 const cardOptions = useTemplateRef('cardOptions')
 const showStop = computed(

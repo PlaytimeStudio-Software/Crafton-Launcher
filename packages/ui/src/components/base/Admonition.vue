@@ -62,9 +62,7 @@
 			<IconButton
 				v-if="dismissible"
 				type="quiet"
-				:color="
-					buttonColors[type] && buttonColors[type] !== 'standard' ? buttonColors[type] : undefined
-				"
+				:color="buttonColors[type]"
 				:interaction="dismissHoverClasses[type] ? 'none' : undefined"
 				:class="dismissHoverClasses[type]"
 				label="Dismiss"
@@ -101,6 +99,7 @@ import { useNow } from '@vueuse/core'
 import { computed } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
+import type { ButtonColor } from '#ui/components/base/buttons/types'
 
 import { useFormatDateTime, useRelativeTime } from '../../composables'
 import { getSeverityIcon } from '../../utils'
@@ -187,15 +186,15 @@ const iconClasses = {
 	neutral: 'text-secondary',
 }
 
-const buttonColors = {
+const buttonColors: Record<NonNullable<typeof props.type>, ButtonColor | undefined> = {
 	info: 'blue',
 	warning: 'orange',
 	'circle-warning': 'orange',
 	critical: 'red',
 	success: 'green',
 	moderation: 'orange',
-	neutral: 'standard',
-} as const
+	neutral: undefined,
+}
 
 const dismissHoverClasses: Partial<Record<NonNullable<typeof props.type>, string>> = {
 	info: 'hover:bg-highlight-blue focus-visible:bg-highlight-blue',

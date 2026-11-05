@@ -1,3 +1,5 @@
+declare const process: { env: { NODE_ENV?: string } }
+
 function getCallerLocation(): string {
 	try {
 		const stack = new Error().stack

@@ -49,20 +49,11 @@ export function instanceListQueryOptions() {
 	})
 }
 
-export function syncedScreenshotsQueryOptions() {
+export function screenshotsQueryOptions(instanceId?: string | null) {
 	return queryOptions({
-		queryKey: screenshotKeys.global(),
+		queryKey: instanceId ? screenshotKeys.instance(instanceId) : screenshotKeys.global(),
 		networkMode: 'always',
-		queryFn: list_synced_screenshots,
-		staleTime: 0,
-	})
-}
-
-export function instanceScreenshotsQueryOptions(instanceId: string) {
-	return queryOptions({
-		queryKey: screenshotKeys.instance(instanceId),
-		networkMode: 'always',
-		queryFn: () => list_instance_screenshots(instanceId),
+		queryFn: () => (instanceId ? list_instance_screenshots(instanceId) : list_synced_screenshots()),
 		staleTime: 0,
 	})
 }

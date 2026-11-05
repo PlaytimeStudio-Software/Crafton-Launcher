@@ -349,6 +349,9 @@ function getImageDimensions(image: CanvasImageSource) {
 	if (image instanceof HTMLVideoElement) {
 		return [image.videoWidth, image.videoHeight] as const
 	}
+	if ('displayWidth' in image) {
+		return [image.displayWidth, image.displayHeight] as const
+	}
 	return [image.width, image.height] as const
 }
 
@@ -774,7 +777,7 @@ function splitEmissivePixels(data: Uint8ClampedArray, palette: Set<number>) {
 	return { base, emissive }
 }
 
-function createCanvasTexture(data: Uint8ClampedArray, width: number, height: number) {
+function createCanvasTexture(data: Uint8ClampedArray<ArrayBuffer>, width: number, height: number) {
 	const canvas = document.createElement('canvas')
 	canvas.width = width
 	canvas.height = height

@@ -170,10 +170,13 @@ const settingsMutation = useMutation({
 	onSettled: () => queryClient.invalidateQueries({ queryKey: appSettingsKeys.all }),
 })
 
-const { saved, current, changes, saving, hasChanges, reset, save } = useSavable(
-	() => getBehaviorSettingsState(settingsQuery.data.value!),
-	() => settingsMutation.mutateAsync({ ...current.value }),
-)
+const { saved, current, changes, saving, hasChanges, reset, save } =
+	useSavable<BehaviorSettingsState>(
+		() => getBehaviorSettingsState(settingsQuery.data.value!),
+		async () => {
+			await settingsMutation.mutateAsync({ ...current.value })
+		},
+	)
 
 async function saveBehaviorSettings(): Promise<void> {
 	try {

@@ -70,10 +70,9 @@ import {
 import { MAX_INSTANCE_GROUP_NAME_LENGTH } from '@/helpers/instance-groups'
 import {
 	instanceListQueryOptions,
-	instanceScreenshotsQueryOptions,
 	screenshotGroupsQueryOptions,
 	screenshotKeys,
-	syncedScreenshotsQueryOptions,
+	screenshotsQueryOptions,
 } from '@/pages/instance/query-options'
 
 import ScreenshotDragGather from './drag-gather.vue'
@@ -319,13 +318,7 @@ const messages = defineMessages({
 	},
 })
 
-const screenshotsQuery = useQuery(
-	computed(() =>
-		props.instanceId
-			? instanceScreenshotsQueryOptions(props.instanceId)
-			: syncedScreenshotsQueryOptions(),
-	),
-)
+const screenshotsQuery = useQuery(computed(() => screenshotsQueryOptions(props.instanceId)))
 const instancesQuery = useQuery(instanceListQueryOptions())
 const screenshotGroupsQuery = useQuery(screenshotGroupsQueryOptions())
 const screenshotsQueryPending = useReadyState(screenshotsQuery)

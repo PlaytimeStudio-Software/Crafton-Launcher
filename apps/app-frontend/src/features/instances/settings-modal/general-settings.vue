@@ -328,6 +328,7 @@ const messages = defineMessages({
 							},
 							{
 								id: 'create',
+								label: formatMessage(iconConfig ? messages.editCreatedIcon : messages.createIcon),
 								action: () => openIconEditor(),
 							},
 							{

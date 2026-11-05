@@ -1,4 +1,4 @@
-import 'ace-builds/esm-resolver'
+import '#ui/utils/ace-resolver'
 
 import cssText from '@crafton/assets/styles/ace.css?raw'
 import ace from 'ace-builds'

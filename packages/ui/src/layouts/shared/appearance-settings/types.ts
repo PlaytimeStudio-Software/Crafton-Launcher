@@ -1,7 +1,7 @@
 import type { ContentApi } from '@crafton/api-client'
 import type { ComputedRef, Ref } from 'vue'
 
-export type AppearanceTheme = ContentApi.Users.v3.Theme
+export type AppearanceTheme = string
 export type AppearanceThemeSelection = AppearanceTheme | 'system'
 export type ProjectLayout = ContentApi.Users.v3.LayoutOption
 export type SidebarPreferences = ContentApi.Users.v3.SidebarPreferences

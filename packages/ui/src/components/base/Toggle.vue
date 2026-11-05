@@ -47,7 +47,7 @@ const props = defineProps<{
 	indeterminate?: boolean
 }>()
 
-const modelValue = defineModel<boolean>()
+const modelValue = defineModel<boolean>({ default: false })
 
 function toggle() {
 	if (!props.disabled) {
