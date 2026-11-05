@@ -46,6 +46,10 @@ export default defineConfig({
 				find: '@',
 				replacement: resolve(projectRootDir, 'src'),
 			},
+			{
+				find: /^vue$/,
+				replacement: 'vue/dist/vue.runtime.esm-bundler.js',
+			},
 		],
 	},
 	plugins: [

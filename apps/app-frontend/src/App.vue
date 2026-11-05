@@ -11,11 +11,7 @@ import {
 import {
 	Admonition,
 	commonMessages,
-	ContentInstallModal,
-	ContentUpdaterModal,
-	CreationFlowModal,
 	defineMessages,
-	I18nDebugPanel,
 	LoadingBar,
 	NotificationPanel,
 	PopupNotificationPanel,
@@ -39,7 +35,7 @@ import { getCurrentWindow } from '@tauri-apps/api/window'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import { type } from '@tauri-apps/plugin-os'
 import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, defineAsyncComponent, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { RouterView, useRoute, useRouter } from 'vue-router'
 
 import { useRouteLoading } from '@/app/runtime/use-route-loading'
@@ -47,7 +43,6 @@ import AppSidebar from '@/app/shell/sidebar/index.vue'
 import AppTitleBar from '@/app/shell/title-bar/index.vue'
 import ErrorModal from '@/components/ui/ErrorModal.vue'
 import UnknownPackWarningModal from '@/components/ui/install_flow/UnknownPackWarningModal.vue'
-import IconEditorModal from '@/components/ui/instance_settings/InstanceIconEditorModal.vue'
 import MinecraftAuthErrorModal from '@/components/ui/minecraft-auth-error-modal/MinecraftAuthErrorModal.vue'
 import MinecraftRequiredModal from '@/components/ui/minecraft-required-modal/MinecraftRequiredModal.vue'
 import ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyInstalledModal.vue'
@@ -60,13 +55,11 @@ import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { useError } from '@/composables/use-error.js'
 import { useInstanceMetadataRefresh } from '@/composables/use-instance-metadata-refresh'
 import { useTheme } from '@/composables/use-theme.ts'
-import InstanceActionModals from '@/features/instances/instance-actions/instance-action-modals.vue'
 import {
 	createInstanceLaunchState,
 	provideInstanceLaunchState,
 } from '@/features/instances/launch-state'
 import { provideMinecraftAccounts } from '@/features/minecraft-accounts/context'
-import AppSettingsModal from '@/features/settings/app-settings-modal/index.vue'
 import { provideSettingsActions } from '@/features/settings/settings-actions'
 import { debugAnalytics, initAnalytics, trackEvent } from '@/helpers/analytics'
 import { check_reachable } from '@/helpers/auth.js'
@@ -123,6 +116,30 @@ import { createBreadcrumbManager, provideBreadcrumbManager } from '@/shared/brea
 
 import { AppNotificationManager } from './providers/app-notifications'
 import { AppPopupNotificationManager } from './providers/app-popup-notifications'
+
+const AppSettingsModal = defineAsyncComponent(
+	() => import('@/features/settings/app-settings-modal/index.vue'),
+)
+const InstanceActionModals = defineAsyncComponent(
+	() => import('@/features/instances/instance-actions/instance-action-modals.vue'),
+)
+const IconEditorModal = defineAsyncComponent(
+	() => import('@/components/ui/instance_settings/InstanceIconEditorModal.vue'),
+)
+const CreationFlowModal = defineAsyncComponent(
+	() => import('@crafton/ui/src/components/flows/creation-flow-modal/index.vue'),
+)
+const ContentInstallModal = defineAsyncComponent(
+	() =>
+		import('@crafton/ui/src/layouts/shared/content-tab/components/modals/ContentInstallModal.vue'),
+)
+const ContentUpdaterModal = defineAsyncComponent(
+	() =>
+		import('@crafton/ui/src/layouts/shared/content-tab/components/modals/content-updater-modal/index.vue'),
+)
+const I18nDebugPanel = defineAsyncComponent(
+	() => import('@crafton/ui/src/components/base/I18nDebugPanel.vue'),
+)
 
 debugStartup('App setup entered')
 const appSettings = useAppSettings()
@@ -613,6 +630,12 @@ watch(incompatibilityWarningModal, (modal) => {
 	}
 })
 
+watch(modInstallModal, (modal) => {
+	if (modal) {
+		setContentInstallModal(modal)
+	}
+})
+
 onMounted(() => {
 	invoke('show_window')
 
@@ -620,8 +643,6 @@ onMounted(() => {
 	error.setMinecraftAuthErrorModal(minecraftAuthErrorModal.value)
 	error.setMinecraftRequiredModal(minecraftRequiredModal.value)
 
-	setContentIncompatibilityWarningModal(incompatibilityWarningModal.value)
-	setContentInstallModal(modInstallModal.value)
 	setContentInstallModpackAlreadyInstalledModal(contentInstallModpackAlreadyInstalledModal.value)
 	setModpackAlreadyInstalledModal(modpackAlreadyInstalledModal.value)
 })

@@ -1,4 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
+
+import Home from '@/pages/Index.vue'
 /**
  * Loads each page when its route is visited.
  */
@@ -8,7 +10,7 @@ export default new createRouter({
 		{
 			path: '/',
 			name: 'Home',
-			component: () => import('@/pages/Index.vue'),
+			component: Home,
 			meta: {
 				manualScroll: true,
 			},

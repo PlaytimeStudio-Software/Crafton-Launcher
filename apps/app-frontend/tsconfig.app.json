@@ -21,6 +21,7 @@
 		"paths": {
 			"@crafton/api-client": ["../../packages/api-client/src/index.ts"],
 			"#ui/*": ["../../packages/ui/src/*"],
+			"@crafton/ui/src/*": ["../../packages/ui/src/*"],
 			"@/*": ["./src/*"]
 		}
 	},
