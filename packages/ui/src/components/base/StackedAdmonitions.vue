@@ -66,7 +66,7 @@ defineSlots<{
 
 const { formatMessage } = useVIntl()
 const stackId = useId()
-const attrs = useAttrs()
+const attrs: Record<string, unknown> = useAttrs()
 
 const internalExpanded = ref(false)
 const isHovered = ref(false)

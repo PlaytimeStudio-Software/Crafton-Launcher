@@ -176,14 +176,16 @@ const settingsMutation = useMutation({
 		]),
 })
 
-const { saved, current, changes, saving, hasChanges, reset, save } = useSavable(
-	() => getFeaturesSettingsState(settingsQuery.data.value!, globalOptionsQuery.data.value!),
-	(changedValues) =>
-		settingsMutation.mutateAsync({
-			value: { ...current.value },
-			updateQuickInstanceCount: changedValues.quickInstanceCount !== undefined,
-		}),
-)
+const { saved, current, changes, saving, hasChanges, reset, save } =
+	useSavable<FeaturesSettingsState>(
+		() => getFeaturesSettingsState(settingsQuery.data.value!, globalOptionsQuery.data.value!),
+		async (changedValues) => {
+			await settingsMutation.mutateAsync({
+				value: { ...current.value },
+				updateQuickInstanceCount: changedValues.quickInstanceCount !== undefined,
+			})
+		},
+	)
 
 async function saveFeaturesSettings(): Promise<void> {
 	try {

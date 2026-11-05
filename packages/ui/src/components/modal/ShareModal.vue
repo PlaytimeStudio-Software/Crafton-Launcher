@@ -145,8 +145,13 @@ const postOnReddit = computed(
 		)}`,
 )
 
+const hide = () => {
+	shareModal.value?.hide()
+}
+
 defineExpose({
 	show,
+	hide,
 })
 </script>
 

@@ -51,7 +51,9 @@ const props = withDefaults(
 const shown = computed(
 	() =>
 		props.saving ||
-		Object.keys(props.modified).some((key) => !isEqual(props.original[key], props.modified[key])),
+		(Object.keys(props.modified) as (keyof T)[]).some(
+			(key) => !isEqual(props.original[key], props.modified[key]),
+		),
 )
 
 function localizeIfPossible(message: MessageDescriptor | string) {
@@ -70,7 +72,7 @@ const saveDisabledTooltip = computed(() => {
 	).map(localizeIfPossible)
 
 	return reasons.length > 0
-		? { content: reasons.join('\n'), popperClass: 'unsaved-changes-save-tooltip' }
+		? { text: reasons.join('\n'), class: 'unsaved-changes-save-tooltip' }
 		: undefined
 })
 
@@ -112,7 +114,7 @@ defineExpose({ nudge })
 </template>
 
 <style lang="scss">
-.v-popper__inner.v-popper--theme-tooltip.unsaved-changes-save-tooltip {
+.unsaved-changes-save-tooltip {
 	max-width: 22rem;
 	white-space: pre-line;
 	line-height: 1.4;

@@ -9,7 +9,7 @@ import {
 	useVIntl,
 } from '@crafton/ui'
 import { autoToHTML } from '@sfirew/minecraft-motd-parser'
-import { useQueries, useQuery, useQueryClient } from '@tanstack/vue-query'
+import { queryOptions, useQueries, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useResizeObserver } from '@vueuse/core'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'
@@ -201,12 +201,12 @@ type JumpBackInItem = InstanceJumpBackInItem | WorldJumpBackInItem
 
 const showWorlds = computed(() => appSettings.showJumpIn)
 
-const recentWorldsOptions = recentWorldsQueryOptions(MAX_JUMP_BACK_IN)
-const recentWorldsQuery = useQuery({
-	...recentWorldsOptions,
-	queryKey: [...recentWorldsOptions.queryKey] as const,
-	enabled: showWorlds,
-})
+const recentWorldsQuery = useQuery(
+	queryOptions({
+		...recentWorldsQueryOptions(MAX_JUMP_BACK_IN),
+		enabled: showWorlds,
+	}),
+)
 const loading = computed(() => showWorlds.value && recentWorldsQuery.isLoading.value)
 const worldItems = computed<WorldJumpBackInItem[]>(() => {
 	if (!showWorlds.value) return []
@@ -300,15 +300,17 @@ const serversToPing = computed(() => {
 })
 const serverQueries = useQueries({
 	queries: computed(() =>
-		serversToPing.value.map(({ address, protocol }) => ({
-			...serverStatusQueryOptions(address, protocol),
-			refetchInterval: false,
-			select: (status: ServerStatus) => ({
-				address,
-				status,
-				renderedMotd: status.description ? autoToHTML(status.description) : undefined,
+		serversToPing.value.map(({ address, protocol }) =>
+			queryOptions({
+				...serverStatusQueryOptions(address, protocol),
+				refetchInterval: false,
+				select: (status: ServerStatus) => ({
+					address,
+					status,
+					renderedMotd: status.description ? autoToHTML(status.description) : undefined,
+				}),
 			}),
-		})),
+		),
 	),
 })
 const serverData = computed(() => {

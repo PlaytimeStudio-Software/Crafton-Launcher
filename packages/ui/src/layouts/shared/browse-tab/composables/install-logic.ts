@@ -111,7 +111,7 @@ export function readStoredServerInstallQueue<
 		if (!Array.isArray(parsed)) return new Map<string, BrowseInstallPlan<TProject>>()
 
 		return new Map<string, BrowseInstallPlan<TProject>>(
-			parsed.filter(isStoredServerInstallQueueEntry),
+			parsed.filter(isStoredServerInstallQueueEntry) as [string, BrowseInstallPlan<TProject>][],
 		)
 	} catch {
 		return new Map<string, BrowseInstallPlan<TProject>>()
@@ -526,14 +526,14 @@ export function getTargetInstallPreferences(
 /**
  * Normalizes loader identifiers so API and UI aliases compare consistently.
  */
-export function normalizeLoaderAlias(loader: string) {
+function normalizeLoaderAlias(loader: string) {
 	return loader.toLowerCase().replaceAll('_', '').replaceAll('-', '').replaceAll(' ', '')
 }
 
 /**
  * Returns aliases that should be considered mutually compatible for install matching.
  */
-export function getCompatibleLoaderAliases(loader: string) {
+function getCompatibleLoaderAliases(loader: string) {
 	const normalized = normalizeLoaderAlias(loader)
 	if (!normalized) return new Set<string>()
 	if (['paper', 'purpur', 'spigot', 'bukkit'].includes(normalized)) {

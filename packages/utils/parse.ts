@@ -1,4 +1,5 @@
 import MarkdownIt from 'markdown-it'
+import type { IFilterXSSOptions } from 'xss'
 import xss from 'xss'
 
 // @ts-expect-error xss types don't reflect CJS default export shape
@@ -196,7 +197,7 @@ export const configuredXss = new FilterXSS({
 
 		return safeAttrValue(tag, name, value, cssFilter)
 	},
-})
+} satisfies IFilterXSSOptions)
 
 export const md = (options = {}) => {
 	const md = new MarkdownIt('default', {

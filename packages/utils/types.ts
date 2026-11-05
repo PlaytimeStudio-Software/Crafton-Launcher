@@ -26,6 +26,8 @@ export type ProjectType =
 	| 'plugin'
 	| 'datapack'
 	| 'project'
+	| 'server'
+	| 'minecraft_java_server'
 export type MonetizationStatus = 'monetized' | 'demonetized' | 'force-demonetized'
 
 export type GameVersion = string

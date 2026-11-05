@@ -3,8 +3,7 @@ import { defineMessages, injectNotificationManager, Input, Toggle, useVIntl } fr
 import { computed, ref, watch } from 'vue'
 
 import { edit } from '@/helpers/instance'
-import { get } from '@/helpers/settings.ts'
-import type { AppSettings } from '@/helpers/types'
+import { type AppSettings, get } from '@/helpers/settings.ts'
 
 import DefaultSettingsIntro from './default-settings-intro.vue'
 import { injectInstanceSettings } from './instance-settings-context'

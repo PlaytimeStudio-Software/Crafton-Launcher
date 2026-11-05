@@ -19,7 +19,7 @@ export interface WebNotification {
 	errorCode?: string
 	count?: number
 	autoCloseMs?: number | null // null means do not dismiss automatically
-	timer?: NodeJS.Timeout
+	timer?: ReturnType<typeof setTimeout>
 	supportData?: Record<string, unknown>
 	containerClass?: string
 	noIcon?: boolean
@@ -62,13 +62,14 @@ export abstract class AbstractWebNotificationManager {
 	 *
 	 * @deprecated You should use `addNotification` instead to provide a more human-readable error message to the user.
 	 */
-	handleError = (error: Error): void => {
+	handleError = (error: unknown): void => {
 		if (isCancelledError(error)) return
 
 		console.error(error)
+		const message = (error as { message?: unknown } | null | undefined)?.message
 		this.addNotification({
 			title: 'An error occurred',
-			text: error.message ?? error,
+			text: typeof message === 'string' ? message : String(error),
 			type: 'error',
 		})
 	}

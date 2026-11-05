@@ -28,6 +28,7 @@
 	"scripts": {
 		"lint": "eslint . && prettier --check .",
 		"fix": "eslint . --fix && prettier --write .",
+		"tsc:check": "vue-tsc --noEmit",
 		"intl:extract": "formatjs extract \"src/**/*.{vue,ts,tsx,js,jsx,mts,cts,mjs,cjs}\" --ignore \"src/**/*.d.ts\" --out-file src/locales/en-US/index.json --preserve-whitespace"
 	},
 	"devDependencies": {
@@ -41,7 +42,8 @@
 		"vite-svg-loader": "^5.1.0",
 		"vue": "^3.5.43",
 		"vue-component-type-helpers": "^3.1.8",
-		"vue-router": "^4.6.0"
+		"vue-router": "^4.6.0",
+		"vue-tsc": "^2.1.6"
 	},
 	"dependencies": {
 		"@codemirror/commands": "^6.3.2",

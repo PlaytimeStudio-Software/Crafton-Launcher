@@ -64,7 +64,6 @@ const props = withDefaults(defineProps<PageHeaderIconProps & PageHeaderInteracti
 	tooltip: undefined,
 	ariaLabel: undefined,
 	to: undefined,
-	action: undefined,
 	disabled: false,
 })
 

@@ -115,7 +115,7 @@ export function provideAppearanceSettings(
 					? { auto: true }
 					: {
 							auto: false,
-							theme,
+							theme: theme as ContentApi.Users.v3.Theme,
 						},
 		})
 	}

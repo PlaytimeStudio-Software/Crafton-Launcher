@@ -16,11 +16,6 @@ export * from './popup-notifications'
 export * from './project-page'
 export * from './project-page-new'
 export * from './tags'
-export {
-	installTooltipDirective,
-	type TooltipDirective,
-	type TooltipPlacement,
-	type TooltipProps,
-} from './tooltip'
+export { installTooltipDirective, type TooltipPlacement, type TooltipProps } from './tooltip'
 export * from './user-country'
 export * from './web-notifications'

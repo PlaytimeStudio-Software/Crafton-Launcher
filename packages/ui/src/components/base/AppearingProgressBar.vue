@@ -64,7 +64,7 @@ const formatBytes = useFormatBytes()
 
 const currentPhrase = ref('')
 const usedPhrases = ref(new Set<number>())
-let phraseInterval: NodeJS.Timeout | null = null
+let phraseInterval: ReturnType<typeof setTimeout> | null = null
 
 const progress = computed(() => {
 	if (props.maxValue === 0) return 0

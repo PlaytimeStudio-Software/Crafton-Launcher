@@ -20,6 +20,7 @@ export interface BrowseSelectedProject {
 export interface BrowseInstallContext {
 	name: string
 	loader: string
+	loaderVersion?: string | null
 	gameVersion: string
 	upstream?: { project_id?: string | null } | null
 	iconSrc?: string | null

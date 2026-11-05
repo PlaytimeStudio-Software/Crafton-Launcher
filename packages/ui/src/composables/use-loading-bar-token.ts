@@ -19,7 +19,7 @@ export function useLoadingBarToken(pending: Ref<boolean>): void {
 
 	let token: symbol | null = null
 
-	function release() {
+	const release = () => {
 		if (token) {
 			loadingState.end(token)
 			token = null

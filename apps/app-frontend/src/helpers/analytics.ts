@@ -19,6 +19,10 @@ type AnalyticsEventMap = {
 	InstanceRepair: InstanceProperties
 	InstanceSetIcon: Record<string, never>
 	InstanceRemoveIcon: Record<string, never>
+	InstanceCreateIcon: Record<string, never>
+	InstanceEditCreatedIcon: Record<string, never>
+	InstanceSaveCreatedIcon: Record<string, never>
+	InstanceRemove: InstanceProperties
 	InstanceProjectUpdate: InstanceProperties & { id: string; name: string; project_type: string }
 	InstanceProjectDisable: InstanceProperties & {
 		id: string
@@ -33,7 +37,9 @@ type AnalyticsEventMap = {
 	PackInstallStart: Record<string, never>
 	AccountLogIn: { source?: string }
 	AccountLogOut: Record<string, never>
-	JavaTest: { path: string; success: boolean }
+	GalleryImageExpand: { project_id: string; url: string }
+	JavaTest: { path: string; success: boolean | null }
+	JavaReInstall: { path: string; version: number }
 	JavaManualSelect: { version: string }
 	JavaAutoDetect: { path: string; version: string }
 }

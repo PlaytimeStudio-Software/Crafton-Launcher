@@ -14,7 +14,7 @@
 			/>
 		</template>
 
-		<template v-if="showStatusBadge" #badges>
+		<template v-if="showStatusBadge && projectV3" #badges>
 			<ProjectStatusBadge :status="projectV3.status" />
 		</template>
 

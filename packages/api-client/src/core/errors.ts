@@ -1,6 +1,10 @@
 import type { ApiErrorData, ContentErrorResponse } from '../types/errors'
 import { isContentErrorResponse } from '../types/errors'
 
+const captureStackTrace = (
+	Error as { captureStackTrace?: (target: object, constructorOpt?: unknown) => void }
+).captureStackTrace
+
 /**
  * Base error class for all content API errors
  */
@@ -40,9 +44,7 @@ export class ContentApiError extends Error {
 		this.context = data?.context
 
 		// Maintains proper stack trace for where our error was thrown (only available on V8)
-		if (Error.captureStackTrace) {
-			Error.captureStackTrace(this, ContentApiError)
-		}
+		captureStackTrace?.(this, ContentApiError)
 	}
 
 	/**
@@ -81,9 +83,7 @@ export class ContentServerError extends ContentApiError {
 		this.name = 'ContentServerError'
 		this.v1Error = data?.v1Error
 
-		if (Error.captureStackTrace) {
-			Error.captureStackTrace(this, ContentServerError)
-		}
+		captureStackTrace?.(this, ContentServerError)
 	}
 
 	/**
