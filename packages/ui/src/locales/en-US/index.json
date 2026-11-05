@@ -1,0 +1,4520 @@
+{
+	"action.no-permission": {
+		"defaultMessage": "You do not have permission."
+	},
+	"app.appearance-settings.native-decorations.description": {
+		"defaultMessage": "Use your operating system's title bar and window controls. Requires an app restart."
+	},
+	"app.appearance-settings.native-decorations.title": {
+		"defaultMessage": "System window frame"
+	},
+	"badge.alpha": {
+		"defaultMessage": "Alpha"
+	},
+	"badge.beta": {
+		"defaultMessage": "Beta"
+	},
+	"badge.beta-release": {
+		"defaultMessage": "Beta Release"
+	},
+	"badge.new": {
+		"defaultMessage": "New"
+	},
+	"badge.release": {
+		"defaultMessage": "Release"
+	},
+	"browse.advanced-filters.apply-saved-preferences": {
+		"defaultMessage": "Apply saved preferences"
+	},
+	"browse.advanced-filters.link-overriding-preferences": {
+		"defaultMessage": "This link's filters differ from your saved advanced exclusions"
+	},
+	"browse.advanced-filters.persistence-note": {
+		"defaultMessage": "Advanced exclusions are saved across sessions. Opening a shared link with filters will override them."
+	},
+	"browse.filter-results": {
+		"defaultMessage": "Filter results..."
+	},
+	"browse.no-results": {
+		"defaultMessage": "No results found for your query!"
+	},
+	"browse.offline": {
+		"defaultMessage": "You are currently offline. Connect to the internet to browse content!"
+	},
+	"browse.search.placeholder": {
+		"defaultMessage": "Search {projectType}..."
+	},
+	"browse.selected-projects-floating-bar.aria-label": {
+		"defaultMessage": "Selected projects"
+	},
+	"browse.selected-projects-floating-bar.install": {
+		"defaultMessage": "Install {count, plural, one {# project} other {# projects}}"
+	},
+	"browse.selected-projects-floating-bar.selected-count": {
+		"defaultMessage": "{count, plural, one {# project selected} other {# projects selected}}"
+	},
+	"browse.selected-projects-leave-modal.admonition-body": {
+		"defaultMessage": "You have selected {count, plural, one {# project} other {# projects}} to install. Install them now or go back without installing them."
+	},
+	"browse.selected-projects-leave-modal.admonition-header": {
+		"defaultMessage": "Selected projects not installed yet"
+	},
+	"browse.selected-projects-leave-modal.discard": {
+		"defaultMessage": "Discard"
+	},
+	"browse.selected-projects-leave-modal.header": {
+		"defaultMessage": "Selected projects not installed yet"
+	},
+	"browse.view-prefix": {
+		"defaultMessage": "View:"
+	},
+	"button.accept": {
+		"defaultMessage": "Accept"
+	},
+	"button.add-another": {
+		"defaultMessage": "Add another"
+	},
+	"button.add-server-to-instance": {
+		"defaultMessage": "Add server to instance"
+	},
+	"button.analytics": {
+		"defaultMessage": "Analytics"
+	},
+	"button.back": {
+		"defaultMessage": "Back"
+	},
+	"button.cancel": {
+		"defaultMessage": "Cancel"
+	},
+	"button.change-version": {
+		"defaultMessage": "Change version"
+	},
+	"button.clear": {
+		"defaultMessage": "Clear"
+	},
+	"button.close": {
+		"defaultMessage": "Close"
+	},
+	"button.confirm": {
+		"defaultMessage": "Confirm"
+	},
+	"button.continue": {
+		"defaultMessage": "Continue"
+	},
+	"button.copied-to-clipboard": {
+		"defaultMessage": "Copied to clipboard"
+	},
+	"button.copy-filename": {
+		"defaultMessage": "Copy filename"
+	},
+	"button.copy-full-path": {
+		"defaultMessage": "Copy full path"
+	},
+	"button.copy-id": {
+		"defaultMessage": "Copy ID"
+	},
+	"button.copy-link": {
+		"defaultMessage": "Copy link"
+	},
+	"button.copy-permalink": {
+		"defaultMessage": "Copy permanent link"
+	},
+	"button.create-a-project": {
+		"defaultMessage": "Create a project"
+	},
+	"button.decline": {
+		"defaultMessage": "Decline"
+	},
+	"button.disable": {
+		"defaultMessage": "Disable"
+	},
+	"button.download": {
+		"defaultMessage": "Download"
+	},
+	"button.download-files": {
+		"defaultMessage": "Download files"
+	},
+	"button.downloading": {
+		"defaultMessage": "Downloading"
+	},
+	"button.edit": {
+		"defaultMessage": "Edit"
+	},
+	"button.enable": {
+		"defaultMessage": "Enable"
+	},
+	"button.extract": {
+		"defaultMessage": "Extract"
+	},
+	"button.follow": {
+		"defaultMessage": "Follow"
+	},
+	"button.hide-snapshots": {
+		"defaultMessage": "Hide snapshots"
+	},
+	"button.i-understand": {
+		"defaultMessage": "I understand"
+	},
+	"button.install": {
+		"defaultMessage": "Install"
+	},
+	"button.max": {
+		"defaultMessage": "Max"
+	},
+	"button.more-options": {
+		"defaultMessage": "More options"
+	},
+	"button.move": {
+		"defaultMessage": "Move"
+	},
+	"button.next": {
+		"defaultMessage": "Next"
+	},
+	"button.open-folder": {
+		"defaultMessage": "Open folder"
+	},
+	"button.open-in-browser": {
+		"defaultMessage": "Open in browser"
+	},
+	"button.open-in-folder": {
+		"defaultMessage": "Open in folder"
+	},
+	"button.play": {
+		"defaultMessage": "Play"
+	},
+	"button.refresh": {
+		"defaultMessage": "Refresh"
+	},
+	"button.reinstall-modpack": {
+		"defaultMessage": "Reinstall modpack"
+	},
+	"button.remove": {
+		"defaultMessage": "Remove"
+	},
+	"button.remove-image": {
+		"defaultMessage": "Remove image"
+	},
+	"button.rename": {
+		"defaultMessage": "Rename"
+	},
+	"button.repair": {
+		"defaultMessage": "Repair"
+	},
+	"button.repairing": {
+		"defaultMessage": "Repairing..."
+	},
+	"button.report": {
+		"defaultMessage": "Report"
+	},
+	"button.reset": {
+		"defaultMessage": "Reset"
+	},
+	"button.reset-server": {
+		"defaultMessage": "Reset server"
+	},
+	"button.retry": {
+		"defaultMessage": "Retry"
+	},
+	"button.save": {
+		"defaultMessage": "Save"
+	},
+	"button.save-changes": {
+		"defaultMessage": "Save changes"
+	},
+	"button.saving": {
+		"defaultMessage": "Saving"
+	},
+	"button.show-all-versions": {
+		"defaultMessage": "Show all versions"
+	},
+	"button.show-file": {
+		"defaultMessage": "Show file"
+	},
+	"button.sign-in": {
+		"defaultMessage": "Sign in"
+	},
+	"button.sign-out": {
+		"defaultMessage": "Sign out"
+	},
+	"button.sign-up": {
+		"defaultMessage": "Sign up"
+	},
+	"button.stop": {
+		"defaultMessage": "Stop"
+	},
+	"button.switch-to-version": {
+		"defaultMessage": "Switch to version"
+	},
+	"button.switch-version": {
+		"defaultMessage": "Switch version"
+	},
+	"button.unfollow": {
+		"defaultMessage": "Unfollow"
+	},
+	"button.unlink-modpack": {
+		"defaultMessage": "Unlink modpack"
+	},
+	"button.update": {
+		"defaultMessage": "Update"
+	},
+	"button.upload-image": {
+		"defaultMessage": "Upload image"
+	},
+	"collections.label.private": {
+		"defaultMessage": "Private"
+	},
+	"color-picker.hex-value": {
+		"defaultMessage": "{label} hex value"
+	},
+	"color-picker.hue": {
+		"defaultMessage": "{label} hue"
+	},
+	"color-picker.saturation-and-brightness": {
+		"defaultMessage": "{label} saturation and brightness"
+	},
+	"console.actions.collapse": {
+		"defaultMessage": "Collapse"
+	},
+	"console.actions.expand": {
+		"defaultMessage": "Expand"
+	},
+	"console.actions.share": {
+		"defaultMessage": "Share"
+	},
+	"content-type.content.lowercase": {
+		"defaultMessage": "content"
+	},
+	"content-type.item.lowercase": {
+		"defaultMessage": "{count, plural, one {item} other {items}}"
+	},
+	"content.card.external-file": {
+		"defaultMessage": "External file"
+	},
+	"content.card.frozen": {
+		"defaultMessage": "This project is locked to its current version until unfrozen."
+	},
+	"content.card.override-file": {
+		"defaultMessage": "Override file"
+	},
+	"content.card.select-project": {
+		"defaultMessage": "Select {project}"
+	},
+	"content.card.sync-update-pending": {
+		"defaultMessage": "Some synced copies are waiting for changes. An instance may be running, have a frozen or incompatible version, or already contain its own copy."
+	},
+	"content.card.synced": {
+		"defaultMessage": "Synced across instances"
+	},
+	"content.card.uploaded-file": {
+		"defaultMessage": "Uploaded file"
+	},
+	"content.confirm-bulk-update.admonition-body": {
+		"defaultMessage": "Are you sure you want to update {count, plural, one {# project} other {# projects}} to their latest compatible version? It's recommended to update content one-by-one."
+	},
+	"content.confirm-bulk-update.admonition-header": {
+		"defaultMessage": "Update warning"
+	},
+	"content.confirm-bulk-update.header": {
+		"defaultMessage": "Update projects"
+	},
+	"content.confirm-bulk-update.shift-click-hint": {
+		"defaultMessage": "Hold Shift while clicking \"Update all\" to skip this confirmation in the future."
+	},
+	"content.confirm-bulk-update.update-button": {
+		"defaultMessage": "Update {count, plural, one {# project} other {# projects}}"
+	},
+	"content.confirm-deletion.admonition-body": {
+		"defaultMessage": "Deleting a mod can permanently affect your world and may cause missing content or unexpected issues when it loads again."
+	},
+	"content.confirm-deletion.admonition-header": {
+		"defaultMessage": "Deletion warning"
+	},
+	"content.confirm-deletion.delete-button": {
+		"defaultMessage": "Delete {count, number} {itemType}"
+	},
+	"content.confirm-deletion.header": {
+		"defaultMessage": "Delete {itemType}"
+	},
+	"content.confirm-disable.header": {
+		"defaultMessage": "Disable {itemType}"
+	},
+	"content.confirm-environment.admonition-title": {
+		"defaultMessage": "This content may be incompatible"
+	},
+	"content.confirm-environment.disable-player-body": {
+		"defaultMessage": "{project} is required on players’ clients. Disabling it may prevent players from using this content correctly."
+	},
+	"content.confirm-environment.disable-player-title": {
+		"defaultMessage": "Disable for players?"
+	},
+	"content.confirm-environment.disable-server-body": {
+		"defaultMessage": "{project} is required on the server. Disabling it may prevent your server from working correctly."
+	},
+	"content.confirm-environment.disable-server-title": {
+		"defaultMessage": "Disable for your server?"
+	},
+	"content.confirm-environment.distant-horizons-server-body": {
+		"defaultMessage": "Distant Horizons can significantly increase CPU usage on your server and cause lag. It's recommended to only keep it enabled on the player side."
+	},
+	"content.confirm-environment.performance-admonition-title": {
+		"defaultMessage": "Performance warning"
+	},
+	"content.confirm-environment.player-body": {
+		"defaultMessage": "{project} isn’t intended to run on players’ clients. Enabling it could cause errors or prevent their game from starting."
+	},
+	"content.confirm-environment.player-title": {
+		"defaultMessage": "Enable for players?"
+	},
+	"content.confirm-environment.required-admonition-title": {
+		"defaultMessage": "This content is required here"
+	},
+	"content.confirm-environment.server-body": {
+		"defaultMessage": "{project} isn’t intended to run on a server. Enabling it could cause errors or prevent your server from starting."
+	},
+	"content.confirm-environment.server-title": {
+		"defaultMessage": "Enable for your server?"
+	},
+	"content.confirm-environment.singleplayer-body": {
+		"defaultMessage": "{project} is intended for singleplayer. Enabling it on your server could cause errors or prevent your server from starting."
+	},
+	"content.confirm-modpack-update.admonition-body": {
+		"defaultMessage": "{action, select, downgrade {Downgrading} other {Updating}} may cause compatibility issues. Mods or content you added on top of the modpack will be kept, but may not be compatible with the new version."
+	},
+	"content.confirm-modpack-update.admonition-header": {
+		"defaultMessage": "{action, select, downgrade {Downgrade} other {Update}} warning"
+	},
+	"content.confirm-modpack-update.confirm-button": {
+		"defaultMessage": "{action, select, downgrade {Downgrade} other {Update}} modpack"
+	},
+	"content.confirm-modpack-update.header": {
+		"defaultMessage": "{action, select, downgrade {Downgrade} other {Update}} modpack"
+	},
+	"content.confirm-unlink.admonition-body": {
+		"defaultMessage": "Mods and content will be merged with what you added on top of the modpack, and it will stop receiving updates."
+	},
+	"content.confirm-unlink.admonition-header": {
+		"defaultMessage": "Unlinking modpack"
+	},
+	"content.confirm-unlink.header": {
+		"defaultMessage": "Unlink modpack"
+	},
+	"content.confirm-unlink.unlink-button": {
+		"defaultMessage": "Unlink"
+	},
+	"content.dependency-warning.admonition-header": {
+		"defaultMessage": "This content is required by other content"
+	},
+	"content.dependency-warning.affected-dependents-label": {
+		"defaultMessage": "Affected {count, plural, one {project} other {projects}}"
+	},
+	"content.dependency-warning.bulk-admonition-body": {
+		"defaultMessage": "Some selected projects are installed as dependencies. Deleting them may break your {context} or stop dependent content from loading correctly."
+	},
+	"content.dependency-warning.context.instance": {
+		"defaultMessage": "instance"
+	},
+	"content.dependency-warning.context.server": {
+		"defaultMessage": "server"
+	},
+	"content.dependency-warning.delete-anyway-button": {
+		"defaultMessage": "Delete anyway"
+	},
+	"content.dependency-warning.delete-many-anyway-button": {
+		"defaultMessage": "Delete {count, number} {itemType} anyway"
+	},
+	"content.dependency-warning.deleting-label": {
+		"defaultMessage": "Deleting"
+	},
+	"content.dependency-warning.disable-dependents-label": {
+		"defaultMessage": "Disable dependents after deleting"
+	},
+	"content.dependency-warning.effect-dependent-content": {
+		"defaultMessage": "Dependent content may fail to load or may disable itself"
+	},
+	"content.dependency-warning.effect-instance": {
+		"defaultMessage": "Your {context} may crash, refuse to start, or behave unexpectedly"
+	},
+	"content.dependency-warning.header": {
+		"defaultMessage": "Dependency warning"
+	},
+	"content.dependency-warning.single-admonition-body": {
+		"defaultMessage": "{project} is installed as a dependency. Deleting it may break your {context} or stop dependent content from loading correctly."
+	},
+	"content.dependency-warning.what-happens-label": {
+		"defaultMessage": "What happens?"
+	},
+	"content.diff-modal.added-count": {
+		"defaultMessage": "{count} added"
+	},
+	"content.diff-modal.config-file-count": {
+		"defaultMessage": "{count, plural, one {# config file} other {# config files}}"
+	},
+	"content.diff-modal.config-files-updated": {
+		"defaultMessage": "Config files"
+	},
+	"content.diff-modal.diff-type.added": {
+		"defaultMessage": "Added (dependency)"
+	},
+	"content.diff-modal.diff-type.removed": {
+		"defaultMessage": "Disabled"
+	},
+	"content.diff-modal.diff-type.removed-disabled": {
+		"defaultMessage": "Removed (disabled)"
+	},
+	"content.diff-modal.diff-type.updated": {
+		"defaultMessage": "Updated"
+	},
+	"content.diff-modal.dont-install": {
+		"defaultMessage": "Don't install"
+	},
+	"content.diff-modal.external-diff-type.added": {
+		"defaultMessage": "Added"
+	},
+	"content.diff-modal.external-diff-type.removed": {
+		"defaultMessage": "Removed"
+	},
+	"content.diff-modal.external-diff-type.updated": {
+		"defaultMessage": "Updated"
+	},
+	"content.diff-modal.file-count": {
+		"defaultMessage": "{count, plural, one {# file} other {# files}}"
+	},
+	"content.diff-modal.game-version-updated": {
+		"defaultMessage": "Game version"
+	},
+	"content.diff-modal.install-anyway": {
+		"defaultMessage": "Install anyway"
+	},
+	"content.diff-modal.instance-folder": {
+		"defaultMessage": "Instance folder"
+	},
+	"content.diff-modal.loader-updated": {
+		"defaultMessage": "Loader"
+	},
+	"content.diff-modal.modpack-linked": {
+		"defaultMessage": "Linked modpack"
+	},
+	"content.diff-modal.modpack-unlinked": {
+		"defaultMessage": "Unlinked modpack"
+	},
+	"content.diff-modal.modpack-updated": {
+		"defaultMessage": "Updated modpack"
+	},
+	"content.diff-modal.no-content-changes": {
+		"defaultMessage": "No content changes"
+	},
+	"content.diff-modal.removed-count": {
+		"defaultMessage": "{count} removed"
+	},
+	"content.diff-modal.removed-disabled-count": {
+		"defaultMessage": "{count} removed (disabled)"
+	},
+	"content.diff-modal.reviewed-files": {
+		"defaultMessage": "Files that aren't from the content library aren't reviewed."
+	},
+	"content.diff-modal.unknown-content-body": {
+		"defaultMessage": "Some content on your server could not be analyzed and may be affected by this change."
+	},
+	"content.diff-modal.unknown-files-description": {
+		"defaultMessage": "This update contains files that aren’t from the content library. We strongly recommend only installing files from sources you trust."
+	},
+	"content.diff-modal.unknown-files-warning": {
+		"defaultMessage": "Unknown files warning"
+	},
+	"content.diff-modal.unknown-project": {
+		"defaultMessage": "Unknown"
+	},
+	"content.diff-modal.updated-count": {
+		"defaultMessage": "{count} updated"
+	},
+	"content.enabled-for.description": {
+		"defaultMessage": "Choose where this content is enabled. Use the Actions toggle to enable or disable it entirely."
+	},
+	"content.enabled-for.label": {
+		"defaultMessage": "Enabled for"
+	},
+	"content.enabled-for.not-supported-here": {
+		"defaultMessage": "This content isn't designed to be enabled here."
+	},
+	"content.enabled-for.player": {
+		"defaultMessage": "Player"
+	},
+	"content.enabled-for.player-only-filter": {
+		"defaultMessage": "Player-only"
+	},
+	"content.enabled-for.player-tooltip": {
+		"defaultMessage": "Include this content in the shared instance or .mrpack that players download."
+	},
+	"content.enabled-for.please-wait": {
+		"defaultMessage": "Please wait"
+	},
+	"content.enabled-for.required-here": {
+		"defaultMessage": "This content needs to be enabled here to work correctly."
+	},
+	"content.enabled-for.server": {
+		"defaultMessage": "Server"
+	},
+	"content.enabled-for.server-and-player": {
+		"defaultMessage": "Server and player"
+	},
+	"content.enabled-for.server-only-filter": {
+		"defaultMessage": "Server-only"
+	},
+	"content.enabled-for.server-tooltip": {
+		"defaultMessage": "Install this content on your server."
+	},
+	"content.filter.disabled": {
+		"defaultMessage": "Disabled"
+	},
+	"content.filter.enabled": {
+		"defaultMessage": "Enabled"
+	},
+	"content.filter.updates": {
+		"defaultMessage": "Updates"
+	},
+	"content.filter.warnings": {
+		"defaultMessage": "Warnings"
+	},
+	"content.inline-backup.backing-up": {
+		"defaultMessage": "Creating backup..."
+	},
+	"content.inline-backup.backup-complete": {
+		"defaultMessage": "Backup created successfully"
+	},
+	"content.inline-backup.backup-failed": {
+		"defaultMessage": "Backup creation failed. You can still proceed."
+	},
+	"content.inline-backup.create-backup": {
+		"defaultMessage": "Create backup"
+	},
+	"content.inline-backup.instance-label": {
+		"defaultMessage": "instance"
+	},
+	"content.inline-backup.shift-click-hint": {
+		"defaultMessage": "Hold Shift while clicking to skip confirmation."
+	},
+	"content.inline-backup.warning-body": {
+		"defaultMessage": "We recommend creating a backup before proceeding so you can restore your {type} if anything breaks."
+	},
+	"content.managed-card.modpack-content": {
+		"defaultMessage": "Modpack content"
+	},
+	"content.managed-card.provided-by": {
+		"defaultMessage": "Provided by"
+	},
+	"content.managed-card.settings": {
+		"defaultMessage": "Installation settings"
+	},
+	"content.managed-card.summary.installing": {
+		"defaultMessage": "Installing content..."
+	},
+	"content.managed-card.summary.loading": {
+		"defaultMessage": "Loading managed content summary"
+	},
+	"content.managed-card.summary.no-provided-content": {
+		"defaultMessage": "No provided content"
+	},
+	"content.managed-card.switch-version": {
+		"defaultMessage": "Switch version"
+	},
+	"content.managed-card.updated": {
+		"defaultMessage": "Updated {time}"
+	},
+	"content.managed-card.updating": {
+		"defaultMessage": "Updating..."
+	},
+	"content.managed-card.view-content": {
+		"defaultMessage": "View content"
+	},
+	"content.metadata-filter.environment": {
+		"defaultMessage": "Environment"
+	},
+	"content.metadata-filter.open-source": {
+		"defaultMessage": "Open source"
+	},
+	"content.metadata-filter.source.external": {
+		"defaultMessage": "External"
+	},
+	"content.metadata-filter.state": {
+		"defaultMessage": "State"
+	},
+	"content.metadata-filter.state.disabled": {
+		"defaultMessage": "Disabled"
+	},
+	"content.metadata-filter.state.enabled": {
+		"defaultMessage": "Enabled"
+	},
+	"content.metadata-filter.update.available": {
+		"defaultMessage": "Update available"
+	},
+	"content.metadata-filter.warning.client-only": {
+		"defaultMessage": "Client-only content"
+	},
+	"content.metadata-filter.warning.client-only-dependency-on-server": {
+		"defaultMessage": "Client-only mod on server"
+	},
+	"content.metadata-filter.warning.compatibility-unknown": {
+		"defaultMessage": "Compatibility unknown"
+	},
+	"content.metadata-filter.warning.requires-client-only-dependency": {
+		"defaultMessage": "Needs client-only mod"
+	},
+	"content.metadata-filter.warning.server-only": {
+		"defaultMessage": "Server-only content"
+	},
+	"content.metadata-filter.warnings": {
+		"defaultMessage": "Warnings"
+	},
+	"content.page-layout.additional-content": {
+		"defaultMessage": "Additional content"
+	},
+	"content.page-layout.browse-content": {
+		"defaultMessage": "Browse content"
+	},
+	"content.page-layout.empty.hint": {
+		"defaultMessage": "Browse or upload {contentType} to get started"
+	},
+	"content.page-layout.empty.modpack-hint": {
+		"defaultMessage": "Add additional content on top of this modpack"
+	},
+	"content.page-layout.empty.no-content-installed": {
+		"defaultMessage": "No content installed"
+	},
+	"content.page-layout.empty.no-extra-content-installed": {
+		"defaultMessage": "No extra content installed"
+	},
+	"content.page-layout.failed-to-load": {
+		"defaultMessage": "Failed to load content"
+	},
+	"content.page-layout.failed-to-load-changelog": {
+		"defaultMessage": "Failed to load changelog"
+	},
+	"content.page-layout.failed-to-load-updates": {
+		"defaultMessage": "Failed to load available updates"
+	},
+	"content.page-layout.filter.add": {
+		"defaultMessage": "Filter"
+	},
+	"content.page-layout.loading": {
+		"defaultMessage": "Loading content..."
+	},
+	"content.page-layout.no-content-found": {
+		"defaultMessage": "No content found."
+	},
+	"content.page-layout.please-wait": {
+		"defaultMessage": "Please wait"
+	},
+	"content.page-layout.search-placeholder": {
+		"defaultMessage": "Search {count, number} {contentType}..."
+	},
+	"content.page-layout.share.file-names": {
+		"defaultMessage": "File names"
+	},
+	"content.page-layout.share.label": {
+		"defaultMessage": "Share"
+	},
+	"content.page-layout.share.markdown-links": {
+		"defaultMessage": "Markdown links"
+	},
+	"content.page-layout.share.project-links": {
+		"defaultMessage": "Project links"
+	},
+	"content.page-layout.share.project-names": {
+		"defaultMessage": "Project names"
+	},
+	"content.page-layout.sort.alphabetical-ascending": {
+		"defaultMessage": "Name (A-Z)"
+	},
+	"content.page-layout.sort.alphabetical-descending": {
+		"defaultMessage": "Name (Z-A)"
+	},
+	"content.page-layout.sort.date-added-newest": {
+		"defaultMessage": "Newest first"
+	},
+	"content.page-layout.sort.date-added-oldest": {
+		"defaultMessage": "Oldest first"
+	},
+	"content.page-layout.sort.label": {
+		"defaultMessage": "Sort by {mode}"
+	},
+	"content.page-layout.update-all": {
+		"defaultMessage": "Update all"
+	},
+	"content.page-layout.upload-files": {
+		"defaultMessage": "Upload files"
+	},
+	"content.selection-bar.all-already-disabled": {
+		"defaultMessage": "All selected content is already disabled"
+	},
+	"content.selection-bar.all-already-enabled": {
+		"defaultMessage": "All selected content is already enabled"
+	},
+	"content.selection-bar.bulk.deleting": {
+		"defaultMessage": "Deleting {progress}/{total} {contentType}..."
+	},
+	"content.selection-bar.bulk.deleting-count": {
+		"defaultMessage": "Deleting {count, number} {contentType}"
+	},
+	"content.selection-bar.bulk.deleting-waiting": {
+		"defaultMessage": "Deleting {contentType}..."
+	},
+	"content.selection-bar.bulk.disabling": {
+		"defaultMessage": "Disabling {progress}/{total} {contentType}..."
+	},
+	"content.selection-bar.bulk.disabling-count": {
+		"defaultMessage": "Disabling {count, number} {contentType}"
+	},
+	"content.selection-bar.bulk.disabling-waiting": {
+		"defaultMessage": "Disabling {contentType}..."
+	},
+	"content.selection-bar.bulk.enabling": {
+		"defaultMessage": "Enabling {progress}/{total} {contentType}..."
+	},
+	"content.selection-bar.bulk.enabling-count": {
+		"defaultMessage": "Enabling {count, number} {contentType}"
+	},
+	"content.selection-bar.bulk.enabling-waiting": {
+		"defaultMessage": "Enabling {contentType}..."
+	},
+	"content.selection-bar.bulk.updating": {
+		"defaultMessage": "Updating {progress}/{total} {contentType}..."
+	},
+	"content.selection-bar.bulk.updating-count": {
+		"defaultMessage": "Updating {count, number} {contentType}"
+	},
+	"content.selection-bar.bulk.updating-waiting": {
+		"defaultMessage": "Updating {contentType}..."
+	},
+	"content.selection-bar.selected-count": {
+		"defaultMessage": "{count, number} {contentType} selected"
+	},
+	"content.selection-bar.selected-count-simple": {
+		"defaultMessage": "{count, number} selected"
+	},
+	"creation-flow.button.create-instance": {
+		"defaultMessage": "Create instance"
+	},
+	"creation-flow.button.import": {
+		"defaultMessage": "Import"
+	},
+	"creation-flow.button.import-instances": {
+		"defaultMessage": "Import {count, plural, one {# instance} other {# instances}}"
+	},
+	"creation-flow.modal.custom-setup.build-number.label": {
+		"defaultMessage": "Build number"
+	},
+	"creation-flow.modal.custom-setup.build-number.placeholder": {
+		"defaultMessage": "Select build number"
+	},
+	"creation-flow.modal.custom-setup.build-number.search-placeholder": {
+		"defaultMessage": "Search build number..."
+	},
+	"creation-flow.modal.custom-setup.game-version.placeholder": {
+		"defaultMessage": "Select game version"
+	},
+	"creation-flow.modal.custom-setup.game-version.search-placeholder": {
+		"defaultMessage": "Search game version..."
+	},
+	"creation-flow.modal.custom-setup.icon.customize": {
+		"defaultMessage": "Customize"
+	},
+	"creation-flow.modal.custom-setup.icon.randomize": {
+		"defaultMessage": "Randomize"
+	},
+	"creation-flow.modal.custom-setup.icon.select": {
+		"defaultMessage": "Upload"
+	},
+	"creation-flow.modal.custom-setup.loader-version-type.latest": {
+		"defaultMessage": "Latest"
+	},
+	"creation-flow.modal.custom-setup.loader-version-type.other": {
+		"defaultMessage": "Other"
+	},
+	"creation-flow.modal.custom-setup.loader-version-type.stable": {
+		"defaultMessage": "Stable"
+	},
+	"creation-flow.modal.custom-setup.loader-version.label": {
+		"defaultMessage": "Loader version"
+	},
+	"creation-flow.modal.custom-setup.loader-version.placeholder": {
+		"defaultMessage": "Select loader version"
+	},
+	"creation-flow.modal.custom-setup.loader-version.search-placeholder": {
+		"defaultMessage": "Search loader version..."
+	},
+	"creation-flow.modal.custom-setup.loader.label": {
+		"defaultMessage": "Loader"
+	},
+	"creation-flow.modal.custom-setup.name.label": {
+		"defaultMessage": "Name"
+	},
+	"creation-flow.modal.custom-setup.name.placeholder": {
+		"defaultMessage": "Enter instance name"
+	},
+	"creation-flow.modal.custom-setup.options.no-versions-available": {
+		"defaultMessage": "No versions available"
+	},
+	"creation-flow.modal.import-instance.action.add": {
+		"defaultMessage": "Add"
+	},
+	"creation-flow.modal.import-instance.custom-launcher.name": {
+		"defaultMessage": "Custom ({pathName})"
+	},
+	"creation-flow.modal.import-instance.detecting-launcher-instances": {
+		"defaultMessage": "Detecting launcher instances..."
+	},
+	"creation-flow.modal.import-instance.launcher-instances.title": {
+		"defaultMessage": "Launcher instances"
+	},
+	"creation-flow.modal.import-instance.launcher-path.add": {
+		"defaultMessage": "Add launcher path"
+	},
+	"creation-flow.modal.import-instance.launcher-path.placeholder": {
+		"defaultMessage": "Path to launcher..."
+	},
+	"creation-flow.modal.import-instance.notification.no-instances-found.text": {
+		"defaultMessage": "No importable instances were found at the specified path."
+	},
+	"creation-flow.modal.import-instance.notification.no-instances-found.title": {
+		"defaultMessage": "No instances found"
+	},
+	"creation-flow.modal.import-instance.search.placeholder": {
+		"defaultMessage": "Search instance name"
+	},
+	"creation-flow.modal.import-instance.selection.clear-all": {
+		"defaultMessage": "Clear all"
+	},
+	"creation-flow.modal.project.known-project.prompt": {
+		"defaultMessage": "Already know what you want to play?"
+	},
+	"creation-flow.modal.project.search.create-instance": {
+		"defaultMessage": "Create instance"
+	},
+	"creation-flow.modal.project.search.install-modpack": {
+		"defaultMessage": "Install modpack"
+	},
+	"creation-flow.modal.project.search.no-results": {
+		"defaultMessage": "No results found"
+	},
+	"creation-flow.modal.project.search.placeholder": {
+		"defaultMessage": "Search mods, modpacks, and more..."
+	},
+	"creation-flow.modal.setup-type.option.custom-setup.description": {
+		"defaultMessage": "Start from scratch by picking a loader and game version."
+	},
+	"creation-flow.modal.setup-type.option.custom-setup.title": {
+		"defaultMessage": "Custom setup"
+	},
+	"creation-flow.modal.setup-type.option.import-instance.description": {
+		"defaultMessage": "Import an instance from Prism, CurseForge, or similar."
+	},
+	"creation-flow.modal.setup-type.option.import-instance.title": {
+		"defaultMessage": "Import instance"
+	},
+	"creation-flow.modal.setup-type.option.modpack-base.description": {
+		"defaultMessage": "Choose a project and we’ll use its latest version."
+	},
+	"creation-flow.modal.setup-type.option.modpack-base.title": {
+		"defaultMessage": "Start from a mod or modpack"
+	},
+	"creation-flow.modal.setup-type.option.upload-modpack.description": {
+		"defaultMessage": "Install a modpack from an .mrpack file on your device."
+	},
+	"creation-flow.modal.setup-type.option.upload-modpack.title": {
+		"defaultMessage": "Upload a modpack"
+	},
+	"creation-flow.modal.setup-type.title.instance": {
+		"defaultMessage": "Choose instance type"
+	},
+	"creation-flow.title.create-instance": {
+		"defaultMessage": "Create instance"
+	},
+	"creation-flow.title.import-instance": {
+		"defaultMessage": "Import instance"
+	},
+	"empty-state.upload-versions.description": {
+		"defaultMessage": "Come back once you've uploaded your versions."
+	},
+	"external-project-license-status.no": {
+		"defaultMessage": "No"
+	},
+	"external-project-license-status.permanent-no": {
+		"defaultMessage": "Permanent no"
+	},
+	"external-project-license-status.unidentified": {
+		"defaultMessage": "Unidentified"
+	},
+	"external-project-license-status.with-attribution": {
+		"defaultMessage": "With attribution"
+	},
+	"external-project-license-status.with-attribution-and-source": {
+		"defaultMessage": "With attribution and source"
+	},
+	"external-project-license-status.yes": {
+		"defaultMessage": "Yes"
+	},
+	"file-button.file-too-large.description": {
+		"defaultMessage": "File {filename} is too big. The maximum file size is {maxSize}."
+	},
+	"file-button.file-too-large.title": {
+		"defaultMessage": "File too large"
+	},
+	"files.conflict-modal.header": {
+		"defaultMessage": "Extract summary"
+	},
+	"files.conflict-modal.overwrite-button": {
+		"defaultMessage": "Overwrite"
+	},
+	"files.conflict-modal.overwrite-file-label": {
+		"defaultMessage": "Will overwrite <file-path>{path}</file-path>"
+	},
+	"files.conflict-modal.overwrite-many-warning": {
+		"defaultMessage": "Over 100 files will be overwritten if you proceed with extraction; here are some of them."
+	},
+	"files.conflict-modal.overwrite-warning": {
+		"defaultMessage": "The following {count} files already exist on your server, and will be overwritten if you proceed with extraction."
+	},
+	"files.conflict-modal.overwritten-count": {
+		"defaultMessage": "{count} overwritten"
+	},
+	"files.conflict-modal.warning-header": {
+		"defaultMessage": "Files will be overwritten"
+	},
+	"files.create-modal.create-button": {
+		"defaultMessage": "Create {type}"
+	},
+	"files.create-modal.header": {
+		"defaultMessage": "Create a {type}"
+	},
+	"files.create-modal.placeholder-directory": {
+		"defaultMessage": "e.g. my-folder"
+	},
+	"files.create-modal.placeholder-file": {
+		"defaultMessage": "e.g. config.yml"
+	},
+	"files.create-zip-modal.already-exists": {
+		"defaultMessage": "A file with this name already exists."
+	},
+	"files.create-zip-modal.check-failed": {
+		"defaultMessage": "Could not check whether this file already exists."
+	},
+	"files.create-zip-modal.create-button": {
+		"defaultMessage": "Create ZIP"
+	},
+	"files.create-zip-modal.header": {
+		"defaultMessage": "Create ZIP"
+	},
+	"files.create-zip-modal.invalid": {
+		"defaultMessage": "The archive name must be a single file name."
+	},
+	"files.create-zip-modal.name-label": {
+		"defaultMessage": "Archive name"
+	},
+	"files.create-zip-modal.required": {
+		"defaultMessage": "Enter an archive name."
+	},
+	"files.delete-modal.deleting-name": {
+		"defaultMessage": "Deleting \"{name}\""
+	},
+	"files.delete-modal.header": {
+		"defaultMessage": "Delete file"
+	},
+	"files.delete-modal.warning.file": {
+		"defaultMessage": "This file will be permanently deleted. This action cannot be undone."
+	},
+	"files.delete-modal.warning.folder": {
+		"defaultMessage": "This folder and all its contents will be permanently deleted. This action cannot be undone."
+	},
+	"files.editor.failed-to-open-text": {
+		"defaultMessage": "Could not load file contents."
+	},
+	"files.editor.failed-to-open-title": {
+		"defaultMessage": "Failed to open file"
+	},
+	"files.editor.failed-to-share-text": {
+		"defaultMessage": "Could not upload to mclo.gs."
+	},
+	"files.editor.failed-to-share-title": {
+		"defaultMessage": "Failed to share file"
+	},
+	"files.editor.file-saved-text": {
+		"defaultMessage": "Your file has been saved."
+	},
+	"files.editor.file-saved-title": {
+		"defaultMessage": "File saved"
+	},
+	"files.editor.find-in-file": {
+		"defaultMessage": "Find"
+	},
+	"files.editor.find-match-count": {
+		"defaultMessage": "{current} of {total}"
+	},
+	"files.editor.find-next-match": {
+		"defaultMessage": "Next match"
+	},
+	"files.editor.find-no-results": {
+		"defaultMessage": "No results"
+	},
+	"files.editor.find-previous-match": {
+		"defaultMessage": "Previous match"
+	},
+	"files.editor.find-toggle-replace": {
+		"defaultMessage": "Toggle replace"
+	},
+	"files.editor.log-url-copied-text": {
+		"defaultMessage": "Your log file URL has been copied to your clipboard."
+	},
+	"files.editor.log-url-copied-title": {
+		"defaultMessage": "Log URL copied"
+	},
+	"files.editor.replace": {
+		"defaultMessage": "Replace"
+	},
+	"files.editor.replace-all": {
+		"defaultMessage": "Replace All"
+	},
+	"files.editor.replace-in-file": {
+		"defaultMessage": "Replace"
+	},
+	"files.editor.save-failed-text": {
+		"defaultMessage": "Could not save the file."
+	},
+	"files.editor.save-failed-title": {
+		"defaultMessage": "Save failed"
+	},
+	"files.error.go-to-home": {
+		"defaultMessage": "Go to home folder"
+	},
+	"files.error.try-again": {
+		"defaultMessage": "Try again"
+	},
+	"files.image_viewer.image_too_large": {
+		"defaultMessage": "Image too large to view (max {maxDimension}x{maxDimension} pixels)"
+	},
+	"files.image_viewer.invalid_image": {
+		"defaultMessage": "Invalid or empty image file."
+	},
+	"files.image_viewer.load_failed": {
+		"defaultMessage": "Failed to load image"
+	},
+	"files.image_viewer.reset_zoom": {
+		"defaultMessage": "Reset zoom"
+	},
+	"files.image_viewer.viewed_image_alt": {
+		"defaultMessage": "Viewed image"
+	},
+	"files.image_viewer.zoom_in": {
+		"defaultMessage": "Zoom in"
+	},
+	"files.image_viewer.zoom_out": {
+		"defaultMessage": "Zoom out"
+	},
+	"files.item-type.file": {
+		"defaultMessage": "file"
+	},
+	"files.item-type.files": {
+		"defaultMessage": "files"
+	},
+	"files.item-type.folder": {
+		"defaultMessage": "folder"
+	},
+	"files.item-type.folders": {
+		"defaultMessage": "folders"
+	},
+	"files.layout.create-zip": {
+		"defaultMessage": "Create ZIP"
+	},
+	"files.layout.dry-run-failed-text": {
+		"defaultMessage": "Error running dry run"
+	},
+	"files.layout.dry-run-failed-title": {
+		"defaultMessage": "Dry run failed"
+	},
+	"files.layout.empty-folder-description": {
+		"defaultMessage": "There are no files or folders."
+	},
+	"files.layout.empty-folder-title": {
+		"defaultMessage": "This folder is empty"
+	},
+	"files.layout.error-message": {
+		"defaultMessage": "The folder may not exist."
+	},
+	"files.layout.error-title": {
+		"defaultMessage": "Unable to load files"
+	},
+	"files.layout.extraction-started-title": {
+		"defaultMessage": "Extraction started"
+	},
+	"files.layout.selected-count": {
+		"defaultMessage": "{count} selected"
+	},
+	"files.layout.unsaved-changes": {
+		"defaultMessage": "You have unsaved changes."
+	},
+	"files.move-modal.current-location": {
+		"defaultMessage": "Current location"
+	},
+	"files.move-modal.destination-path": {
+		"defaultMessage": "Destination path"
+	},
+	"files.move-modal.destination-placeholder": {
+		"defaultMessage": "e.g. /my-folder"
+	},
+	"files.move-modal.header": {
+		"defaultMessage": "Move {type}"
+	},
+	"files.navbar.back-to-home": {
+		"defaultMessage": "Back to home"
+	},
+	"files.navbar.breadcrumb-navigation": {
+		"defaultMessage": "Breadcrumb navigation"
+	},
+	"files.navbar.create-new": {
+		"defaultMessage": "Create new..."
+	},
+	"files.navbar.file-navigation": {
+		"defaultMessage": "File navigation"
+	},
+	"files.navbar.find-in-file": {
+		"defaultMessage": "Find in file"
+	},
+	"files.navbar.home": {
+		"defaultMessage": "Home"
+	},
+	"files.navbar.new-file": {
+		"defaultMessage": "New file"
+	},
+	"files.navbar.new-folder": {
+		"defaultMessage": "New folder"
+	},
+	"files.navbar.search-files": {
+		"defaultMessage": "Search files"
+	},
+	"files.navbar.share-to-mclogs": {
+		"defaultMessage": "Share to mclo.gs"
+	},
+	"files.navbar.upload-file": {
+		"defaultMessage": "Upload file"
+	},
+	"files.navbar.upload-from-zip": {
+		"defaultMessage": "Upload from .zip file"
+	},
+	"files.rename-modal.header": {
+		"defaultMessage": "Rename {name}"
+	},
+	"files.rename-modal.new-name-label": {
+		"defaultMessage": "New name"
+	},
+	"files.row.create-zip": {
+		"defaultMessage": "Create ZIP"
+	},
+	"files.row.item-count": {
+		"defaultMessage": "{count, plural, one {# item} other {# items}}"
+	},
+	"files.row.parent-folder": {
+		"defaultMessage": "Parent folder"
+	},
+	"files.table-header.created": {
+		"defaultMessage": "Created"
+	},
+	"files.table-header.modified": {
+		"defaultMessage": "Modified"
+	},
+	"files.table-header.name": {
+		"defaultMessage": "Name"
+	},
+	"files.table-header.size": {
+		"defaultMessage": "Size"
+	},
+	"files.unsaved-changes-modal.body": {
+		"defaultMessage": "You have unsaved changes that will be lost if you leave. Would you like to save before leaving?"
+	},
+	"files.unsaved-changes-modal.discard": {
+		"defaultMessage": "Discard"
+	},
+	"files.unsaved-changes-modal.header": {
+		"defaultMessage": "Unsaved changes"
+	},
+	"files.upload.drag-and-drop.drop-to-upload": {
+		"defaultMessage": "Drop {type} here to upload"
+	},
+	"files.validation.name-invalid-directory": {
+		"defaultMessage": "Name must contain only alphanumeric characters, dashes, underscores, or spaces."
+	},
+	"files.validation.name-invalid-file": {
+		"defaultMessage": "Name must contain only alphanumeric characters, dashes, underscores, dots, or spaces."
+	},
+	"files.validation.name-label": {
+		"defaultMessage": "Name"
+	},
+	"files.validation.name-required": {
+		"defaultMessage": "Name is required."
+	},
+	"filter-bar.add": {
+		"defaultMessage": "Add"
+	},
+	"filter-bar.clear": {
+		"defaultMessage": "Clear"
+	},
+	"filter-bar.clear-named-filter": {
+		"defaultMessage": "Clear {name} filter"
+	},
+	"filter-bar.filtered-by": {
+		"defaultMessage": "Filtered by"
+	},
+	"filter-bar.no-options": {
+		"defaultMessage": "No options available."
+	},
+	"filter-bar.no-search-results": {
+		"defaultMessage": "No options found."
+	},
+	"filter-bar.search-placeholder": {
+		"defaultMessage": "Search..."
+	},
+	"filter-bar.select-all": {
+		"defaultMessage": "Select all"
+	},
+	"form.label.address-line": {
+		"defaultMessage": "Address line"
+	},
+	"form.label.address-line-2": {
+		"defaultMessage": "Address line 2 (optional)"
+	},
+	"form.label.amount": {
+		"defaultMessage": "Amount"
+	},
+	"form.label.bank-name": {
+		"defaultMessage": "Bank name"
+	},
+	"form.label.business-name": {
+		"defaultMessage": "Business name"
+	},
+	"form.label.city": {
+		"defaultMessage": "City"
+	},
+	"form.label.country": {
+		"defaultMessage": "Country"
+	},
+	"form.label.date-of-birth": {
+		"defaultMessage": "Date of birth"
+	},
+	"form.label.email": {
+		"defaultMessage": "Email"
+	},
+	"form.label.first-name": {
+		"defaultMessage": "First name"
+	},
+	"form.label.last-name": {
+		"defaultMessage": "Last name"
+	},
+	"form.label.postal-code": {
+		"defaultMessage": "Postal code/ZIP code"
+	},
+	"form.label.state-province": {
+		"defaultMessage": "State/province"
+	},
+	"form.placeholder.address": {
+		"defaultMessage": "Enter address"
+	},
+	"form.placeholder.address-2": {
+		"defaultMessage": "Apartment, suite, etc."
+	},
+	"form.placeholder.amount": {
+		"defaultMessage": "Enter amount"
+	},
+	"form.placeholder.bank-name": {
+		"defaultMessage": "Enter bank name"
+	},
+	"form.placeholder.bank-name-dropdown": {
+		"defaultMessage": "Select bank name"
+	},
+	"form.placeholder.business-name": {
+		"defaultMessage": "Enter business name"
+	},
+	"form.placeholder.city": {
+		"defaultMessage": "Enter city"
+	},
+	"form.placeholder.country": {
+		"defaultMessage": "Select country"
+	},
+	"form.placeholder.email": {
+		"defaultMessage": "Enter email address"
+	},
+	"form.placeholder.first-name": {
+		"defaultMessage": "Enter first name"
+	},
+	"form.placeholder.last-name": {
+		"defaultMessage": "Enter last name"
+	},
+	"form.placeholder.postal-code": {
+		"defaultMessage": "Enter postal code"
+	},
+	"form.placeholder.state": {
+		"defaultMessage": "Enter state/province"
+	},
+	"format.bytes.0": {
+		"defaultMessage": "{count, plural, one {# byte} other {# bytes}}"
+	},
+	"format.bytes.1": {
+		"defaultMessage": "{count, number} KiB"
+	},
+	"format.bytes.2": {
+		"defaultMessage": "{count, number} MiB"
+	},
+	"format.bytes.3": {
+		"defaultMessage": "{count, number} GiB"
+	},
+	"format.bytes.4": {
+		"defaultMessage": "{count, number} TiB"
+	},
+	"header.category.category": {
+		"defaultMessage": "Category"
+	},
+	"header.category.feature": {
+		"defaultMessage": "Feature"
+	},
+	"header.category.minecraft-server-community": {
+		"defaultMessage": "Community"
+	},
+	"header.category.minecraft-server-features": {
+		"defaultMessage": "Features"
+	},
+	"header.category.minecraft-server-gameplay": {
+		"defaultMessage": "Gameplay"
+	},
+	"header.category.minecraft-server-meta": {
+		"defaultMessage": "Meta"
+	},
+	"header.category.performance-impact": {
+		"defaultMessage": "Performance impact"
+	},
+	"header.category.resolutions": {
+		"defaultMessage": "Resolution"
+	},
+	"icon-select.edit": {
+		"defaultMessage": "Edit icon"
+	},
+	"icon-select.remove": {
+		"defaultMessage": "Remove icon"
+	},
+	"icon-select.replace": {
+		"defaultMessage": "Replace icon"
+	},
+	"icon-select.select": {
+		"defaultMessage": "Select icon"
+	},
+	"image-viewer.close": {
+		"defaultMessage": "Close"
+	},
+	"image-viewer.edit": {
+		"defaultMessage": "Edit"
+	},
+	"image-viewer.editor.colour": {
+		"defaultMessage": "Colour"
+	},
+	"image-viewer.editor.crop.dimensions": {
+		"defaultMessage": "{width} × {height} px"
+	},
+	"image-viewer.editor.crop.reset": {
+		"defaultMessage": "Reset crop"
+	},
+	"image-viewer.editor.delete-selection": {
+		"defaultMessage": "Delete selected annotation"
+	},
+	"image-viewer.editor.eraser.area": {
+		"defaultMessage": "Area"
+	},
+	"image-viewer.editor.eraser.element": {
+		"defaultMessage": "Element"
+	},
+	"image-viewer.editor.eraser.mode": {
+		"defaultMessage": "Eraser mode"
+	},
+	"image-viewer.editor.image-editing-tools": {
+		"defaultMessage": "Image editing tools"
+	},
+	"image-viewer.editor.more-save-options": {
+		"defaultMessage": "More save options"
+	},
+	"image-viewer.editor.overwrite": {
+		"defaultMessage": "Overwrite"
+	},
+	"image-viewer.editor.redo": {
+		"defaultMessage": "Redo"
+	},
+	"image-viewer.editor.save-as-new": {
+		"defaultMessage": "Save copy"
+	},
+	"image-viewer.editor.save-image": {
+		"defaultMessage": "Save image"
+	},
+	"image-viewer.editor.size": {
+		"defaultMessage": "Size"
+	},
+	"image-viewer.editor.tool.arrow": {
+		"defaultMessage": "Arrow"
+	},
+	"image-viewer.editor.tool.censor": {
+		"defaultMessage": "Censor"
+	},
+	"image-viewer.editor.tool.crop": {
+		"defaultMessage": "Crop"
+	},
+	"image-viewer.editor.tool.ellipse": {
+		"defaultMessage": "Ellipse"
+	},
+	"image-viewer.editor.tool.eraser": {
+		"defaultMessage": "Eraser"
+	},
+	"image-viewer.editor.tool.highlight": {
+		"defaultMessage": "Highlight"
+	},
+	"image-viewer.editor.tool.pen": {
+		"defaultMessage": "Pen"
+	},
+	"image-viewer.editor.tool.rectangle": {
+		"defaultMessage": "Rectangle"
+	},
+	"image-viewer.editor.tool.select": {
+		"defaultMessage": "Select"
+	},
+	"image-viewer.editor.tool.text": {
+		"defaultMessage": "Text"
+	},
+	"image-viewer.editor.undo": {
+		"defaultMessage": "Undo"
+	},
+	"image-viewer.editor.width": {
+		"defaultMessage": "Width"
+	},
+	"image-viewer.editor.zoom-fit": {
+		"defaultMessage": "Fit"
+	},
+	"image-viewer.editor.zoom-fit-workspace": {
+		"defaultMessage": "Fit to workspace"
+	},
+	"image-viewer.editor.zoom-in": {
+		"defaultMessage": "Zoom in"
+	},
+	"image-viewer.editor.zoom-out": {
+		"defaultMessage": "Zoom out"
+	},
+	"image-viewer.next": {
+		"defaultMessage": "Next image"
+	},
+	"image-viewer.previous": {
+		"defaultMessage": "Previous image"
+	},
+	"input.search-version.placeholder": {
+		"defaultMessage": "Search version..."
+	},
+	"input.search.placeholder": {
+		"defaultMessage": "Search..."
+	},
+	"input.select-version.placeholder": {
+		"defaultMessage": "Select version"
+	},
+	"input.view.gallery": {
+		"defaultMessage": "Gallery view"
+	},
+	"input.view.grid": {
+		"defaultMessage": "Grid view"
+	},
+	"input.view.list": {
+		"defaultMessage": "Rows view"
+	},
+	"installation-settings.aria.select-game-version": {
+		"defaultMessage": "Select game version"
+	},
+	"installation-settings.aria.select-loader-version": {
+		"defaultMessage": "Select {loader} version"
+	},
+	"installation-settings.aria.select-platform": {
+		"defaultMessage": "Select platform"
+	},
+	"installation-settings.confirm-version-change": {
+		"defaultMessage": "Confirm"
+	},
+	"installation-settings.confirm-version-change-description": {
+		"defaultMessage": "Changing to {gameVersion} will modify the following content on your server."
+	},
+	"installation-settings.confirm-version-change-header": {
+		"defaultMessage": "Review content changes"
+	},
+	"installation-settings.edit-installation.title": {
+		"defaultMessage": "Edit installation"
+	},
+	"installation-settings.edit.warning-instance": {
+		"defaultMessage": "We don't recommend editing your installation settings after installing content. If you want to edit them, be cautious as it may cause issues."
+	},
+	"installation-settings.incompatible-content.auto-fix-button": {
+		"defaultMessage": "Auto-fix"
+	},
+	"installation-settings.incompatible-content.change-loader-button": {
+		"defaultMessage": "Change loader"
+	},
+	"installation-settings.incompatible-content.disable-conflicts-button": {
+		"defaultMessage": "Disable conflicts"
+	},
+	"installation-settings.incompatible-content.game-version-warning-body": {
+		"defaultMessage": "When changing the game version, we can either disable incompatible installed content or attempt to resolve the incompatibilities."
+	},
+	"installation-settings.incompatible-content.game-version-warning-title": {
+		"defaultMessage": "Incompatibility warning"
+	},
+	"installation-settings.incompatible-content.header": {
+		"defaultMessage": "Incompatible content installed"
+	},
+	"installation-settings.incompatible-content.loader-change-body": {
+		"defaultMessage": "When changing the loader, all installed content will be disabled. We recommend resetting your server instead."
+	},
+	"installation-settings.incompatible-content.loader-change-title": {
+		"defaultMessage": "Changing loaders is destructive"
+	},
+	"installation-settings.linked-instance.title": {
+		"defaultMessage": "Linked {projectType}"
+	},
+	"installation-settings.linked.modpack": {
+		"defaultMessage": "modpack"
+	},
+	"installation-settings.linked.server-project": {
+		"defaultMessage": "server project"
+	},
+	"installation-settings.loader-version": {
+		"defaultMessage": "{loader} version"
+	},
+	"installation-settings.platform-lock-tooltip": {
+		"defaultMessage": "You will need to reset your server to switch loader."
+	},
+	"installation-settings.reinstall-modpack.description": {
+		"defaultMessage": "Reinstalling the modpack resets the {type} content to its original state, removing any mods or content you have added."
+	},
+	"installation-settings.reinstall-modpack.title": {
+		"defaultMessage": "Reinstall modpack"
+	},
+	"installation-settings.reinstalling-modpack": {
+		"defaultMessage": "Reinstalling modpack"
+	},
+	"installation-settings.removed-incompatible": {
+		"defaultMessage": "Removed (incompatible)"
+	},
+	"installation-settings.repair.instance-description": {
+		"defaultMessage": "Reinstalls Minecraft dependencies and checks for corruption. This may resolve issues if your game is not launching due to launcher-related errors."
+	},
+	"installation-settings.repair.instance-title": {
+		"defaultMessage": "Repair instance"
+	},
+	"installation-settings.saving": {
+		"defaultMessage": "Saving..."
+	},
+	"installation-settings.search-game-version": {
+		"defaultMessage": "Search game version..."
+	},
+	"installation-settings.type.instance": {
+		"defaultMessage": "instance"
+	},
+	"installation-settings.type.instance-possessive": {
+		"defaultMessage": "instance's"
+	},
+	"installation-settings.type.server": {
+		"defaultMessage": "server"
+	},
+	"installation-settings.unlink": {
+		"defaultMessage": "Unlink"
+	},
+	"installation-settings.unlink.description": {
+		"defaultMessage": "Unlinking permanently disconnects this {type} from the {projectType} project, allowing you to change the loader and Minecraft version, but you won't receive future updates."
+	},
+	"installation-settings.verifying": {
+		"defaultMessage": "Verifying..."
+	},
+	"instance.confirm-reinstall.admonition-body": {
+		"defaultMessage": "Reinstalling will reset all installed or modified content to what is provided by the modpack, removing any mods or content you have added on top of the original installation."
+	},
+	"instance.confirm-reinstall.admonition-header": {
+		"defaultMessage": "Reinstallation warning"
+	},
+	"instance.confirm-reinstall.header": {
+		"defaultMessage": "Reinstall modpack"
+	},
+	"instance.confirm-reinstall.reinstall-button": {
+		"defaultMessage": "Reinstall modpack"
+	},
+	"instance.confirm-repair.body.instance": {
+		"defaultMessage": "Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your game is not launching due to launcher-related errors."
+	},
+	"instance.confirm-repair.body.server": {
+		"defaultMessage": "Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly."
+	},
+	"instance.confirm-repair.header": {
+		"defaultMessage": "Repair {type}"
+	},
+	"instance.confirm-repair.instance-label": {
+		"defaultMessage": "instance"
+	},
+	"instance.confirm-repair.repair-button": {
+		"defaultMessage": "Repair"
+	},
+	"instance.confirm-repair.server-label": {
+		"defaultMessage": "server"
+	},
+	"instance.icon-editor.background": {
+		"defaultMessage": "Background"
+	},
+	"instance.icon-editor.background.blue": {
+		"defaultMessage": "Blue"
+	},
+	"instance.icon-editor.background.dark-gray": {
+		"defaultMessage": "Dark gray"
+	},
+	"instance.icon-editor.background.dark-green": {
+		"defaultMessage": "Dark green"
+	},
+	"instance.icon-editor.background.gray": {
+		"defaultMessage": "Gray"
+	},
+	"instance.icon-editor.background.green": {
+		"defaultMessage": "Green"
+	},
+	"instance.icon-editor.background.indigo": {
+		"defaultMessage": "Indigo"
+	},
+	"instance.icon-editor.background.lavender": {
+		"defaultMessage": "Lavender"
+	},
+	"instance.icon-editor.background.light-gray": {
+		"defaultMessage": "Light gray"
+	},
+	"instance.icon-editor.background.lime": {
+		"defaultMessage": "Lime"
+	},
+	"instance.icon-editor.background.orange": {
+		"defaultMessage": "Orange"
+	},
+	"instance.icon-editor.background.pink": {
+		"defaultMessage": "Pink"
+	},
+	"instance.icon-editor.background.purple": {
+		"defaultMessage": "Purple"
+	},
+	"instance.icon-editor.background.red": {
+		"defaultMessage": "Red"
+	},
+	"instance.icon-editor.background.rose": {
+		"defaultMessage": "Rose"
+	},
+	"instance.icon-editor.background.yellow": {
+		"defaultMessage": "Yellow"
+	},
+	"instance.icon-editor.description": {
+		"defaultMessage": "Mix and match elements to create a custom icon."
+	},
+	"instance.icon-editor.recents": {
+		"defaultMessage": "Recents"
+	},
+	"instance.icon-editor.save": {
+		"defaultMessage": "Save icon"
+	},
+	"instance.icon-editor.surprise-me": {
+		"defaultMessage": "Randomize"
+	},
+	"instance.icon-editor.symbol": {
+		"defaultMessage": "Symbol"
+	},
+	"instance.icon-editor.symbol.backpack": {
+		"defaultMessage": "Backpack"
+	},
+	"instance.icon-editor.symbol.beacon": {
+		"defaultMessage": "Beacon"
+	},
+	"instance.icon-editor.symbol.blue-shark": {
+		"defaultMessage": "Blue Shark"
+	},
+	"instance.icon-editor.symbol.bookshelf": {
+		"defaultMessage": "Bookshelf"
+	},
+	"instance.icon-editor.symbol.brown-bear": {
+		"defaultMessage": "Brown Bear"
+	},
+	"instance.icon-editor.symbol.cake": {
+		"defaultMessage": "Cake"
+	},
+	"instance.icon-editor.symbol.campfire": {
+		"defaultMessage": "Campfire"
+	},
+	"instance.icon-editor.symbol.chest": {
+		"defaultMessage": "Chest"
+	},
+	"instance.icon-editor.symbol.cogwheel": {
+		"defaultMessage": "Cogwheel"
+	},
+	"instance.icon-editor.symbol.command-block": {
+		"defaultMessage": "Command Block"
+	},
+	"instance.icon-editor.symbol.cooking-pot": {
+		"defaultMessage": "Cooking Pot"
+	},
+	"instance.icon-editor.symbol.couch": {
+		"defaultMessage": "Couch"
+	},
+	"instance.icon-editor.symbol.crafting-table": {
+		"defaultMessage": "Crafting Table"
+	},
+	"instance.icon-editor.symbol.creeper": {
+		"defaultMessage": "Creeper"
+	},
+	"instance.icon-editor.symbol.enchanting-table": {
+		"defaultMessage": "Enchanting Table"
+	},
+	"instance.icon-editor.symbol.ender-chest": {
+		"defaultMessage": "Ender Chest"
+	},
+	"instance.icon-editor.symbol.ender-dragon": {
+		"defaultMessage": "Ender Dragon"
+	},
+	"instance.icon-editor.symbol.engine": {
+		"defaultMessage": "Engine"
+	},
+	"instance.icon-editor.symbol.fabric": {
+		"defaultMessage": "Fabric"
+	},
+	"instance.icon-editor.symbol.forge": {
+		"defaultMessage": "Forge"
+	},
+	"instance.icon-editor.symbol.furnace": {
+		"defaultMessage": "Furnace"
+	},
+	"instance.icon-editor.symbol.gizmo": {
+		"defaultMessage": "Gizmo"
+	},
+	"instance.icon-editor.symbol.globe": {
+		"defaultMessage": "Globe"
+	},
+	"instance.icon-editor.symbol.grass-block": {
+		"defaultMessage": "Grass Block"
+	},
+	"instance.icon-editor.symbol.lantern": {
+		"defaultMessage": "Lantern"
+	},
+	"instance.icon-editor.symbol.moobloom": {
+		"defaultMessage": "Moobloom"
+	},
+	"instance.icon-editor.symbol.neoforge": {
+		"defaultMessage": "NeoForge"
+	},
+	"instance.icon-editor.symbol.orb": {
+		"defaultMessage": "Orb"
+	},
+	"instance.icon-editor.symbol.oxygen-distributor": {
+		"defaultMessage": "Oxygen Distributor"
+	},
+	"instance.icon-editor.symbol.pancakes": {
+		"defaultMessage": "Pancakes"
+	},
+	"instance.icon-editor.symbol.pickaxe": {
+		"defaultMessage": "Pickaxe"
+	},
+	"instance.icon-editor.symbol.poke-ball": {
+		"defaultMessage": "Poke Ball"
+	},
+	"instance.icon-editor.symbol.quilt": {
+		"defaultMessage": "Quilt"
+	},
+	"instance.icon-editor.symbol.redstone-block": {
+		"defaultMessage": "Redstone Block"
+	},
+	"instance.icon-editor.symbol.sculk-sensor": {
+		"defaultMessage": "Sculk Sensor"
+	},
+	"instance.icon-editor.symbol.skeleton": {
+		"defaultMessage": "Skeleton"
+	},
+	"instance.icon-editor.symbol.skillet": {
+		"defaultMessage": "Skillet"
+	},
+	"instance.icon-editor.symbol.slime-block": {
+		"defaultMessage": "Slime Block"
+	},
+	"instance.icon-editor.symbol.space-helmet": {
+		"defaultMessage": "Space Helmet"
+	},
+	"instance.icon-editor.symbol.sticky-piston": {
+		"defaultMessage": "Sticky Piston"
+	},
+	"instance.icon-editor.symbol.sword": {
+		"defaultMessage": "Sword"
+	},
+	"instance.icon-editor.symbol.terminal": {
+		"defaultMessage": "Terminal"
+	},
+	"instance.icon-editor.symbol.tiny-potato": {
+		"defaultMessage": "Tiny Potato"
+	},
+	"instance.icon-editor.symbol.tire": {
+		"defaultMessage": "Tire"
+	},
+	"instance.icon-editor.symbol.tnt": {
+		"defaultMessage": "TNT"
+	},
+	"instance.icon-editor.symbol.zombie": {
+		"defaultMessage": "Zombie"
+	},
+	"instance.icon-editor.title": {
+		"defaultMessage": "Icon editor"
+	},
+	"instance.worlds.game_mode.adventure": {
+		"defaultMessage": "Adventure mode"
+	},
+	"instance.worlds.game_mode.creative": {
+		"defaultMessage": "Creative mode"
+	},
+	"instance.worlds.game_mode.spectator": {
+		"defaultMessage": "Spectator mode"
+	},
+	"instance.worlds.game_mode.survival": {
+		"defaultMessage": "Survival mode"
+	},
+	"instance.worlds.game_mode.unknown": {
+		"defaultMessage": "Unknown game mode"
+	},
+	"instances.content-install.compatible-count": {
+		"defaultMessage": "{count} compatible {count, plural, one {instance} other {instances}}"
+	},
+	"instances.content-install.existing-tab": {
+		"defaultMessage": "Existing instance"
+	},
+	"instances.content-install.game-version-placeholder": {
+		"defaultMessage": "Select game version"
+	},
+	"instances.content-install.header": {
+		"defaultMessage": "Install project"
+	},
+	"instances.content-install.hide-unavailable": {
+		"defaultMessage": "Hide unavailable"
+	},
+	"instances.content-install.incompatible-tooltip": {
+		"defaultMessage": "This instance uses a different loader or game version than this project supports."
+	},
+	"instances.content-install.install-button": {
+		"defaultMessage": "Install"
+	},
+	"instances.content-install.installed-badge": {
+		"defaultMessage": "Installed"
+	},
+	"instances.content-install.instance-type": {
+		"defaultMessage": "Instance type"
+	},
+	"instances.content-install.loader-label": {
+		"defaultMessage": "Loader"
+	},
+	"instances.content-install.name-label": {
+		"defaultMessage": "Name"
+	},
+	"instances.content-install.name-placeholder": {
+		"defaultMessage": "Enter instance name"
+	},
+	"instances.content-install.new-tab": {
+		"defaultMessage": "New instance"
+	},
+	"instances.content-install.no-instances": {
+		"defaultMessage": "No compatible instances found"
+	},
+	"instances.content-install.search-placeholder": {
+		"defaultMessage": "Search instance"
+	},
+	"instances.content-install.show-unavailable": {
+		"defaultMessage": "Show unavailable"
+	},
+	"instances.managed-content-modal.disabled": {
+		"defaultMessage": "Disabled"
+	},
+	"instances.managed-content-modal.download-file": {
+		"defaultMessage": "Download File"
+	},
+	"instances.managed-content-modal.empty-description": {
+		"defaultMessage": "This source does not include any managed content."
+	},
+	"instances.managed-content-modal.empty-title": {
+		"defaultMessage": "No content found"
+	},
+	"instances.managed-content-modal.enabled": {
+		"defaultMessage": "Enabled"
+	},
+	"instances.managed-content-modal.header": {
+		"defaultMessage": "Managed content"
+	},
+	"instances.managed-content-modal.loading": {
+		"defaultMessage": "Loading content..."
+	},
+	"instances.managed-content-modal.no-results": {
+		"defaultMessage": "No projects match your search."
+	},
+	"instances.managed-content-modal.open-in-slicer": {
+		"defaultMessage": "Open in Slicer"
+	},
+	"instances.managed-content-modal.search-placeholder": {
+		"defaultMessage": "Search {count, number} {count, plural, one {project} other {projects}}"
+	},
+	"instances.updater-modal.badge.current": {
+		"defaultMessage": "Current"
+	},
+	"instances.updater-modal.badge.incompatible": {
+		"defaultMessage": "Incompatible"
+	},
+	"instances.updater-modal.downgrade-to": {
+		"defaultMessage": "Downgrade to {version}"
+	},
+	"instances.updater-modal.header": {
+		"defaultMessage": "Update version"
+	},
+	"instances.updater-modal.header-modpack": {
+		"defaultMessage": "Switch modpack version"
+	},
+	"instances.updater-modal.header-switch": {
+		"defaultMessage": "Switch version"
+	},
+	"instances.updater-modal.hide-incompatible": {
+		"defaultMessage": "Hide incompatible"
+	},
+	"instances.updater-modal.incompatibility-warning": {
+		"defaultMessage": "This version is not marked as compatible with this instance. Dependencies will not be installed automatically."
+	},
+	"instances.updater-modal.incompatibility-warning-header": {
+		"defaultMessage": "Choose version"
+	},
+	"instances.updater-modal.incompatible-update.description": {
+		"defaultMessage": "{version} is not marked as compatible with this installation. It may fail to launch or behave unexpectedly."
+	},
+	"instances.updater-modal.incompatible-update.header": {
+		"defaultMessage": "Update to incompatible version?"
+	},
+	"instances.updater-modal.incompatible-update.proceed": {
+		"defaultMessage": "Update anyway"
+	},
+	"instances.updater-modal.install-anyway": {
+		"defaultMessage": "Install anyway"
+	},
+	"instances.updater-modal.loading-changelog": {
+		"defaultMessage": "Loading changelog..."
+	},
+	"instances.updater-modal.loading-versions": {
+		"defaultMessage": "Loading versions..."
+	},
+	"instances.updater-modal.no-changelog": {
+		"defaultMessage": "No changelog provided for this version."
+	},
+	"instances.updater-modal.no-versions": {
+		"defaultMessage": "No versions found"
+	},
+	"instances.updater-modal.search-placeholder": {
+		"defaultMessage": "Search version..."
+	},
+	"instances.updater-modal.select-version": {
+		"defaultMessage": "Select a version to view its changelog"
+	},
+	"instances.updater-modal.show-incompatible": {
+		"defaultMessage": "Show incompatible"
+	},
+	"instances.updater-modal.switch-to": {
+		"defaultMessage": "Switch to {version}"
+	},
+	"instances.updater-modal.update-to": {
+		"defaultMessage": "Update to {version}"
+	},
+	"instances.updater-modal.warning-app": {
+		"defaultMessage": "Updating can break your instance. Review version changelogs and back up first."
+	},
+	"instances.updater-modal.warning-web": {
+		"defaultMessage": "Updating can break your world. Review version changelogs and back up first."
+	},
+	"label.actions": {
+		"defaultMessage": "Actions"
+	},
+	"label.available": {
+		"defaultMessage": "{amount} available."
+	},
+	"label.changelog": {
+		"defaultMessage": "Changelog"
+	},
+	"label.changes-saved": {
+		"defaultMessage": "Changes saved"
+	},
+	"label.client-only-dependency-on-server-warning": {
+		"defaultMessage": "This client-only mod was installed on the server as a dependency and may prevent the server from starting."
+	},
+	"label.client-only-mod-on-server-warning": {
+		"defaultMessage": "This client-only mod is installed on the server and may prevent the server from starting."
+	},
+	"label.collections": {
+		"defaultMessage": "Collections"
+	},
+	"label.confirm-password": {
+		"defaultMessage": "Confirm password"
+	},
+	"label.content": {
+		"defaultMessage": "Content"
+	},
+	"label.copied-filename": {
+		"defaultMessage": "Copied filename"
+	},
+	"label.copied-path": {
+		"defaultMessage": "Copied path"
+	},
+	"label.create-failed": {
+		"defaultMessage": "Create failed"
+	},
+	"label.created-ago": {
+		"defaultMessage": "Created {ago}"
+	},
+	"label.dashboard": {
+		"defaultMessage": "Dashboard"
+	},
+	"label.delete": {
+		"defaultMessage": "Delete"
+	},
+	"label.delete-failed": {
+		"defaultMessage": "Delete failed"
+	},
+	"label.delete-immediately": {
+		"defaultMessage": "Delete immediately"
+	},
+	"label.description": {
+		"defaultMessage": "Description"
+	},
+	"label.details": {
+		"defaultMessage": "Details"
+	},
+	"label.discover-content": {
+		"defaultMessage": "Discover content"
+	},
+	"label.done": {
+		"defaultMessage": "Done"
+	},
+	"label.download-failed": {
+		"defaultMessage": "Download failed"
+	},
+	"label.email": {
+		"defaultMessage": "Email"
+	},
+	"label.email-username": {
+		"defaultMessage": "Email or username"
+	},
+	"label.error": {
+		"defaultMessage": "Error"
+	},
+	"label.explanation": {
+		"defaultMessage": "Explanation"
+	},
+	"label.extract-failed": {
+		"defaultMessage": "Extract failed"
+	},
+	"label.filter-by": {
+		"defaultMessage": "Filter by"
+	},
+	"label.filters": {
+		"defaultMessage": "Filters"
+	},
+	"label.followed-projects": {
+		"defaultMessage": "Followed projects"
+	},
+	"label.game-version": {
+		"defaultMessage": "Game version"
+	},
+	"label.hide-installed-content": {
+		"defaultMessage": "Hide content already installed"
+	},
+	"label.hide-selected-content": {
+		"defaultMessage": "Hide selected content"
+	},
+	"label.installation-info": {
+		"defaultMessage": "Installation info"
+	},
+	"label.installed": {
+		"defaultMessage": "Installed"
+	},
+	"label.installed-modpack": {
+		"defaultMessage": "Installed modpack"
+	},
+	"label.installing": {
+		"defaultMessage": "Installing..."
+	},
+	"label.installing-content": {
+		"defaultMessage": "Installing content"
+	},
+	"label.loading": {
+		"defaultMessage": "Loading..."
+	},
+	"label.moderation": {
+		"defaultMessage": "Moderation"
+	},
+	"label.modpack": {
+		"defaultMessage": "Modpack"
+	},
+	"label.move-failed": {
+		"defaultMessage": "Move failed"
+	},
+	"label.no": {
+		"defaultMessage": "No"
+	},
+	"label.no-items": {
+		"defaultMessage": "No items"
+	},
+	"label.notifications": {
+		"defaultMessage": "Notifications"
+	},
+	"label.or": {
+		"defaultMessage": "or"
+	},
+	"label.password": {
+		"defaultMessage": "Password"
+	},
+	"label.permissions": {
+		"defaultMessage": "Permissions"
+	},
+	"label.plan-custom": {
+		"defaultMessage": "Custom"
+	},
+	"label.plan-large": {
+		"defaultMessage": "Large"
+	},
+	"label.plan-medium": {
+		"defaultMessage": "Medium"
+	},
+	"label.plan-small": {
+		"defaultMessage": "Small"
+	},
+	"label.plan-unknown": {
+		"defaultMessage": "Unknown"
+	},
+	"label.platform": {
+		"defaultMessage": "Platform"
+	},
+	"label.played": {
+		"defaultMessage": "Played {ago}"
+	},
+	"label.project": {
+		"defaultMessage": "Project"
+	},
+	"label.public": {
+		"defaultMessage": "Public"
+	},
+	"label.rejected": {
+		"defaultMessage": "Rejected"
+	},
+	"label.rename-failed": {
+		"defaultMessage": "Rename failed"
+	},
+	"label.requires-client-only-dependency-warning": {
+		"defaultMessage": "This mod requires a client-only dependency and may prevent the server from starting."
+	},
+	"label.rewards-program-terms-agreement": {
+		"defaultMessage": "I agree to the <terms-link>Rewards Program Terms</terms-link>"
+	},
+	"label.saved": {
+		"defaultMessage": "Saved"
+	},
+	"label.scopes": {
+		"defaultMessage": "Scopes"
+	},
+	"label.search": {
+		"defaultMessage": "Search"
+	},
+	"label.select-all": {
+		"defaultMessage": "Select all"
+	},
+	"label.selected": {
+		"defaultMessage": "Selected"
+	},
+	"label.selection-actions": {
+		"defaultMessage": "Selection actions"
+	},
+	"label.server": {
+		"defaultMessage": "Server"
+	},
+	"label.server-only": {
+		"defaultMessage": "Server only"
+	},
+	"label.servers": {
+		"defaultMessage": "Servers"
+	},
+	"label.settings": {
+		"defaultMessage": "Settings"
+	},
+	"label.singleplayer": {
+		"defaultMessage": "Singleplayer"
+	},
+	"label.sort-by": {
+		"defaultMessage": "Sort by: "
+	},
+	"label.success": {
+		"defaultMessage": "Success"
+	},
+	"label.title": {
+		"defaultMessage": "Title"
+	},
+	"label.unknown": {
+		"defaultMessage": "Unknown"
+	},
+	"label.unlisted": {
+		"defaultMessage": "Unlisted"
+	},
+	"label.update-available": {
+		"defaultMessage": "Update available"
+	},
+	"label.updating": {
+		"defaultMessage": "Updating..."
+	},
+	"label.upload-failed": {
+		"defaultMessage": "Upload failed"
+	},
+	"label.username": {
+		"defaultMessage": "Username"
+	},
+	"label.validating": {
+		"defaultMessage": "Validating"
+	},
+	"label.version": {
+		"defaultMessage": "Version"
+	},
+	"label.view": {
+		"defaultMessage": "View"
+	},
+	"label.visibility": {
+		"defaultMessage": "Visibility"
+	},
+	"label.visit-your-profile": {
+		"defaultMessage": "Visit your profile"
+	},
+	"label.yes": {
+		"defaultMessage": "Yes"
+	},
+	"locale.cs-CZ": {
+		"defaultMessage": "Czech"
+	},
+	"locale.da-DK": {
+		"defaultMessage": "Danish"
+	},
+	"locale.de-CH": {
+		"defaultMessage": "German (Switzerland)"
+	},
+	"locale.de-DE": {
+		"defaultMessage": "German (Germany)"
+	},
+	"locale.en-US": {
+		"defaultMessage": "English (United States)"
+	},
+	"locale.es-419": {
+		"defaultMessage": "Spanish (Latin America)"
+	},
+	"locale.es-ES": {
+		"defaultMessage": "Spanish (Spain)"
+	},
+	"locale.fi-FI": {
+		"defaultMessage": "Finnish"
+	},
+	"locale.fil-PH": {
+		"defaultMessage": "Filipino"
+	},
+	"locale.fr-FR": {
+		"defaultMessage": "French"
+	},
+	"locale.he-IL": {
+		"defaultMessage": "Hebrew"
+	},
+	"locale.hu-HU": {
+		"defaultMessage": "Hungarian"
+	},
+	"locale.id-ID": {
+		"defaultMessage": "Indonesian"
+	},
+	"locale.it-IT": {
+		"defaultMessage": "Italian (Italy)"
+	},
+	"locale.ja-JP": {
+		"defaultMessage": "Japanese"
+	},
+	"locale.ko-KR": {
+		"defaultMessage": "Korean"
+	},
+	"locale.ms-MY": {
+		"defaultMessage": "Malay"
+	},
+	"locale.nl-NL": {
+		"defaultMessage": "Dutch"
+	},
+	"locale.no-NO": {
+		"defaultMessage": "Norwegian Bokmål"
+	},
+	"locale.pl-PL": {
+		"defaultMessage": "Polish"
+	},
+	"locale.pt-BR": {
+		"defaultMessage": "Portuguese (Brazil)"
+	},
+	"locale.pt-PT": {
+		"defaultMessage": "Portuguese (Portugal)"
+	},
+	"locale.ro-RO": {
+		"defaultMessage": "Romanian"
+	},
+	"locale.ru-RU": {
+		"defaultMessage": "Russian"
+	},
+	"locale.sr-CS": {
+		"defaultMessage": "Serbian (Latin)"
+	},
+	"locale.sv-SE": {
+		"defaultMessage": "Swedish"
+	},
+	"locale.th-TH": {
+		"defaultMessage": "Thai"
+	},
+	"locale.tr-TR": {
+		"defaultMessage": "Turkish"
+	},
+	"locale.uk-UA": {
+		"defaultMessage": "Ukrainian"
+	},
+	"locale.vi-VN": {
+		"defaultMessage": "Vietnamese"
+	},
+	"locale.zh-CN": {
+		"defaultMessage": "Chinese (Simplified)"
+	},
+	"locale.zh-TW": {
+		"defaultMessage": "Chinese (Traditional)"
+	},
+	"markdown-editor.default-image-alt-text": {
+		"defaultMessage": "Replace this with a description"
+	},
+	"markdown-editor.error-label": {
+		"defaultMessage": "Error"
+	},
+	"markdown-editor.image-modal.description-field.description": {
+		"defaultMessage": "Describe the image completely as you would to someone who could not see the image."
+	},
+	"markdown-editor.image-modal.description-field.placeholder": {
+		"defaultMessage": "Describe the image..."
+	},
+	"markdown-editor.image-modal.description-field.title": {
+		"defaultMessage": "Description (alt text)"
+	},
+	"markdown-editor.image-modal.header": {
+		"defaultMessage": "Insert image"
+	},
+	"markdown-editor.image-modal.upload-mode.label": {
+		"defaultMessage": "Image source"
+	},
+	"markdown-editor.image-modal.upload-mode.link": {
+		"defaultMessage": "Link"
+	},
+	"markdown-editor.image-modal.upload-mode.upload": {
+		"defaultMessage": "Upload"
+	},
+	"markdown-editor.image-modal.upload.prompt": {
+		"defaultMessage": "Drag and drop to upload or click to select file"
+	},
+	"markdown-editor.image-modal.url-field.placeholder": {
+		"defaultMessage": "Enter the image URL..."
+	},
+	"markdown-editor.insert-button": {
+		"defaultMessage": "Insert"
+	},
+	"markdown-editor.link-modal.header": {
+		"defaultMessage": "Insert link"
+	},
+	"markdown-editor.link-modal.label-field.placeholder": {
+		"defaultMessage": "Enter label..."
+	},
+	"markdown-editor.link-modal.label-field.title": {
+		"defaultMessage": "Label"
+	},
+	"markdown-editor.link-modal.url-field.placeholder": {
+		"defaultMessage": "Enter the link's URL..."
+	},
+	"markdown-editor.markdown-formatting-support": {
+		"defaultMessage": "This editor supports <markdown-link>Markdown formatting</markdown-link>."
+	},
+	"markdown-editor.max-length.label": {
+		"defaultMessage": "Max length:"
+	},
+	"markdown-editor.max-length.unlimited": {
+		"defaultMessage": "Unlimited"
+	},
+	"markdown-editor.max-length.value": {
+		"defaultMessage": "{currentLength}/{maxLength}"
+	},
+	"markdown-editor.placeholder": {
+		"defaultMessage": "Write something..."
+	},
+	"markdown-editor.preview-label": {
+		"defaultMessage": "Preview"
+	},
+	"markdown-editor.preview-toggle.label": {
+		"defaultMessage": "Preview"
+	},
+	"markdown-editor.toolbar.bold": {
+		"defaultMessage": "Bold"
+	},
+	"markdown-editor.toolbar.bulleted-list": {
+		"defaultMessage": "Bulleted list"
+	},
+	"markdown-editor.toolbar.code": {
+		"defaultMessage": "Code"
+	},
+	"markdown-editor.toolbar.heading-1": {
+		"defaultMessage": "Heading 1"
+	},
+	"markdown-editor.toolbar.heading-2": {
+		"defaultMessage": "Heading 2"
+	},
+	"markdown-editor.toolbar.heading-3": {
+		"defaultMessage": "Heading 3"
+	},
+	"markdown-editor.toolbar.image": {
+		"defaultMessage": "Image"
+	},
+	"markdown-editor.toolbar.italic": {
+		"defaultMessage": "Italic"
+	},
+	"markdown-editor.toolbar.link": {
+		"defaultMessage": "Link"
+	},
+	"markdown-editor.toolbar.ordered-list": {
+		"defaultMessage": "Ordered list"
+	},
+	"markdown-editor.toolbar.quote": {
+		"defaultMessage": "Quote"
+	},
+	"markdown-editor.toolbar.spoiler": {
+		"defaultMessage": "Spoiler"
+	},
+	"markdown-editor.toolbar.strikethrough": {
+		"defaultMessage": "Strikethrough"
+	},
+	"markdown-editor.toolbar.video": {
+		"defaultMessage": "Video"
+	},
+	"markdown-editor.upload-error.no-file": {
+		"defaultMessage": "No file provided"
+	},
+	"markdown-editor.upload-error.no-handler": {
+		"defaultMessage": "No image upload handler provided"
+	},
+	"markdown-editor.url-label": {
+		"defaultMessage": "URL"
+	},
+	"markdown-editor.url-validation-error.blocked-domain": {
+		"defaultMessage": "Invalid URL. This domain is not allowed."
+	},
+	"markdown-editor.url-validation-error.malformed": {
+		"defaultMessage": "Invalid URL. Make sure the URL is well-formed."
+	},
+	"markdown-editor.url-validation-error.unsupported-protocol": {
+		"defaultMessage": "Unsupported protocol. Use http or https."
+	},
+	"markdown-editor.video-embed.title": {
+		"defaultMessage": "YouTube video player"
+	},
+	"markdown-editor.video-modal.header": {
+		"defaultMessage": "Insert YouTube video"
+	},
+	"markdown-editor.video-modal.url-field.description": {
+		"defaultMessage": "Enter a valid link to a YouTube video."
+	},
+	"markdown-editor.video-modal.url-field.placeholder": {
+		"defaultMessage": "Enter YouTube video URL"
+	},
+	"markdown-editor.video-modal.url-field.title": {
+		"defaultMessage": "YouTube video URL"
+	},
+	"notification.error.title": {
+		"defaultMessage": "An error occurred"
+	},
+	"notifications.close": {
+		"defaultMessage": "Close"
+	},
+	"notifications.dismiss": {
+		"defaultMessage": "Dismiss notification"
+	},
+	"notifications.instance-ready.launch-game": {
+		"defaultMessage": "Launch game"
+	},
+	"notifications.instance-ready.open-instance": {
+		"defaultMessage": "Instance"
+	},
+	"notifications.instance-ready.status": {
+		"defaultMessage": "Installed and ready to play."
+	},
+	"ui.component.badge.label.accepted": {
+		"defaultMessage": "Accepted"
+	},
+	"ui.component.badge.label.approved": {
+		"defaultMessage": "Approved"
+	},
+	"ui.component.badge.label.archived": {
+		"defaultMessage": "Archived"
+	},
+	"ui.component.badge.label.closed": {
+		"defaultMessage": "Closed"
+	},
+	"ui.component.badge.label.creator": {
+		"defaultMessage": "Creator"
+	},
+	"ui.component.badge.label.draft": {
+		"defaultMessage": "Draft"
+	},
+	"ui.component.badge.label.failed": {
+		"defaultMessage": "Failed"
+	},
+	"ui.component.badge.label.listed": {
+		"defaultMessage": "Public"
+	},
+	"ui.component.badge.label.moderator": {
+		"defaultMessage": "Moderator"
+	},
+	"ui.component.badge.label.pending": {
+		"defaultMessage": "Pending"
+	},
+	"ui.component.badge.label.private": {
+		"defaultMessage": "Private"
+	},
+	"ui.component.badge.label.processed": {
+		"defaultMessage": "Processed"
+	},
+	"ui.component.badge.label.rejected": {
+		"defaultMessage": "Rejected"
+	},
+	"ui.component.badge.label.returned": {
+		"defaultMessage": "Returned"
+	},
+	"ui.component.badge.label.safe": {
+		"defaultMessage": "Pass"
+	},
+	"ui.component.badge.label.scheduled": {
+		"defaultMessage": "Scheduled"
+	},
+	"ui.component.badge.label.staff-team": {
+		"defaultMessage": "Staff"
+	},
+	"ui.component.badge.label.under-review": {
+		"defaultMessage": "Under review"
+	},
+	"ui.component.badge.label.unlisted": {
+		"defaultMessage": "Unlisted"
+	},
+	"ui.component.badge.label.unsafe": {
+		"defaultMessage": "Fail"
+	},
+	"ui.component.badge.label.withheld": {
+		"defaultMessage": "Unlisted by staff"
+	},
+	"ui.component.copy.action.copy": {
+		"defaultMessage": "Copy code to clipboard"
+	},
+	"ui.component.environment-indicator.label.client": {
+		"defaultMessage": "Client"
+	},
+	"ui.component.environment-indicator.label.client-and-server": {
+		"defaultMessage": "Client and server"
+	},
+	"ui.component.environment-indicator.label.client-or-server": {
+		"defaultMessage": "Client or server"
+	},
+	"ui.component.environment-indicator.label.server": {
+		"defaultMessage": "Server"
+	},
+	"ui.component.environment-indicator.label.type": {
+		"defaultMessage": "A {type}"
+	},
+	"ui.component.environment-indicator.label.unsupported": {
+		"defaultMessage": "Unsupported"
+	},
+	"payment-method.amazon_pay": {
+		"defaultMessage": "Amazon Pay"
+	},
+	"payment-method.amex": {
+		"defaultMessage": "American Express"
+	},
+	"payment-method.card_display": {
+		"defaultMessage": "{card_brand} ending in {last_four}"
+	},
+	"payment-method.cashapp": {
+		"defaultMessage": "Cash App"
+	},
+	"payment-method.charity": {
+		"defaultMessage": "Charity"
+	},
+	"payment-method.charity-plural": {
+		"defaultMessage": "Charities"
+	},
+	"payment-method.diners": {
+		"defaultMessage": "Diners Club"
+	},
+	"payment-method.discover": {
+		"defaultMessage": "Discover"
+	},
+	"payment-method.eftpos": {
+		"defaultMessage": "EFTPOS"
+	},
+	"payment-method.gift-card": {
+		"defaultMessage": "Gift card"
+	},
+	"payment-method.gift-card-plural": {
+		"defaultMessage": "Gift cards"
+	},
+	"payment-method.jcb": {
+		"defaultMessage": "JCB"
+	},
+	"payment-method.mastercard": {
+		"defaultMessage": "Mastercard"
+	},
+	"payment-method.paypal": {
+		"defaultMessage": "PayPal"
+	},
+	"payment-method.paypal_international": {
+		"defaultMessage": "PayPal International"
+	},
+	"payment-method.unionpay": {
+		"defaultMessage": "UnionPay"
+	},
+	"payment-method.unknown": {
+		"defaultMessage": "Unknown payment method"
+	},
+	"payment-method.venmo": {
+		"defaultMessage": "Venmo"
+	},
+	"payment-method.virtual-visa": {
+		"defaultMessage": "Virtual Visa"
+	},
+	"payment-method.virtual-visa-plural": {
+		"defaultMessage": "Virtual Visas"
+	},
+	"payment-method.visa": {
+		"defaultMessage": "Visa"
+	},
+	"project-card.date.published.tooltip": {
+		"defaultMessage": "Published {date}"
+	},
+	"project-card.date.updated.tooltip": {
+		"defaultMessage": "Updated {date}"
+	},
+	"project-card.environment.client": {
+		"defaultMessage": "Client"
+	},
+	"project-card.environment.client-and-server": {
+		"defaultMessage": "Client and server"
+	},
+	"project-card.environment.client-or-server": {
+		"defaultMessage": "Client or server"
+	},
+	"project-card.environment.dedicated-server": {
+		"defaultMessage": "Dedicated server"
+	},
+	"project-card.environment.server": {
+		"defaultMessage": "Server"
+	},
+	"project-card.environment.singleplayer": {
+		"defaultMessage": "Singleplayer"
+	},
+	"project-type.all": {
+		"defaultMessage": "All"
+	},
+	"project-type.datapack.capital": {
+		"defaultMessage": "{count, plural, one {Data Pack} other {Data Packs}}"
+	},
+	"project-type.datapack.category": {
+		"defaultMessage": "Data Packs"
+	},
+	"project-type.datapack.lowercase": {
+		"defaultMessage": "{count, plural, one {data pack} other {data packs}}"
+	},
+	"project-type.mod.capital": {
+		"defaultMessage": "{count, plural, one {Mod} other {Mods}}"
+	},
+	"project-type.mod.category": {
+		"defaultMessage": "Mods"
+	},
+	"project-type.mod.lowercase": {
+		"defaultMessage": "{count, plural, one {mod} other {mods}}"
+	},
+	"project-type.modpack.capital": {
+		"defaultMessage": "{count, plural, one {Modpack} other {Modpacks}}"
+	},
+	"project-type.modpack.category": {
+		"defaultMessage": "Modpacks"
+	},
+	"project-type.modpack.lowercase": {
+		"defaultMessage": "{count, plural, one {modpack} other {modpacks}}"
+	},
+	"project-type.plugin.capital": {
+		"defaultMessage": "{count, plural, one {Plugin} other {Plugins}}"
+	},
+	"project-type.plugin.category": {
+		"defaultMessage": "Plugins"
+	},
+	"project-type.plugin.lowercase": {
+		"defaultMessage": "{count, plural, one {plugin} other {plugins}}"
+	},
+	"project-type.project.capital": {
+		"defaultMessage": "{count, plural, one {Project} other {Projects}}"
+	},
+	"project-type.project.category": {
+		"defaultMessage": "Projects"
+	},
+	"project-type.project.lowercase": {
+		"defaultMessage": "{count, plural, one {project} other {projects}}"
+	},
+	"project-type.resourcepack.capital": {
+		"defaultMessage": "{count, plural, one {Resource Pack} other {Resource Packs}}"
+	},
+	"project-type.resourcepack.category": {
+		"defaultMessage": "Resource Packs"
+	},
+	"project-type.resourcepack.lowercase": {
+		"defaultMessage": "{count, plural, one {resource pack} other {resource packs}}"
+	},
+	"project-type.server.capital": {
+		"defaultMessage": "{count, plural, one {Server} other {Servers}}"
+	},
+	"project-type.server.category": {
+		"defaultMessage": "Servers"
+	},
+	"project-type.server.lowercase": {
+		"defaultMessage": "{count, plural, one {server} other {servers}}"
+	},
+	"project-type.shader.capital": {
+		"defaultMessage": "{count, plural, one {Shader} other {Shaders}}"
+	},
+	"project-type.shader.category": {
+		"defaultMessage": "Shaders"
+	},
+	"project-type.shader.lowercase": {
+		"defaultMessage": "{count, plural, one {shader} other {shaders}}"
+	},
+	"project.about.compatibility.environments": {
+		"defaultMessage": "Supported environments"
+	},
+	"project.about.compatibility.environments.client-and-server": {
+		"defaultMessage": "Client and server"
+	},
+	"project.about.compatibility.environments.client-side": {
+		"defaultMessage": "Client-side"
+	},
+	"project.about.compatibility.environments.dedicated-servers-only": {
+		"defaultMessage": "Dedicated servers only"
+	},
+	"project.about.compatibility.environments.server-side": {
+		"defaultMessage": "Server-side"
+	},
+	"project.about.compatibility.environments.singleplayer": {
+		"defaultMessage": "Singleplayer"
+	},
+	"project.about.compatibility.environments.singleplayer-only": {
+		"defaultMessage": "Singleplayer only"
+	},
+	"project.about.compatibility.game.minecraftJava": {
+		"defaultMessage": "Minecraft: Java Edition"
+	},
+	"project.about.compatibility.platforms": {
+		"defaultMessage": "Platforms"
+	},
+	"project.about.compatibility.platforms-plural": {
+		"defaultMessage": "{count, plural, one {Platform} other {Platforms}}"
+	},
+	"project.about.compatibility.title": {
+		"defaultMessage": "Compatibility"
+	},
+	"project.about.creators.organization": {
+		"defaultMessage": "Organization"
+	},
+	"project.about.creators.owner": {
+		"defaultMessage": "Project owner"
+	},
+	"project.about.creators.title": {
+		"defaultMessage": "Creators"
+	},
+	"project.about.details.created": {
+		"defaultMessage": "Created {date}"
+	},
+	"project.about.details.licensed": {
+		"defaultMessage": "Licensed {license}"
+	},
+	"project.about.details.published": {
+		"defaultMessage": "Published {date}"
+	},
+	"project.about.details.submitted": {
+		"defaultMessage": "Submitted {date}"
+	},
+	"project.about.details.updated": {
+		"defaultMessage": "Updated {date}"
+	},
+	"project.about.links.discord": {
+		"defaultMessage": "Join Discord server"
+	},
+	"project.about.links.donate.bmac": {
+		"defaultMessage": "Buy Me a Coffee"
+	},
+	"project.about.links.donate.generic": {
+		"defaultMessage": "Donate"
+	},
+	"project.about.links.donate.github": {
+		"defaultMessage": "Sponsor on GitHub"
+	},
+	"project.about.links.donate.kofi": {
+		"defaultMessage": "Donate on Ko-fi"
+	},
+	"project.about.links.donate.patreon": {
+		"defaultMessage": "Donate on Patreon"
+	},
+	"project.about.links.donate.paypal": {
+		"defaultMessage": "Donate on PayPal"
+	},
+	"project.about.links.issues": {
+		"defaultMessage": "Report issues"
+	},
+	"project.about.links.site": {
+		"defaultMessage": "Visit website"
+	},
+	"project.about.links.source": {
+		"defaultMessage": "View source"
+	},
+	"project.about.links.store": {
+		"defaultMessage": "Visit store page"
+	},
+	"project.about.links.title": {
+		"defaultMessage": "Links"
+	},
+	"project.about.links.wiki": {
+		"defaultMessage": "Visit wiki"
+	},
+	"project.about.tags.title": {
+		"defaultMessage": "Tags"
+	},
+	"project.disclosure.advertising.title": {
+		"defaultMessage": "Contains advertising"
+	},
+	"project.disclosure.ai-functionality.title": {
+		"defaultMessage": "Generative AI functionality"
+	},
+	"project.disclosure.ai-generated-content.title": {
+		"defaultMessage": "Contains AI-generated {types}"
+	},
+	"project.disclosure.ai-generated-content.use.assets": {
+		"defaultMessage": "assets"
+	},
+	"project.disclosure.ai-generated-content.use.code": {
+		"defaultMessage": "code"
+	},
+	"project.disclosure.ai-generated-content.use.content": {
+		"defaultMessage": "content"
+	},
+	"project.disclosure.ai-generated-content.use.text": {
+		"defaultMessage": "text"
+	},
+	"project.disclosure.derivative-work.show-fewer": {
+		"defaultMessage": "Show fewer"
+	},
+	"project.disclosure.derivative-work.show-more": {
+		"defaultMessage": "Show {count} more"
+	},
+	"project.disclosure.derivative-work.title": {
+		"defaultMessage": "This is a derivative work of:"
+	},
+	"project.disclosure.paid-features.title": {
+		"defaultMessage": "Contains paid features"
+	},
+	"project.disclosure.photosensitivity.title": {
+		"defaultMessage": "Photosensitivity warning"
+	},
+	"project.disclosure.system-interactions.title": {
+		"defaultMessage": "Contains external system interactions"
+	},
+	"project.disclosure.telemetry.title": {
+		"defaultMessage": "Contains {consent, select, opt_in {opt-in telemetry} opt_out {opt-out telemetry} always_active {always-active telemetry} other {telemetry}}"
+	},
+	"project.download-count-tooltip": {
+		"defaultMessage": "{count, number} {count, plural, one {download} other {downloads}}"
+	},
+	"project.environment.client-and-server.description": {
+		"defaultMessage": "Required on both the client and server."
+	},
+	"project.environment.client-and-server.title": {
+		"defaultMessage": "Client and server, required on both"
+	},
+	"project.environment.client-only-server-optional.description": {
+		"defaultMessage": "Most functionality is client-side, but installing it on the server enables enhanced functionality."
+	},
+	"project.environment.client-only-server-optional.title": {
+		"defaultMessage": "Client and server, optional on server"
+	},
+	"project.environment.client-only.description": {
+		"defaultMessage": "All functionality is done client-side and is compatible with vanilla servers."
+	},
+	"project.environment.client-only.title": {
+		"defaultMessage": "Client-side only"
+	},
+	"project.environment.client-or-server-prefers-both.description": {
+		"defaultMessage": "Has some functionality on both the client and server, even if only partially. Installing it on both leads to the best experience."
+	},
+	"project.environment.client-or-server-prefers-both.title": {
+		"defaultMessage": "Client and server, best when installed on both"
+	},
+	"project.environment.client-or-server.description": {
+		"defaultMessage": "Has some functionality on both the client and server, even if only partially."
+	},
+	"project.environment.client-or-server.title": {
+		"defaultMessage": "Client and server, optional on both"
+	},
+	"project.environment.dedicated-server-only.description": {
+		"defaultMessage": "All functionality is done server-side and is compatible with vanilla clients. Only works on dedicated servers."
+	},
+	"project.environment.dedicated-server-only.title": {
+		"defaultMessage": "Server-side only"
+	},
+	"project.environment.server-only-client-optional.description": {
+		"defaultMessage": "Most functionality is server-side, but installing it on the client enables enhanced functionality."
+	},
+	"project.environment.server-only-client-optional.title": {
+		"defaultMessage": "Client and server, optional on client"
+	},
+	"project.environment.server-only.description": {
+		"defaultMessage": "All functionality is done server-side and is compatible with vanilla clients. Also works on the internal server in singleplayer."
+	},
+	"project.environment.server-only.title": {
+		"defaultMessage": "Server-side only, works in singleplayer too"
+	},
+	"project.environment.singleplayer-only.description": {
+		"defaultMessage": "Only functions in Singleplayer or when not connected to a Multiplayer server."
+	},
+	"project.environment.singleplayer-only.title": {
+		"defaultMessage": "Singleplayer only"
+	},
+	"project.environment.tag.not-applicable": {
+		"defaultMessage": "N/A"
+	},
+	"project.environment.tag.unknown": {
+		"defaultMessage": "Unknown"
+	},
+	"project.environment.unknown.description": {
+		"defaultMessage": "The environment for this version could not be determined."
+	},
+	"project.environment.unknown.title": {
+		"defaultMessage": "Unknown environment"
+	},
+	"project.follower-count-tooltip": {
+		"defaultMessage": "{count, number} {count, plural, one {follower} other {followers}}"
+	},
+	"project.license.error": {
+		"defaultMessage": "License text could not be retrieved."
+	},
+	"project.license.loading": {
+		"defaultMessage": "Loading license text..."
+	},
+	"project.license.title": {
+		"defaultMessage": "License"
+	},
+	"project.online-player-count": {
+		"defaultMessage": "{count, number} online"
+	},
+	"project.online-player-count.tooltip": {
+		"defaultMessage": "{count} {countPlural, plural, one {player} other {players}} online"
+	},
+	"project.recent-plays": {
+		"defaultMessage": "{count} {countPlural, plural, one {recent play} other {recent plays}}"
+	},
+	"project.recent-plays.tooltip": {
+		"defaultMessage": "{count} {countPlural, plural, one {recent play} other {recent plays}} from the content library in the past 2 weeks"
+	},
+	"project.settings.analytics.title": {
+		"defaultMessage": "Analytics"
+	},
+	"project.settings.content.title": {
+		"defaultMessage": "Content"
+	},
+	"project.settings.description.title": {
+		"defaultMessage": "Description"
+	},
+	"project.settings.disclosures.ai.types-assets": {
+		"defaultMessage": "Assets"
+	},
+	"project.settings.disclosures.ai.types-code": {
+		"defaultMessage": "Code"
+	},
+	"project.settings.disclosures.ai.types-text": {
+		"defaultMessage": "Text"
+	},
+	"project.settings.disclosures.telemetry.consent-always-active": {
+		"defaultMessage": "Always active"
+	},
+	"project.settings.disclosures.telemetry.consent-opt-in": {
+		"defaultMessage": "Opt-in"
+	},
+	"project.settings.disclosures.telemetry.consent-opt-out": {
+		"defaultMessage": "Opt-out"
+	},
+	"project.settings.disclosures.title": {
+		"defaultMessage": "Disclosures"
+	},
+	"project.settings.environment.bulk.apply-button": {
+		"defaultMessage": "Apply to all versions"
+	},
+	"project.settings.environment.bulk.description": {
+		"defaultMessage": "This will replace the environment on every version of this project."
+	},
+	"project.settings.environment.bulk.title": {
+		"defaultMessage": "Apply environment to all versions"
+	},
+	"project.settings.environment.client_and_server.description": {
+		"defaultMessage": "Has some functionality on both the client and server, even if only partially."
+	},
+	"project.settings.environment.client_and_server.optional_both.title": {
+		"defaultMessage": "Optional on both, works the same if installed on either side"
+	},
+	"project.settings.environment.client_and_server.optional_both_prefers_both.title": {
+		"defaultMessage": "Optional on both, works best when installed on both sides"
+	},
+	"project.settings.environment.client_and_server.optional_client.title": {
+		"defaultMessage": "Optional on client"
+	},
+	"project.settings.environment.client_and_server.optional_server.title": {
+		"defaultMessage": "Optional on server"
+	},
+	"project.settings.environment.client_and_server.required_both.title": {
+		"defaultMessage": "Required on both"
+	},
+	"project.settings.environment.client_and_server.title": {
+		"defaultMessage": "Client and server"
+	},
+	"project.settings.environment.client_only.description": {
+		"defaultMessage": "All functionality is done client-side and is compatible with vanilla servers."
+	},
+	"project.settings.environment.client_only.title": {
+		"defaultMessage": "Client-side only"
+	},
+	"project.settings.environment.modal.title": {
+		"defaultMessage": "Edit project environment"
+	},
+	"project.settings.environment.notice.missing-env.description": {
+		"defaultMessage": "Your project is missing environment metadata, please select the appropriate option below."
+	},
+	"project.settings.environment.notice.missing-env.title": {
+		"defaultMessage": "Please select an environment for your project"
+	},
+	"project.settings.environment.notice.multiple-environments.description": {
+		"defaultMessage": "Different versions of your project have different environments selected, so you can't edit them globally at this time."
+	},
+	"project.settings.environment.notice.multiple-environments.title": {
+		"defaultMessage": "Your project has multiple environments"
+	},
+	"project.settings.environment.notice.review-options.description": {
+		"defaultMessage": "We've just overhauled the Environments system on the platform and new options are now available. Please ensure the correct option is selected below and then click 'Verify' when you're done!"
+	},
+	"project.settings.environment.notice.review-options.title": {
+		"defaultMessage": "Please review the options below"
+	},
+	"project.settings.environment.notice.wrong-project-type.description": {
+		"defaultMessage": "Only mod or modpack projects can have environment metadata."
+	},
+	"project.settings.environment.notice.wrong-project-type.title": {
+		"defaultMessage": "This project type does not support environment metadata"
+	},
+	"project.settings.environment.server_only.dedicated_only.title": {
+		"defaultMessage": "Dedicated server only"
+	},
+	"project.settings.environment.server_only.description": {
+		"defaultMessage": "All functionality is done server-side and is compatible with vanilla clients."
+	},
+	"project.settings.environment.server_only.supports_singleplayer.title": {
+		"defaultMessage": "Works in singleplayer too"
+	},
+	"project.settings.environment.server_only.title": {
+		"defaultMessage": "Server-side only"
+	},
+	"project.settings.environment.singleplayer.description": {
+		"defaultMessage": "Only functions in Singleplayer or when not connected to a Multiplayer server."
+	},
+	"project.settings.environment.singleplayer.title": {
+		"defaultMessage": "Singleplayer only"
+	},
+	"project.settings.environment.suboption.accessibility-option-label": {
+		"defaultMessage": "{title}: {description}"
+	},
+	"project.settings.environment.suboption.accessibility-suboption-group-label": {
+		"defaultMessage": "Suboptions of {option}"
+	},
+	"project.settings.environment.title": {
+		"defaultMessage": "Environment"
+	},
+	"project.settings.environment.verification.verify-button": {
+		"defaultMessage": "Verify"
+	},
+	"project.settings.environment.verification.verify-text": {
+		"defaultMessage": "Verify that this project's environment is set correctly."
+	},
+	"project.settings.gallery.title": {
+		"defaultMessage": "Gallery"
+	},
+	"project.settings.general.title": {
+		"defaultMessage": "General"
+	},
+	"project.settings.license.title": {
+		"defaultMessage": "License"
+	},
+	"project.settings.links.title": {
+		"defaultMessage": "Links"
+	},
+	"project.settings.members.title": {
+		"defaultMessage": "Members"
+	},
+	"project.settings.notice.no-permission.description": {
+		"defaultMessage": "You don't have permission to edit this."
+	},
+	"project.settings.notice.no-permission.title": {
+		"defaultMessage": "No permission"
+	},
+	"project.settings.server.title": {
+		"defaultMessage": "Server"
+	},
+	"project.settings.tags.title": {
+		"defaultMessage": "Tags"
+	},
+	"project.settings.upload.title": {
+		"defaultMessage": "Upload"
+	},
+	"project.settings.versions.permissions": {
+		"defaultMessage": "Permissions"
+	},
+	"project.settings.versions.title": {
+		"defaultMessage": "Versions"
+	},
+	"project.settings.view.title": {
+		"defaultMessage": "View"
+	},
+	"project.stats.downloads-label": {
+		"defaultMessage": "{count, plural, one {download} other {downloads}}"
+	},
+	"project.stats.followers-label": {
+		"defaultMessage": "{count, plural, one {follower} other {followers}}"
+	},
+	"project.status.archived.body": {
+		"defaultMessage": "{title} will not receive any further updates unless the author decides to unarchive the project."
+	},
+	"project.status.archived.header": {
+		"defaultMessage": "{title} has been archived"
+	},
+	"project.versions.channel.alpha.symbol": {
+		"defaultMessage": "A"
+	},
+	"project.versions.channel.beta.symbol": {
+		"defaultMessage": "B"
+	},
+	"project.versions.channel.release.symbol": {
+		"defaultMessage": "R"
+	},
+	"project.versions.filter.channel": {
+		"defaultMessage": "Channel"
+	},
+	"project.versions.filter.selected-count": {
+		"defaultMessage": "{count, number} selected"
+	},
+	"project.versions.filter.toggle-tooltip": {
+		"defaultMessage": "Toggle filter for {filter}"
+	},
+	"project.versions.platform.modloader.short": {
+		"defaultMessage": "ModLoader"
+	},
+	"project.versions.version.withheld": {
+		"defaultMessage": "Withheld"
+	},
+	"project.versions.version.withheld.tooltip": {
+		"defaultMessage": "Version withheld due to missing permissions"
+	},
+	"project.versions.withheld-versions-warning.resolve-button": {
+		"defaultMessage": "Resolve"
+	},
+	"project.visibility.archived": {
+		"defaultMessage": "Archived"
+	},
+	"project.visibility.draft": {
+		"defaultMessage": "Draft"
+	},
+	"project.visibility.private": {
+		"defaultMessage": "Private"
+	},
+	"project.visibility.public": {
+		"defaultMessage": "Public"
+	},
+	"project.visibility.rejected": {
+		"defaultMessage": "Rejected"
+	},
+	"project.visibility.scheduled": {
+		"defaultMessage": "Scheduled"
+	},
+	"project.visibility.under-review": {
+		"defaultMessage": "Under review"
+	},
+	"project.visibility.unknown": {
+		"defaultMessage": "Unknown"
+	},
+	"project.visibility.unlisted": {
+		"defaultMessage": "Unlisted"
+	},
+	"project.visibility.unlisted-by-staff": {
+		"defaultMessage": "Unlisted by staff"
+	},
+	"report.item-type.content": {
+		"defaultMessage": "content"
+	},
+	"report.item-type.project": {
+		"defaultMessage": "project"
+	},
+	"report.item-type.user": {
+		"defaultMessage": "user"
+	},
+	"report.item-type.version": {
+		"defaultMessage": "version"
+	},
+	"report.type.ai-images": {
+		"defaultMessage": "AI-generated images in icon, gallery, or description"
+	},
+	"report.type.copyright": {
+		"defaultMessage": "Reuploaded work"
+	},
+	"report.type.fully-ai-generated": {
+		"defaultMessage": "Fully AI-generated project"
+	},
+	"report.type.inappropriate": {
+		"defaultMessage": "Inappropriate"
+	},
+	"report.type.malicious": {
+		"defaultMessage": "Malicious"
+	},
+	"report.type.missing-disclosure": {
+		"defaultMessage": "Missing or incorrect disclosure"
+	},
+	"report.type.name-squatting": {
+		"defaultMessage": "Name squatting"
+	},
+	"report.type.spam": {
+		"defaultMessage": "Spam"
+	},
+	"search.filter.dependency_type.any": {
+		"defaultMessage": "Any dependency type"
+	},
+	"search.filter.dependency_type.embedded": {
+		"defaultMessage": "Embedded"
+	},
+	"search.filter.dependency_type.optional": {
+		"defaultMessage": "Optional"
+	},
+	"search.filter.dependency_type.optional_or_embedded": {
+		"defaultMessage": "Optional or embedded"
+	},
+	"search.filter.dependency_type.required": {
+		"defaultMessage": "Required"
+	},
+	"search.filter.dependency_type.required_or_embedded": {
+		"defaultMessage": "Required or embedded"
+	},
+	"search.filter.dependency_type.required_or_optional": {
+		"defaultMessage": "Required or optional"
+	},
+	"search.filter.dependent_project": {
+		"defaultMessage": "Depends on: {project}"
+	},
+	"search.filter.dependent_project.clear": {
+		"defaultMessage": "Clear dependency filter"
+	},
+	"search.filter.dependent_project.search_placeholder": {
+		"defaultMessage": "Search for a project..."
+	},
+	"search.filter.excluded_projects": {
+		"defaultMessage": "Excludes: {projects}"
+	},
+	"search.filter.included_content.exclude": {
+		"defaultMessage": "Exclude"
+	},
+	"search.filter.included_content.excluded": {
+		"defaultMessage": "Excluded"
+	},
+	"search.filter.included_content.remove_project": {
+		"defaultMessage": "Remove {project}"
+	},
+	"search.filter.included_content.remove_project.tooltip": {
+		"defaultMessage": "Remove project"
+	},
+	"search.filter.included_content.search_placeholder": {
+		"defaultMessage": "Search content..."
+	},
+	"search.filter.included_projects": {
+		"defaultMessage": "Includes: {projects}"
+	},
+	"search.filter.locked.default": {
+		"defaultMessage": "Filter locked"
+	},
+	"search.filter.locked.default.description": {
+		"defaultMessage": "Unlocking this filter may allow you to install incompatible content."
+	},
+	"search.filter.locked.default.sync": {
+		"defaultMessage": "Sync filter"
+	},
+	"search.filter.locked.default.title": {
+		"defaultMessage": "{type} is locked"
+	},
+	"search.filter.locked.default.unlock": {
+		"defaultMessage": "Unlock filter"
+	},
+	"search.filter.option.exclusion.add.tooltip": {
+		"defaultMessage": "Exclude"
+	},
+	"search.filter.option.search.clear.aria_label": {
+		"defaultMessage": "Clear search"
+	},
+	"search.filter.option.search.placeholder": {
+		"defaultMessage": "Search..."
+	},
+	"search.filter.option.show_fewer": {
+		"defaultMessage": "Show fewer"
+	},
+	"search.filter.option.show_more": {
+		"defaultMessage": "Show more"
+	},
+	"search.filter.option.sub_options.collapse.tooltip": {
+		"defaultMessage": "Hide more options"
+	},
+	"search.filter.option.sub_options.expand.tooltip": {
+		"defaultMessage": "Show more options"
+	},
+	"search.filter_type.advanced": {
+		"defaultMessage": "Advanced exclusions"
+	},
+	"search.filter_type.advanced.disclosure.advertisements": {
+		"defaultMessage": "Advertisements"
+	},
+	"search.filter_type.advanced.disclosure.ai_content": {
+		"defaultMessage": "AI-generated content"
+	},
+	"search.filter_type.advanced.disclosure.ai_content.usage": {
+		"defaultMessage": "AI {usage}"
+	},
+	"search.filter_type.advanced.disclosure.ai_functionality": {
+		"defaultMessage": "Generative AI functionality"
+	},
+	"search.filter_type.advanced.disclosure.archived": {
+		"defaultMessage": "Archived"
+	},
+	"search.filter_type.advanced.disclosure.derivative_work": {
+		"defaultMessage": "Derivative content"
+	},
+	"search.filter_type.advanced.disclosure.epilepsy_triggers": {
+		"defaultMessage": "Photosensitivity triggers"
+	},
+	"search.filter_type.advanced.disclosure.paid_features": {
+		"defaultMessage": "Paid features"
+	},
+	"search.filter_type.advanced.disclosure.system_interactions": {
+		"defaultMessage": "External system interactions"
+	},
+	"search.filter_type.advanced.disclosure.telemetry": {
+		"defaultMessage": "Telemetry"
+	},
+	"search.filter_type.compatible_dependency_project_ids": {
+		"defaultMessage": "Depends on"
+	},
+	"search.filter_type.environment": {
+		"defaultMessage": "Environment"
+	},
+	"search.filter_type.environment.client": {
+		"defaultMessage": "Client"
+	},
+	"search.filter_type.environment.server": {
+		"defaultMessage": "Server"
+	},
+	"search.filter_type.game_version": {
+		"defaultMessage": "Game version"
+	},
+	"search.filter_type.game_version.all_versions": {
+		"defaultMessage": "Show all versions"
+	},
+	"search.filter_type.included_content": {
+		"defaultMessage": "Included content"
+	},
+	"search.filter_type.license": {
+		"defaultMessage": "License"
+	},
+	"search.filter_type.license.open_source": {
+		"defaultMessage": "Open source"
+	},
+	"search.filter_type.mod_loader": {
+		"defaultMessage": "Loader"
+	},
+	"search.filter_type.modpack_loader": {
+		"defaultMessage": "Loader"
+	},
+	"search.filter_type.plugin_loader": {
+		"defaultMessage": "Loader"
+	},
+	"search.filter_type.plugin_platform": {
+		"defaultMessage": "Platform"
+	},
+	"search.filter_type.project_id": {
+		"defaultMessage": "Project ID"
+	},
+	"search.filter_type.shader_loader": {
+		"defaultMessage": "Loader"
+	},
+	"search.photosensitivity-warning-modal.body.1": {
+		"defaultMessage": "We cannot guarantee that all content in the library has been labeled appropriately."
+	},
+	"search.photosensitivity-warning-modal.body.2": {
+		"defaultMessage": "Content labels for photosensitivity triggers are self-assigned by the creators who upload their content to the content library. These projects have not gone through any safety testing."
+	},
+	"search.photosensitivity-warning-modal.body.3": {
+		"defaultMessage": "Using any content in the library is at your own risk. Please stay safe! 💚"
+	},
+	"search.photosensitivity-warning-modal.dont-show-again": {
+		"defaultMessage": "Don't show this again"
+	},
+	"search.photosensitivity-warning-modal.title": {
+		"defaultMessage": "Results are not guaranteed to be safe"
+	},
+	"search.server-environment.player-and-server": {
+		"defaultMessage": "Player and server"
+	},
+	"search.server-environment.player-only": {
+		"defaultMessage": "Player only"
+	},
+	"search.server-environment.title": {
+		"defaultMessage": "Environment"
+	},
+	"servers.notice.dismiss": {
+		"defaultMessage": "Dismiss"
+	},
+	"servers.notice.dismissable": {
+		"defaultMessage": "Dismissable"
+	},
+	"servers.notice.heading.attention": {
+		"defaultMessage": "Attention"
+	},
+	"servers.notice.heading.info": {
+		"defaultMessage": "Info"
+	},
+	"servers.notice.level.critical.name": {
+		"defaultMessage": "Critical"
+	},
+	"servers.notice.level.info.name": {
+		"defaultMessage": "Info"
+	},
+	"servers.notice.level.survey.name": {
+		"defaultMessage": "Survey"
+	},
+	"servers.notice.level.warn.name": {
+		"defaultMessage": "Warning"
+	},
+	"servers.notice.undismissable": {
+		"defaultMessage": "Undismissable"
+	},
+	"servers.region.australia": {
+		"defaultMessage": "Australia (Sydney)"
+	},
+	"servers.region.central-europe": {
+		"defaultMessage": "Germany (Limburg)"
+	},
+	"servers.region.north-america-central": {
+		"defaultMessage": "United States (Dallas)"
+	},
+	"servers.region.north-america-east": {
+		"defaultMessage": "United States (Virginia)"
+	},
+	"servers.region.north-america-west": {
+		"defaultMessage": "United States (San Jose)"
+	},
+	"servers.region.southeast-asia": {
+		"defaultMessage": "Singapore"
+	},
+	"servers.region.western-europe": {
+		"defaultMessage": "United Kingdom (Coventry)"
+	},
+	"settings.account.title": {
+		"defaultMessage": "Account and security"
+	},
+	"settings.appearance.title": {
+		"defaultMessage": "Appearance"
+	},
+	"settings.applications.title": {
+		"defaultMessage": "Your applications"
+	},
+	"settings.authorized-apps.title": {
+		"defaultMessage": "Authorized apps"
+	},
+	"settings.billing.title": {
+		"defaultMessage": "Billing and subscriptions"
+	},
+	"settings.display.project-list-layouts.datapack": {
+		"defaultMessage": "Data Packs page"
+	},
+	"settings.display.project-list-layouts.description": {
+		"defaultMessage": "Select your preferred layout for each page that displays project lists."
+	},
+	"settings.display.project-list-layouts.mod": {
+		"defaultMessage": "Mods page"
+	},
+	"settings.display.project-list-layouts.mode.grid": {
+		"defaultMessage": "Grid"
+	},
+	"settings.display.project-list-layouts.mode.rows": {
+		"defaultMessage": "Rows"
+	},
+	"settings.display.project-list-layouts.modpack": {
+		"defaultMessage": "Modpacks page"
+	},
+	"settings.display.project-list-layouts.plugin": {
+		"defaultMessage": "Plugins page"
+	},
+	"settings.display.project-list-layouts.resourcepack": {
+		"defaultMessage": "Resource Packs page"
+	},
+	"settings.display.project-list-layouts.server": {
+		"defaultMessage": "Servers page"
+	},
+	"settings.display.project-list-layouts.shader": {
+		"defaultMessage": "Shaders page"
+	},
+	"settings.display.project-list-layouts.title": {
+		"defaultMessage": "Project list layouts"
+	},
+	"settings.display.project-list-layouts.user": {
+		"defaultMessage": "User profile pages"
+	},
+	"settings.display.sidebar.advanced-rendering.description": {
+		"defaultMessage": "Enables advanced rendering such as blur effects that may cause performance issues without hardware-accelerated rendering."
+	},
+	"settings.display.sidebar.advanced-rendering.title": {
+		"defaultMessage": "Advanced rendering"
+	},
+	"settings.display.sidebar.external-links-new-tab.description": {
+		"defaultMessage": "Make links which go outside of the platform open in a new tab. No matter this setting, links on the same domain and in Markdown descriptions will open in the same tab, and links on ads and edit pages will open in a new tab."
+	},
+	"settings.display.sidebar.external-links-new-tab.title": {
+		"defaultMessage": "Open external links in new tab"
+	},
+	"settings.display.sidebar.left-aligned-content-sidebar.description": {
+		"defaultMessage": "Aligns the sidebar to the left of the page's content."
+	},
+	"settings.display.sidebar.left-aligned-content-sidebar.title": {
+		"defaultMessage": "Left-aligned sidebar on content pages"
+	},
+	"settings.display.sidebar.right-aligned-filters-sidebar.description": {
+		"defaultMessage": "Aligns the filters sidebar to the right of the search results."
+	},
+	"settings.display.sidebar.right-aligned-filters-sidebar.title": {
+		"defaultMessage": "Right-aligned filters sidebar on search pages"
+	},
+	"settings.display.theme.aurora": {
+		"defaultMessage": "Aurora"
+	},
+	"settings.display.theme.dark": {
+		"defaultMessage": "Diamond"
+	},
+	"settings.display.theme.deepslate": {
+		"defaultMessage": "Deepslate"
+	},
+	"settings.display.theme.description": {
+		"defaultMessage": "Select your preferred color theme."
+	},
+	"settings.display.theme.ender": {
+		"defaultMessage": "Ender"
+	},
+	"settings.display.theme.grass": {
+		"defaultMessage": "Grass block"
+	},
+	"settings.display.theme.lapis": {
+		"defaultMessage": "Lapis"
+	},
+	"settings.display.theme.light": {
+		"defaultMessage": "Light"
+	},
+	"settings.display.theme.netherite": {
+		"defaultMessage": "Netherite"
+	},
+	"settings.display.theme.oled": {
+		"defaultMessage": "OLED"
+	},
+	"settings.display.theme.preferred-dark-theme": {
+		"defaultMessage": "Preferred dark theme"
+	},
+	"settings.display.theme.preferred-light-theme": {
+		"defaultMessage": "Preferred light theme"
+	},
+	"settings.display.theme.retro": {
+		"defaultMessage": "Retro"
+	},
+	"settings.display.theme.skyline": {
+		"defaultMessage": "Skyline"
+	},
+	"settings.display.theme.sync-across-devices": {
+		"defaultMessage": "Sync theme across devices"
+	},
+	"settings.display.theme.sync-across-devices.description": {
+		"defaultMessage": "Use this theme everywhere you're signed in. Turn this off to keep a separate theme on this device."
+	},
+	"settings.display.theme.sync-across-devices.sign-in-tooltip": {
+		"defaultMessage": "Sign into the content library to sync theme"
+	},
+	"settings.display.theme.system": {
+		"defaultMessage": "Sync with system"
+	},
+	"settings.display.theme.title": {
+		"defaultMessage": "Color theme"
+	},
+	"settings.feature-flags.title": {
+		"defaultMessage": "Feature flags"
+	},
+	"settings.form.group.optional": {
+		"defaultMessage": "(optional)"
+	},
+	"settings.language.categories.default": {
+		"defaultMessage": "Standard languages"
+	},
+	"settings.language.categories.search-result": {
+		"defaultMessage": "Search results"
+	},
+	"settings.language.description": {
+		"defaultMessage": "Choose your preferred language for the {platform}. Translations are contributed by volunteers <crowdin-link>on Crowdin</crowdin-link>."
+	},
+	"settings.language.languages.search-field.placeholder": {
+		"defaultMessage": "Search for a language..."
+	},
+	"settings.language.languages.search-results-announcement": {
+		"defaultMessage": "{matches, plural, =0 {No languages match} one {# language matches} other {# languages match}} your search."
+	},
+	"settings.language.languages.search.no-results": {
+		"defaultMessage": "No languages match your search."
+	},
+	"settings.language.platform.app": {
+		"defaultMessage": "app"
+	},
+	"settings.language.platform.site": {
+		"defaultMessage": "site"
+	},
+	"settings.language.title": {
+		"defaultMessage": "Language"
+	},
+	"settings.language.warning": {
+		"defaultMessage": "Changing the {platform} language may cause some content to appear in English if a translation is not available. The {platform} is not yet fully translated, so some content may remain in English for certain languages."
+	},
+	"settings.pats.title": {
+		"defaultMessage": "Personal access tokens"
+	},
+	"settings.profile.navigation-title": {
+		"defaultMessage": "Profile"
+	},
+	"settings.sessions.title": {
+		"defaultMessage": "Sessions"
+	},
+	"settings.social.title": {
+		"defaultMessage": "Social"
+	},
+	"skins.select": {
+		"defaultMessage": "Select skin"
+	},
+	"skins.select-named": {
+		"defaultMessage": "Select {name}"
+	},
+	"tag.category.128x": {
+		"defaultMessage": "128x"
+	},
+	"tag.category.16x": {
+		"defaultMessage": "16x"
+	},
+	"tag.category.256x": {
+		"defaultMessage": "256x"
+	},
+	"tag.category.32x": {
+		"defaultMessage": "32x"
+	},
+	"tag.category.48x": {
+		"defaultMessage": "48x"
+	},
+	"tag.category.512x+": {
+		"defaultMessage": "512x or higher"
+	},
+	"tag.category.64x": {
+		"defaultMessage": "64x"
+	},
+	"tag.category.8x-": {
+		"defaultMessage": "8x or lower"
+	},
+	"tag.category.adventure": {
+		"defaultMessage": "Adventure"
+	},
+	"tag.category.adventure-mode": {
+		"defaultMessage": "Adventure Mode"
+	},
+	"tag.category.anarchy": {
+		"defaultMessage": "Anarchy"
+	},
+	"tag.category.atmosphere": {
+		"defaultMessage": "Atmosphere"
+	},
+	"tag.category.audio": {
+		"defaultMessage": "Audio"
+	},
+	"tag.category.battle-royale": {
+		"defaultMessage": "Battle Royale"
+	},
+	"tag.category.bedwars": {
+		"defaultMessage": "Bed Wars"
+	},
+	"tag.category.blocks": {
+		"defaultMessage": "Blocks"
+	},
+	"tag.category.bloom": {
+		"defaultMessage": "Bloom"
+	},
+	"tag.category.bosses": {
+		"defaultMessage": "Bosses"
+	},
+	"tag.category.cartoon": {
+		"defaultMessage": "Cartoon"
+	},
+	"tag.category.challenging": {
+		"defaultMessage": "Challenging"
+	},
+	"tag.category.classes": {
+		"defaultMessage": "Classes"
+	},
+	"tag.category.colored-lighting": {
+		"defaultMessage": "Colored Lighting"
+	},
+	"tag.category.combat": {
+		"defaultMessage": "Combat"
+	},
+	"tag.category.competitive": {
+		"defaultMessage": "Competitive"
+	},
+	"tag.category.core-shaders": {
+		"defaultMessage": "Core Shaders"
+	},
+	"tag.category.creative-mode": {
+		"defaultMessage": "Creative Mode"
+	},
+	"tag.category.creator-community": {
+		"defaultMessage": "Creator Community"
+	},
+	"tag.category.crossplay": {
+		"defaultMessage": "Crossplay"
+	},
+	"tag.category.cursed": {
+		"defaultMessage": "Cursed"
+	},
+	"tag.category.custom-content": {
+		"defaultMessage": "Custom Content"
+	},
+	"tag.category.decoration": {
+		"defaultMessage": "Decoration"
+	},
+	"tag.category.dungeons": {
+		"defaultMessage": "Dungeons"
+	},
+	"tag.category.economy": {
+		"defaultMessage": "Economy"
+	},
+	"tag.category.entities": {
+		"defaultMessage": "Entities"
+	},
+	"tag.category.environment": {
+		"defaultMessage": "Environment"
+	},
+	"tag.category.equipment": {
+		"defaultMessage": "Equipment"
+	},
+	"tag.category.factions": {
+		"defaultMessage": "Factions"
+	},
+	"tag.category.fantasy": {
+		"defaultMessage": "Fantasy"
+	},
+	"tag.category.foliage": {
+		"defaultMessage": "Foliage"
+	},
+	"tag.category.fonts": {
+		"defaultMessage": "Fonts"
+	},
+	"tag.category.food": {
+		"defaultMessage": "Food"
+	},
+	"tag.category.game-mechanics": {
+		"defaultMessage": "Game Mechanics"
+	},
+	"tag.category.gens": {
+		"defaultMessage": "Gens"
+	},
+	"tag.category.gui": {
+		"defaultMessage": "GUI"
+	},
+	"tag.category.hardcore-mode": {
+		"defaultMessage": "Hardcore Mode"
+	},
+	"tag.category.high": {
+		"defaultMessage": "High"
+	},
+	"tag.category.items": {
+		"defaultMessage": "Items"
+	},
+	"tag.category.keep-inventory": {
+		"defaultMessage": "Keep Inventory"
+	},
+	"tag.category.kitchen-sink": {
+		"defaultMessage": "Kitchen Sink"
+	},
+	"tag.category.kitpvp": {
+		"defaultMessage": "Kit PvP"
+	},
+	"tag.category.library": {
+		"defaultMessage": "Library"
+	},
+	"tag.category.lifesteal": {
+		"defaultMessage": "Lifesteal"
+	},
+	"tag.category.lightweight": {
+		"defaultMessage": "Lightweight"
+	},
+	"tag.category.locale": {
+		"defaultMessage": "Locale"
+	},
+	"tag.category.low": {
+		"defaultMessage": "Low"
+	},
+	"tag.category.magic": {
+		"defaultMessage": "Magic"
+	},
+	"tag.category.management": {
+		"defaultMessage": "Management"
+	},
+	"tag.category.media": {
+		"defaultMessage": "Media"
+	},
+	"tag.category.medium": {
+		"defaultMessage": "Medium"
+	},
+	"tag.category.microgames": {
+		"defaultMessage": "Microgames"
+	},
+	"tag.category.minigame": {
+		"defaultMessage": "Minigame"
+	},
+	"tag.category.minigames": {
+		"defaultMessage": "Minigames"
+	},
+	"tag.category.mmo": {
+		"defaultMessage": "MMO"
+	},
+	"tag.category.mobs": {
+		"defaultMessage": "Mobs"
+	},
+	"tag.category.modded": {
+		"defaultMessage": "Modded"
+	},
+	"tag.category.models": {
+		"defaultMessage": "Models"
+	},
+	"tag.category.multiplayer": {
+		"defaultMessage": "Multiplayer"
+	},
+	"tag.category.network": {
+		"defaultMessage": "Network"
+	},
+	"tag.category.offline-mode": {
+		"defaultMessage": "Offline Mode"
+	},
+	"tag.category.oneblock": {
+		"defaultMessage": "One Block"
+	},
+	"tag.category.op": {
+		"defaultMessage": "OP"
+	},
+	"tag.category.optimization": {
+		"defaultMessage": "Optimization"
+	},
+	"tag.category.parkour": {
+		"defaultMessage": "Parkour"
+	},
+	"tag.category.path-tracing": {
+		"defaultMessage": "Path Tracing"
+	},
+	"tag.category.pbr": {
+		"defaultMessage": "PBR"
+	},
+	"tag.category.personal-worlds": {
+		"defaultMessage": "Personal Worlds"
+	},
+	"tag.category.plots": {
+		"defaultMessage": "Plots"
+	},
+	"tag.category.pokemon": {
+		"defaultMessage": "Pokémon"
+	},
+	"tag.category.potato": {
+		"defaultMessage": "Potato"
+	},
+	"tag.category.prison": {
+		"defaultMessage": "Prison"
+	},
+	"tag.category.pve": {
+		"defaultMessage": "PvE"
+	},
+	"tag.category.pvp": {
+		"defaultMessage": "PvP"
+	},
+	"tag.category.questing": {
+		"defaultMessage": "Questing"
+	},
+	"tag.category.quests": {
+		"defaultMessage": "Quests"
+	},
+	"tag.category.racing": {
+		"defaultMessage": "Racing"
+	},
+	"tag.category.realistic": {
+		"defaultMessage": "Realistic"
+	},
+	"tag.category.recording-smp": {
+		"defaultMessage": "Recording SMP"
+	},
+	"tag.category.reflections": {
+		"defaultMessage": "Reflections"
+	},
+	"tag.category.roleplay": {
+		"defaultMessage": "Roleplay"
+	},
+	"tag.category.rpg": {
+		"defaultMessage": "RPG"
+	},
+	"tag.category.screenshot": {
+		"defaultMessage": "Screenshot"
+	},
+	"tag.category.semi-realistic": {
+		"defaultMessage": "Semi Realistic"
+	},
+	"tag.category.shadows": {
+		"defaultMessage": "Shadows"
+	},
+	"tag.category.simplistic": {
+		"defaultMessage": "Simplistic"
+	},
+	"tag.category.skyblock": {
+		"defaultMessage": "Skyblock"
+	},
+	"tag.category.smp": {
+		"defaultMessage": "SMP"
+	},
+	"tag.category.social": {
+		"defaultMessage": "Social"
+	},
+	"tag.category.storage": {
+		"defaultMessage": "Storage"
+	},
+	"tag.category.survival-mode": {
+		"defaultMessage": "Survival Mode"
+	},
+	"tag.category.teams": {
+		"defaultMessage": "Teams"
+	},
+	"tag.category.technical": {
+		"defaultMessage": "Technical"
+	},
+	"tag.category.technology": {
+		"defaultMessage": "Technology"
+	},
+	"tag.category.themed": {
+		"defaultMessage": "Themed"
+	},
+	"tag.category.towns": {
+		"defaultMessage": "Towns"
+	},
+	"tag.category.transportation": {
+		"defaultMessage": "Transportation"
+	},
+	"tag.category.tweaks": {
+		"defaultMessage": "Tweaks"
+	},
+	"tag.category.utility": {
+		"defaultMessage": "Utility"
+	},
+	"tag.category.vanilla-like": {
+		"defaultMessage": "Vanilla Like"
+	},
+	"tag.category.whitelisted": {
+		"defaultMessage": "Whitelisted"
+	},
+	"tag.category.world-resets": {
+		"defaultMessage": "World Resets"
+	},
+	"tag.category.worldgen": {
+		"defaultMessage": "World Generation"
+	},
+	"tag.loader.babric": {
+		"defaultMessage": "Babric"
+	},
+	"tag.loader.bta-babric": {
+		"defaultMessage": "BTA (Babric)"
+	},
+	"tag.loader.bukkit": {
+		"defaultMessage": "Bukkit"
+	},
+	"tag.loader.bungeecord": {
+		"defaultMessage": "BungeeCord"
+	},
+	"tag.loader.canvas": {
+		"defaultMessage": "Canvas"
+	},
+	"tag.loader.datapack": {
+		"defaultMessage": "Data Pack"
+	},
+	"tag.loader.fabric": {
+		"defaultMessage": "Fabric"
+	},
+	"tag.loader.folia": {
+		"defaultMessage": "Folia"
+	},
+	"tag.loader.forge": {
+		"defaultMessage": "Forge"
+	},
+	"tag.loader.geyser": {
+		"defaultMessage": "Geyser Extension"
+	},
+	"tag.loader.iris": {
+		"defaultMessage": "Iris"
+	},
+	"tag.loader.java-agent": {
+		"defaultMessage": "Java Agent"
+	},
+	"tag.loader.legacy-fabric": {
+		"defaultMessage": "Legacy Fabric"
+	},
+	"tag.loader.liteloader": {
+		"defaultMessage": "LiteLoader"
+	},
+	"tag.loader.minecraft": {
+		"defaultMessage": "Resource Pack"
+	},
+	"tag.loader.modloader": {
+		"defaultMessage": "Risugami's ModLoader"
+	},
+	"tag.loader.mrpack": {
+		"defaultMessage": "Modpack"
+	},
+	"tag.loader.neoforge": {
+		"defaultMessage": "NeoForge"
+	},
+	"tag.loader.nilloader": {
+		"defaultMessage": "NilLoader"
+	},
+	"tag.loader.optifine": {
+		"defaultMessage": "OptiFine"
+	},
+	"tag.loader.ornithe": {
+		"defaultMessage": "Ornithe"
+	},
+	"tag.loader.paper": {
+		"defaultMessage": "Paper"
+	},
+	"tag.loader.purpur": {
+		"defaultMessage": "Purpur"
+	},
+	"tag.loader.quilt": {
+		"defaultMessage": "Quilt"
+	},
+	"tag.loader.rift": {
+		"defaultMessage": "Rift"
+	},
+	"tag.loader.spigot": {
+		"defaultMessage": "Spigot"
+	},
+	"tag.loader.sponge": {
+		"defaultMessage": "Sponge"
+	},
+	"tag.loader.vanilla": {
+		"defaultMessage": "Vanilla Shader"
+	},
+	"tag.loader.velocity": {
+		"defaultMessage": "Velocity"
+	},
+	"tag.loader.waterfall": {
+		"defaultMessage": "Waterfall"
+	},
+	"time-frame-picker.apply": {
+		"defaultMessage": "Apply"
+	},
+	"time-frame-picker.cancel": {
+		"defaultMessage": "Cancel"
+	},
+	"time-frame-picker.clear-range": {
+		"defaultMessage": "Clear"
+	},
+	"time-frame-picker.custom-range": {
+		"defaultMessage": "Custom fixed date range..."
+	},
+	"time-frame-picker.decrease-amount": {
+		"defaultMessage": "Decrease timeframe amount"
+	},
+	"time-frame-picker.empty-range": {
+		"defaultMessage": "No date range selected."
+	},
+	"time-frame-picker.end-date": {
+		"defaultMessage": "End date"
+	},
+	"time-frame-picker.increase-amount": {
+		"defaultMessage": "Increase timeframe amount"
+	},
+	"time-frame-picker.last-timeframe": {
+		"defaultMessage": "In the last {amount} {unit, select, hours {{amount, plural, one {hour} other {hours}}} days {{amount, plural, one {day} other {days}}} weeks {{amount, plural, one {week} other {weeks}}} months {{amount, plural, one {month} other {months}}} other {days}}"
+	},
+	"time-frame-picker.last-timeframe-prefix": {
+		"defaultMessage": "In the last"
+	},
+	"time-frame-picker.option.all-time": {
+		"defaultMessage": "All time"
+	},
+	"time-frame-picker.option.last-14-days": {
+		"defaultMessage": "Last 14 days"
+	},
+	"time-frame-picker.option.last-180-days": {
+		"defaultMessage": "Last 180 days"
+	},
+	"time-frame-picker.option.last-30-days": {
+		"defaultMessage": "Last 30 days"
+	},
+	"time-frame-picker.option.last-7-days": {
+		"defaultMessage": "Last 7 days"
+	},
+	"time-frame-picker.option.last-90-days": {
+		"defaultMessage": "Last 90 days"
+	},
+	"time-frame-picker.option.today": {
+		"defaultMessage": "Today"
+	},
+	"time-frame-picker.option.year-to-date": {
+		"defaultMessage": "Year to date"
+	},
+	"time-frame-picker.option.yesterday": {
+		"defaultMessage": "Yesterday"
+	},
+	"time-frame-picker.select-timeframe": {
+		"defaultMessage": "Select timeframe"
+	},
+	"time-frame-picker.selected-range": {
+		"defaultMessage": "Selected"
+	},
+	"time-frame-picker.selecting-range": {
+		"defaultMessage": "Selecting"
+	},
+	"time-frame-picker.start-date": {
+		"defaultMessage": "Start date"
+	},
+	"time-frame-picker.timeframe-amount": {
+		"defaultMessage": "Timeframe amount"
+	},
+	"time-frame-picker.timeframe-unit": {
+		"defaultMessage": "Timeframe unit"
+	},
+	"time-frame-picker.unit.days": {
+		"defaultMessage": "days"
+	},
+	"time-frame-picker.unit.hours": {
+		"defaultMessage": "hours"
+	},
+	"time-frame-picker.unit.months": {
+		"defaultMessage": "months"
+	},
+	"time-frame-picker.unit.weeks": {
+		"defaultMessage": "weeks"
+	},
+	"ui.component.unsaved-changes-popup.body": {
+		"defaultMessage": "You have unsaved changes."
+	},
+	"ui.confirm-leave-modal.body": {
+		"defaultMessage": "You have unsaved changes that will be lost if you leave this page."
+	},
+	"ui.confirm-leave-modal.header": {
+		"defaultMessage": "You have unsaved changes"
+	},
+	"ui.confirm-leave-modal.leave": {
+		"defaultMessage": "Leave page"
+	},
+	"ui.confirm-leave-modal.stay": {
+		"defaultMessage": "Stay on page"
+	},
+	"ui.confirm-leave-modal.title": {
+		"defaultMessage": "Leave page?"
+	},
+	"ui.pagination.go-to-page": {
+		"defaultMessage": "Go to page"
+	},
+	"ui.pagination.next-page": {
+		"defaultMessage": "Next page"
+	},
+	"ui.pagination.previous-page": {
+		"defaultMessage": "Previous page"
+	},
+	"ui.stacked-admonitions.alert-count": {
+		"defaultMessage": "{count, plural, one {# alert} other {# alerts}}"
+	},
+	"ui.stacked-admonitions.dismiss-all": {
+		"defaultMessage": "Dismiss all"
+	},
+	"unknown-file-warning-modal.dont-install": {
+		"defaultMessage": "Dont install"
+	},
+	"unknown-file-warning-modal.dont-show-again": {
+		"defaultMessage": "Don’t show this warning again"
+	},
+	"unknown-file-warning-modal.header": {
+		"defaultMessage": "Confirm installation"
+	},
+	"unknown-file-warning-modal.install-anyway": {
+		"defaultMessage": "Install anyway"
+	},
+	"unknown-file-warning-modal.malware-warning": {
+		"defaultMessage": "Malware is often distributed through mod files by sharing them on platforms like Discord."
+	},
+	"unknown-file-warning-modal.mod-warning-body": {
+		"defaultMessage": " isn’t from the content library. We strongly recommend only installing files from sources you trust."
+	},
+	"unknown-file-warning-modal.mod-warning-title": {
+		"defaultMessage": "Unknown file warning"
+	},
+	"unknown-file-warning-modal.modpack-warning-body": {
+		"defaultMessage": " contains files that aren’t from the content library. We strongly recommend only installing files from sources you trust."
+	},
+	"unknown-file-warning-modal.modpack-warning-title": {
+		"defaultMessage": "Unknown files warning"
+	},
+	"unknown-file-warning-modal.reviewed-files": {
+		"defaultMessage": "Files that aren't from the content library aren't reviewed."
+	},
+	"unknown-file-warning-modal.unrecognized-files": {
+		"defaultMessage": "Unrecognized files"
+	},
+	"update-all-modal.changelog-for": {
+		"defaultMessage": "Changelog for {project}"
+	},
+	"update-all-modal.changelog-loaded": {
+		"defaultMessage": "Changelog loaded."
+	},
+	"update-all-modal.close-changelog": {
+		"defaultMessage": "Close changelog"
+	},
+	"update-all-modal.current-version": {
+		"defaultMessage": "Current version"
+	},
+	"update-all-modal.empty": {
+		"defaultMessage": "No updates available."
+	},
+	"update-all-modal.header": {
+		"defaultMessage": "Update projects"
+	},
+	"update-all-modal.loading": {
+		"defaultMessage": "Loading updates…"
+	},
+	"update-all-modal.loading-changelog": {
+		"defaultMessage": "Loading changelog…"
+	},
+	"update-all-modal.new-version": {
+		"defaultMessage": "New version"
+	},
+	"update-all-modal.no-changelog": {
+		"defaultMessage": "No changelog provided for this version."
+	},
+	"update-all-modal.no-compatible-updates": {
+		"defaultMessage": "No compatible updates available."
+	},
+	"update-all-modal.no-version": {
+		"defaultMessage": "No compatible updates"
+	},
+	"update-all-modal.project": {
+		"defaultMessage": "Project"
+	},
+	"update-all-modal.project-list": {
+		"defaultMessage": "Project updates"
+	},
+	"update-all-modal.results": {
+		"defaultMessage": "{count, plural, one {# project ready to update} other {# projects ready to update}}"
+	},
+	"update-all-modal.select-all": {
+		"defaultMessage": "Select all projects"
+	},
+	"update-all-modal.select-project": {
+		"defaultMessage": "Select {project} for update"
+	},
+	"update-all-modal.select-version": {
+		"defaultMessage": "New version for {project}"
+	},
+	"update-all-modal.update": {
+		"defaultMessage": "Update {count, plural, one {# project} other {# projects}}"
+	},
+	"update-all-modal.versions": {
+		"defaultMessage": "Current version / New version"
+	},
+	"update-all-modal.view": {
+		"defaultMessage": "View"
+	},
+	"update-all-modal.view-changelog": {
+		"defaultMessage": "View changelog for {project}"
+	},
+	"update-all-modal.warning": {
+		"defaultMessage": "We can’t guarantee updates are safe for your worlds. Review the changelogs and consider a backup."
+	},
+	"update-all-modal.warning-server": {
+		"defaultMessage": "We can’t guarantee updates will be safe for your server. Review the changelogs and consider a backup."
+	},
+	"user-restrictions.group.collections": {
+		"defaultMessage": "Collections"
+	},
+	"user-restrictions.group.create-projects": {
+		"defaultMessage": "Create projects"
+	},
+	"user-restrictions.group.edit-projects": {
+		"defaultMessage": "Edit projects"
+	},
+	"user-restrictions.group.organizations": {
+		"defaultMessage": "Organizations"
+	},
+	"user-restrictions.group.profile": {
+		"defaultMessage": "Profile"
+	},
+	"user-restrictions.group.versions": {
+		"defaultMessage": "Versions"
+	},
+	"user-restrictions.scope.collection-create": {
+		"defaultMessage": "Create collections"
+	},
+	"user-restrictions.scope.collection-delete": {
+		"defaultMessage": "Delete collections"
+	},
+	"user-restrictions.scope.collection-write": {
+		"defaultMessage": "Edit collections"
+	},
+	"user-restrictions.scope.organization-create": {
+		"defaultMessage": "Create organizations"
+	},
+	"user-restrictions.scope.organization-delete": {
+		"defaultMessage": "Delete organizations"
+	},
+	"user-restrictions.scope.organization-write": {
+		"defaultMessage": "Edit organizations"
+	},
+	"user-restrictions.scope.project-create": {
+		"defaultMessage": "Create new projects"
+	},
+	"user-restrictions.scope.project-delete": {
+		"defaultMessage": "Delete projects"
+	},
+	"user-restrictions.scope.project-write": {
+		"defaultMessage": "Edit projects, manage team members, and accept invites"
+	},
+	"user-restrictions.scope.user-write": {
+		"defaultMessage": "Edit profile, follow projects, and change preferences"
+	},
+	"user-restrictions.scope.version-create": {
+		"defaultMessage": "Upload new versions"
+	},
+	"user-restrictions.scope.version-delete": {
+		"defaultMessage": "Delete versions and version files"
+	},
+	"user-restrictions.scope.version-write": {
+		"defaultMessage": "Edit versions and add files to versions"
+	},
+	"version.content.name": {
+		"defaultMessage": "Name"
+	},
+	"version.content.version": {
+		"defaultMessage": "Version"
+	},
+	"version.file-type.dev-jar": {
+		"defaultMessage": "Dev jar"
+	},
+	"version.file-type.javadoc-jar": {
+		"defaultMessage": "Javadocs jar"
+	},
+	"version.file-type.optional-resource-pack": {
+		"defaultMessage": "Optional resource pack"
+	},
+	"version.file-type.primary": {
+		"defaultMessage": "Primary"
+	},
+	"version.file-type.required-resource-pack": {
+		"defaultMessage": "Required resource pack"
+	},
+	"version.file-type.signature": {
+		"defaultMessage": "Signature file"
+	},
+	"version.file-type.sources-jar": {
+		"defaultMessage": "Sources jar"
+	},
+	"version.file-type.unknown": {
+		"defaultMessage": "Other"
+	},
+	"version.section.changes": {
+		"defaultMessage": "Changes"
+	},
+	"version.section.compatibility": {
+		"defaultMessage": "Compatibility"
+	},
+	"version.section.content": {
+		"defaultMessage": "Content"
+	},
+	"version.section.content.search-placeholder": {
+		"defaultMessage": "Search content..."
+	},
+	"version.section.dependencies.any-compatible-version": {
+		"defaultMessage": "Any compatible version"
+	},
+	"version.section.dependencies.any-version": {
+		"defaultMessage": "Any version"
+	},
+	"version.section.dependencies.unavailable-version": {
+		"defaultMessage": "Unavailable version"
+	},
+	"version.section.dependencies.unavailable-version.description": {
+		"defaultMessage": "This version may have been deleted or is being reviewed by moderators."
+	},
+	"version.section.dependencies.unavailable-version.description.required": {
+		"defaultMessage": "The required version may have been deleted or is being reviewed by moderators."
+	},
+	"version.section.files": {
+		"defaultMessage": "Files"
+	},
+	"version.section.included-content": {
+		"defaultMessage": "Included content"
+	},
+	"version.section.known-incompatibilities": {
+		"defaultMessage": "Known incompatibilities"
+	},
+	"version.section.no-changes": {
+		"defaultMessage": "No changelog was provided."
+	},
+	"version.section.no-modpack-mod-loader": {
+		"defaultMessage": "No mod loader"
+	},
+	"version.section.optional-dependencies": {
+		"defaultMessage": "Optional dependencies"
+	},
+	"version.section.required-content": {
+		"defaultMessage": "Required content"
+	},
+	"version.section.supplementary-resources": {
+		"defaultMessage": "Supplementary resources"
+	},
+	"version.supplementary-resources.file": {
+		"defaultMessage": "File"
+	},
+	"version.supplementary-resources.size": {
+		"defaultMessage": "Size"
+	},
+	"version.supplementary-resources.type": {
+		"defaultMessage": "Type"
+	}
+}

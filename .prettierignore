@@ -1,0 +1,12 @@
+Cargo.lock
+pnpm-lock.yaml
+.github/**/*.png
+**/*.rs
+**/*.svg
+**/.sqlx
+
+# Migrations existing before Prettier formatted them shall always be ignored,
+# as any changes to them will break existing deployments
+packages/app-lib/migrations/**
+
+packages/app-lib/java/build

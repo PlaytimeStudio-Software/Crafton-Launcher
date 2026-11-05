@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+	<defs>
+		<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#0d1c27" />
+			<stop offset="1" stop-color="#081118" />
+		</linearGradient>
+		<linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#e6fdff" stop-opacity="0" />
+			<stop offset="0.35" stop-color="#e6fdff" stop-opacity="0.9" />
+			<stop offset="1" stop-color="#ffffff" />
+		</linearGradient>
+		<linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+			<stop offset="0" stop-color="#22d3ee" stop-opacity="0" />
+			<stop offset="1" stop-color="#22d3ee" stop-opacity="0.55" />
+		</linearGradient>
+		<linearGradient id="top" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#7ef0fb" />
+			<stop offset="1" stop-color="#2cc9c0" />
+		</linearGradient>
+		<filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+			<feGaussianBlur stdDeviation="28" />
+		</filter>
+		<filter id="soft" x="-50%" y="-50%" width="200%" height="200%">
+			<feGaussianBlur stdDeviation="10" />
+		</filter>
+		<clipPath id="tile">
+			<rect x="46" y="46" width="932" height="932" rx="206" />
+		</clipPath>
+	</defs>
+	<rect x="32" y="32" width="960" height="960" rx="220" fill="#22d3ee" />
+	<rect x="46" y="46" width="932" height="932" rx="206" fill="url(#bg)" />
+	<g clip-path="url(#tile)">
+		<rect x="392" y="40" width="240" height="640" fill="url(#glow)" filter="url(#blur)" />
+		<rect x="446" y="40" width="132" height="640" fill="#22d3ee" opacity="0.35" filter="url(#soft)" />
+		<g fill="#22d3ee">
+			<rect x="214" y="250" width="58" height="58" />
+			<rect x="716" y="226" width="66" height="66" />
+			<rect x="300" y="430" width="40" height="40" fill="#67e8f9" />
+			<rect x="690" y="404" width="48" height="48" fill="#67e8f9" />
+			<rect x="790" y="508" width="36" height="36" />
+		</g>
+		<polygon points="512,560 788,698 512,836 236,698" fill="#22d3ee" opacity="0.5" filter="url(#blur)" />
+		<polygon points="236,698 512,836 512,910 236,772" fill="#0e9fb3" />
+		<polygon points="788,698 512,836 512,910 788,772" fill="#0a6c84" />
+		<polygon points="512,560 788,698 512,836 236,698" fill="url(#top)" />
+		<polygon points="512,560 650,629 512,698 374,629" fill="#a5f6fd" opacity="0.55" />
+		<polygon points="512,640 604,686 512,732 420,686" fill="#ffffff" filter="url(#soft)" />
+		<polygon points="512,650 588,688 512,726 436,688" fill="#ffffff" />
+		<rect x="466" y="40" width="92" height="650" fill="url(#beam)" />
+	</g>
+</svg>

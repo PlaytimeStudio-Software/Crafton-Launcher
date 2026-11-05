@@ -1,0 +1,3 @@
+{
+	"extends": "@crafton/tooling-config/typescript/vue.json"
+}

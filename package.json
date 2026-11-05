@@ -1,0 +1,31 @@
+{
+	"name": "crafton-launcher",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"dev": "turbo run dev --filter=@crafton/app",
+		"build": "turbo run build --filter=@crafton/app",
+		"app:dev": "turbo run dev --filter=@crafton/app",
+		"app:build": "turbo run build --filter=@crafton/app",
+		"lint": "turbo run lint --continue",
+		"test": "turbo run test --continue",
+		"fix": "turbo run fix format --continue",
+		"prepr": "turbo run prepr --continue",
+		"icons:add": "pnpm --filter @crafton/assets icons:add"
+	},
+	"devDependencies": {
+		"@crafton/tooling-config": "workspace:*",
+		"@tailwindcss/container-queries": "^0.1.1",
+		"@types/node": "^24",
+		"@vue/compiler-dom": "^3.5.43",
+		"@vue/compiler-sfc": "^3.5.43",
+		"prettier": "^3.3.2",
+		"turbo": "^2.11.5",
+		"vue": "^3.5.43"
+	},
+	"packageManager": "pnpm@12.11.2",
+	"engines": {
+		"node": ">=24.15.0"
+	},
+	"prettier": "@crafton/tooling-config/prettier.config.cjs"
+}
