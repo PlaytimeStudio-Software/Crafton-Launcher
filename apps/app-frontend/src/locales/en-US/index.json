@@ -2104,5 +2104,11 @@
 	},
 	"settings.sidebar.label.display": {
 		"message": "Display"
+	},
+	"app.settings.license": {
+		"message": "GPL-3.0 license"
+	},
+	"app.settings.source-code": {
+		"message": "Source code"
 	}
 }

@@ -23,6 +23,7 @@ import {
 } from '@crafton/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
+import { openUrl } from '@tauri-apps/plugin-opener'
 import { platform as getOsPlatform, version as getOsVersion } from '@tauri-apps/plugin-os'
 import { computed, ref } from 'vue'
 
@@ -292,6 +293,8 @@ function devModeCount() {
 	}
 }
 
+const SOURCE_URL = 'https://github.com/PlaytimeStudio-Software/Crafton-Launcher'
+
 const messages = defineMessages({
 	downloading: {
 		id: 'app.settings.downloading',
@@ -300,6 +303,14 @@ const messages = defineMessages({
 	appVersion: {
 		id: 'app.settings.app-version',
 		defaultMessage: 'Crafton Launcher {version}',
+	},
+	license: {
+		id: 'app.settings.license',
+		defaultMessage: 'GPL-3.0 license',
+	},
+	sourceCode: {
+		id: 'app.settings.source-code',
+		defaultMessage: 'Source code',
 	},
 	macos: {
 		id: 'app.settings.operating-system.macos',
@@ -371,6 +382,15 @@ const messages = defineMessages({
 							<span v-if="appInfo.osPlatform === 'macos'">{{ formatMessage(messages.macos) }}</span>
 							<span v-else class="capitalize">{{ appInfo.osPlatform }}</span>
 							{{ appInfo.osVersion }}
+						</p>
+						<p class="m-0">
+							{{ formatMessage(messages.license) }} ·
+							<button
+								class="cursor-pointer border-none bg-transparent p-0 text-inherit underline"
+								@click="openUrl(SOURCE_URL)"
+							>
+								{{ formatMessage(messages.sourceCode) }}
+							</button>
 						</p>
 					</div>
 				</div>
