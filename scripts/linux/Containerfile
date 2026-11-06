@@ -1,0 +1,19 @@
+FROM ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        build-essential curl wget file git ca-certificates pkg-config xz-utils \
+        libwebkit2gtk-4.1-dev libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev \
+        xdg-utils desktop-file-utils openjdk-17-jdk-headless \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG NODE_VERSION=24.15.0
+RUN curl -fsSL https://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}-linux-x64.tar.xz \
+        | tar -xJ -C /usr/local --strip-components=1 \
+    && npm install -g pnpm@12.11.2
+
+ENV RUSTUP_HOME=/usr/local/rustup CARGO_HOME=/usr/local/cargo PATH=/usr/local/cargo/bin:$PATH
+RUN curl -fsSL https://sh.rustup.rs | sh -s -- -y --profile minimal --default-toolchain 1.95.0
+
+ENV APPIMAGE_EXTRACT_AND_RUN=1 SQLX_OFFLINE=true
+WORKDIR /src

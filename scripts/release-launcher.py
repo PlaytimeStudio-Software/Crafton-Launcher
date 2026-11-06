@@ -13,6 +13,8 @@ RELEASES_REPOS = ["PlaytimeStudio-Software/Crafton-Launcher"]
 ROOT = Path(__file__).resolve().parent.parent
 APP_DIR = ROOT / "apps" / "app"
 BUNDLE_DIR = ROOT / "target" / "release" / "bundle" / "nsis"
+APPIMAGE_DIR = ROOT / "target" / "release" / "bundle" / "appimage"
+WSL_DISTRO = os.environ.get("CRAFTON_WSL_DISTRO", "FedoraLinux-44")
 
 
 def version() -> str:
@@ -40,6 +42,22 @@ def build() -> None:
         cwd=APP_DIR,
         env=env,
         shell=True,
+        check=True,
+    )
+
+
+def wsl_path(path: Path) -> str:
+    drive, rest = str(path.resolve()).split(":", 1)
+    return f"/mnt/{drive.lower()}{rest.replace(chr(92), '/')}"
+
+
+def build_linux() -> None:
+    env = dict(os.environ)
+    env["CRAFTON_SIGNING_KEY"] = wsl_path(signing_key())
+    env["WSLENV"] = "CRAFTON_SIGNING_KEY/u" if not env.get("WSLENV") else env["WSLENV"] + ":CRAFTON_SIGNING_KEY/u"
+    subprocess.run(
+        ["wsl", "-d", WSL_DISTRO, "-u", "root", "--", "bash", wsl_path(ROOT / "scripts" / "linux" / "build.sh")],
+        env=env,
         check=True,
     )
 
@@ -81,12 +99,15 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Build and publish a Crafton Launcher update")
     parser.add_argument("--notes", default="", help="what changed, shown in the update popup")
     parser.add_argument("--skip-build", action="store_true", help="publish the existing build")
+    parser.add_argument("--no-linux", action="store_true", help="publish Windows only")
     args = parser.parse_args()
 
     v = version()
     tag = f"v{v}"
     if not args.skip_build:
         build()
+        if not args.no_linux:
+            build_linux()
 
     installer = BUNDLE_DIR / f"Crafton Launcher_{v}_x64-setup.exe"
     signature = installer.with_name(installer.name + ".sig")
@@ -94,23 +115,31 @@ def main() -> None:
         if not path.is_file():
             sys.exit(f"Missing {path}. Build first, or check the version number.")
 
-    asset_name = f"Crafton-Launcher_{v}_x64-setup.exe"
+    assets = [(installer, signature, f"Crafton-Launcher_{v}_x64-setup.exe", "windows-x86_64")]
+    if not args.no_linux:
+        appimage = APPIMAGE_DIR / f"Crafton Launcher_{v}_amd64.AppImage"
+        appimage_sig = appimage.with_name(appimage.name + ".sig")
+        for path in (appimage, appimage_sig):
+            if not path.is_file():
+                sys.exit(f"Missing {path}. Build first, or pass --no-linux.")
+        assets.append((appimage, appimage_sig, f"Crafton-Launcher_{v}_amd64.AppImage", "linux-x86_64"))
+
     token = github_token()
     for repo in RELEASES_REPOS:
-        publish(repo, v, tag, args.notes, installer, signature, asset_name, token)
+        publish(repo, v, tag, args.notes, assets, token)
 
 
-def publish(repo, v, tag, notes, installer, signature, asset_name, token) -> None:
-    download_url = f"https://github.com/{repo}/releases/download/{tag}/{asset_name}"
+def publish(repo, v, tag, notes, assets, token) -> None:
     latest = {
         "version": v,
         "notes": notes,
         "pub_date": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "platforms": {
-            "windows-x86_64": {
+            platform: {
                 "signature": signature.read_text("utf-8").strip(),
-                "url": download_url,
+                "url": f"https://github.com/{repo}/releases/download/{tag}/{name}",
             }
+            for _, signature, name, platform in assets
         },
     }
     api = f"https://api.github.com/repos/{repo}"
@@ -125,13 +154,14 @@ def publish(repo, v, tag, notes, installer, signature, asset_name, token) -> Non
         },
     )
     upload = release["upload_url"].split("{")[0]
-    github(
-        "POST",
-        f"{upload}?name={urllib.parse.quote(asset_name)}",
-        token,
-        data=installer.read_bytes(),
-        content_type="application/octet-stream",
-    )
+    for path, _, name, _ in assets:
+        github(
+            "POST",
+            f"{upload}?name={urllib.parse.quote(name)}",
+            token,
+            data=path.read_bytes(),
+            content_type="application/octet-stream",
+        )
     github(
         "POST",
         f"{upload}?name=latest.json",
