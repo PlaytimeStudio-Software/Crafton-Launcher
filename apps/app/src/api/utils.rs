@@ -69,7 +69,6 @@ pub async fn featured_pack_latest(
 #[derive(Serialize)]
 pub struct FeaturedPackDownload {
     release: crafton_core::featured_pack::FeaturedPackRelease,
-    settings: Option<crafton_core::featured_pack::FeaturedPackSettings>,
     path: PathBuf,
 }
 
@@ -79,13 +78,7 @@ pub async fn featured_pack_download(
 ) -> Result<FeaturedPackDownload> {
     let (release, path) =
         crafton_core::featured_pack::download_latest(repo).await?;
-    let settings =
-        crafton_core::featured_pack::recommended_settings(repo).await?;
-    Ok(FeaturedPackDownload {
-        release,
-        settings,
-        path,
-    })
+    Ok(FeaturedPackDownload { release, path })
 }
 
 #[tauri::command]

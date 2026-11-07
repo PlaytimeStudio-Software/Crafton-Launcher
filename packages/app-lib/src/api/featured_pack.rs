@@ -18,13 +18,6 @@ pub struct FeaturedPackRelease {
     pub asset_url: String,
 }
 
-#[derive(Serialize, Deserialize, Debug, Clone)]
-pub struct FeaturedPackSettings {
-    pub memory_mb: Option<u32>,
-    #[serde(default)]
-    pub java_args: Vec<String>,
-}
-
 #[derive(Deserialize)]
 struct PackIndex {
     files: Vec<PackIndexFile>,
@@ -116,33 +109,6 @@ pub async fn latest_release(
                 asset_url: asset.browser_download_url,
             })
         }))
-}
-
-#[tracing::instrument]
-pub async fn recommended_settings(
-    repo: &str,
-) -> crate::Result<Option<FeaturedPackSettings>> {
-    validate_repo(repo)?;
-    let state = State::get().await?;
-    let settings = fetch_json::<FeaturedPackSettings>(
-        Method::GET,
-        &format!(
-            "https://raw.githubusercontent.com/{repo}/HEAD/launcher-settings.json"
-        ),
-        None,
-        None,
-        None,
-        &state.fetch_semaphore,
-        &state.pool,
-    )
-    .await;
-    match settings {
-        Ok(settings) => Ok(Some(settings)),
-        Err(e) => {
-            tracing::warn!("No recommended settings for {repo}: {e}");
-            Ok(None)
-        }
-    }
 }
 
 #[tracing::instrument]

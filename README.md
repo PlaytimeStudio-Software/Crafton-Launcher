@@ -45,7 +45,7 @@ This builds the signed installer and publishes it to this repository's releases,
 
 ## Workshop SMP modpack
 
-The home screen installs and updates the latest `.mrpack` release from `PlaytimeStudio-Software/Workshop-SMP`, set in `apps/app-frontend/src/config/featured-pack.ts`. Recommended memory and Java arguments come from `launcher-settings.json` in that repository.
+The home screen installs and updates the latest `.mrpack` release from `PlaytimeStudio-Software/Workshop-SMP`, set in `apps/app-frontend/src/config/featured-pack.ts`. Memory and Java arguments are left to the player.
 
 ## Data
 

@@ -17,7 +17,7 @@ import { useRouter } from 'vue-router'
 
 import { FEATURED_PACK_REPO } from '@/config/featured-pack'
 import {
-	applyRecommendedSettings,
+	clearAppliedSettings,
 	comparePackFiles,
 	featured_pack_download,
 	featured_pack_instance_mods,
@@ -147,13 +147,6 @@ async function installPack() {
 		if (newInstanceId) {
 			writeFeaturedPackRecord({ instanceId: newInstanceId, tag: download.release.tag, packFiles })
 			await wait_for_install_job(appEvents, job.job_id)
-			const applied = await applyRecommendedSettings(newInstanceId, download.settings, undefined)
-			writeFeaturedPackRecord({
-				instanceId: newInstanceId,
-				tag: download.release.tag,
-				applied,
-				packFiles,
-			})
 		}
 	} catch (error) {
 		handleError(error as Error)
@@ -173,15 +166,10 @@ async function reinstallPack() {
 		path: download.path,
 	})
 	await wait_for_install_job(appEvents, job.job_id)
-	const applied = await applyRecommendedSettings(
-		instance.id,
-		download.settings,
-		record.value?.applied,
-	)
+	await clearAppliedSettings(instance.id, record.value?.applied)
 	writeFeaturedPackRecord({
 		instanceId: instance.id,
 		tag: download.release.tag,
-		applied,
 		packFiles: packFiles ?? record.value?.packFiles,
 	})
 }
@@ -236,6 +224,22 @@ function openPack() {
 		router.push(`/instance/${encodeURIComponent(installedInstance.value.id)}`)
 	}
 }
+
+watch(
+	installedInstance,
+	async (instance) => {
+		const applied = record.value?.applied
+		if (!instance || !applied || !record.value) return
+		try {
+			await clearAppliedSettings(instance.id, applied)
+			const { applied: _, ...rest } = record.value
+			writeFeaturedPackRecord(rest)
+		} catch {
+			return
+		}
+	},
+	{ immediate: true },
+)
 
 watch(
 	[installedInstance, updateAvailable],

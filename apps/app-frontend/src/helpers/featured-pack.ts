@@ -2,7 +2,6 @@ import { invoke } from '@tauri-apps/api/core'
 import { ref } from 'vue'
 
 import { edit, get } from '@/helpers/instance'
-import { get_max_memory } from '@/helpers/jre'
 
 export interface FeaturedPackRelease {
 	tag: string
@@ -12,14 +11,8 @@ export interface FeaturedPackRelease {
 	asset_name: string
 }
 
-export interface FeaturedPackSettings {
-	memory_mb?: number | null
-	java_args?: string[]
-}
-
 export interface FeaturedPackDownload {
 	release: FeaturedPackRelease
-	settings?: FeaturedPackSettings | null
 	path: string
 }
 
@@ -104,53 +97,27 @@ export function writeFeaturedPackRecord(record: FeaturedPackRecord) {
 	}
 }
 
-const RESERVED_SYSTEM_MEMORY_MB = 3072
-const MIN_MEMORY_MB = 2048
-
 function sameArgs(a: string[] | undefined, b: string[] | undefined) {
 	return !!a && !!b && a.length === b.length && a.every((arg, i) => arg === b[i])
 }
 
-export async function applyRecommendedSettings(
+export async function clearAppliedSettings(
 	instanceId: string,
-	settings: FeaturedPackSettings | null | undefined,
-	previous: FeaturedPackRecord['applied'],
-): Promise<FeaturedPackRecord['applied']> {
-	if (!settings) return previous
+	applied: FeaturedPackRecord['applied'],
+): Promise<void> {
+	if (!applied) return
 	const instance = await get(instanceId)
-	if (!instance) return previous
+	if (!instance) return
 
 	const changes: Parameters<typeof edit>[1] = {}
-	const applied: NonNullable<FeaturedPackRecord['applied']> = { ...previous }
-
-	if (settings.memory_mb) {
-		const current = instance.memory?.maximum
-		if (current === undefined || current === previous?.memory_mb) {
-			let memory = settings.memory_mb
-			try {
-				const totalMb = Math.floor(Number(await get_max_memory()) / 1024)
-				if (totalMb > 0) {
-					memory = Math.min(memory, Math.max(MIN_MEMORY_MB, totalMb - RESERVED_SYSTEM_MEMORY_MB))
-				}
-			} catch {
-				memory = settings.memory_mb
-			}
-			changes.memory = { maximum: memory }
-			applied.memory_mb = memory
-		}
+	if (applied.memory_mb && instance.memory?.maximum === applied.memory_mb) {
+		changes.memory = null
 	}
-
-	const args = settings.java_args?.filter((arg) => arg.trim()) ?? []
-	if (args.length > 0) {
-		const current = instance.extra_launch_args
-		if (!current?.length || sameArgs(current, previous?.java_args)) {
-			changes.extra_launch_args = args
-			applied.java_args = args
-		}
+	if (applied.java_args?.length && sameArgs(instance.extra_launch_args, applied.java_args)) {
+		changes.extra_launch_args = null
 	}
 
 	if (Object.keys(changes).length > 0) {
 		await edit(instanceId, changes)
 	}
-	return applied
 }
