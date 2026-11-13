@@ -1,5 +1,5 @@
 import { invoke } from '@tauri-apps/api/core'
-import { ref } from 'vue'
+import { type Ref, ref } from 'vue'
 
 import { edit, get } from '@/helpers/instance'
 
@@ -29,14 +29,27 @@ export interface PackDrift {
 	disabled: string[]
 }
 
+/** The first pack keeps the key it always had, so existing installs are still recognised. */
+const LEGACY_PACK_ID = 'workshop-smp'
 const RECORD_KEY = 'crafton.featuredPack'
+const ACCESS_KEY = 'crafton.featuredPackKey'
 
-export async function featured_pack_latest(repo: string) {
-	return await invoke<FeaturedPackRelease | null>('plugin:utils|featured_pack_latest', { repo })
+function recordKey(packId: string) {
+	return packId === LEGACY_PACK_ID ? RECORD_KEY : `${RECORD_KEY}.${packId}`
 }
 
-export async function featured_pack_download(repo: string) {
-	return await invoke<FeaturedPackDownload>('plugin:utils|featured_pack_download', { repo })
+export async function featured_pack_latest(repo: string, token?: string | null) {
+	return await invoke<FeaturedPackRelease | null>('plugin:utils|featured_pack_latest', {
+		repo,
+		token: token || null,
+	})
+}
+
+export async function featured_pack_download(repo: string, token?: string | null) {
+	return await invoke<FeaturedPackDownload>('plugin:utils|featured_pack_download', {
+		repo,
+		token: token || null,
+	})
 }
 
 export async function featured_pack_mod_files(path: string) {
@@ -68,9 +81,9 @@ export function comparePackFiles(packFiles: string[], instanceFiles: string[]): 
 	return { added, missing, disabled }
 }
 
-function readFeaturedPackRecord(): FeaturedPackRecord | null {
+function readFeaturedPackRecord(packId: string): FeaturedPackRecord | null {
 	try {
-		const raw = window.localStorage.getItem(RECORD_KEY)
+		const raw = window.localStorage.getItem(recordKey(packId))
 		if (!raw) return null
 		const record = JSON.parse(raw) as Partial<FeaturedPackRecord>
 		return record.instanceId && record.tag
@@ -86,12 +99,57 @@ function readFeaturedPackRecord(): FeaturedPackRecord | null {
 	}
 }
 
-export const featuredPackRecord = ref<FeaturedPackRecord | null>(readFeaturedPackRecord())
+const records = new Map<string, Ref<FeaturedPackRecord | null>>()
 
-export function writeFeaturedPackRecord(record: FeaturedPackRecord) {
-	featuredPackRecord.value = record
+/** What is installed for one pack. The same ref is returned for the same pack everywhere. */
+export function useFeaturedPackRecord(packId: string): Ref<FeaturedPackRecord | null> {
+	let record = records.get(packId)
+	if (!record) {
+		record = ref<FeaturedPackRecord | null>(readFeaturedPackRecord(packId))
+		records.set(packId, record)
+	}
+	return record
+}
+
+export function writeFeaturedPackRecord(packId: string, record: FeaturedPackRecord) {
+	useFeaturedPackRecord(packId).value = record
 	try {
-		window.localStorage.setItem(RECORD_KEY, JSON.stringify(record))
+		window.localStorage.setItem(recordKey(packId), JSON.stringify(record))
+	} catch {
+		return
+	}
+}
+
+const accessKeys = new Map<string, Ref<string>>()
+
+/**
+ * Access key for a private pack. It is typed in by the player and only ever kept on this computer;
+ * it is sent to GitHub with the release check and the download, nowhere else.
+ */
+export function useFeaturedPackAccessKey(packId: string): Ref<string> {
+	let key = accessKeys.get(packId)
+	if (!key) {
+		let stored = ''
+		try {
+			stored = window.localStorage.getItem(`${ACCESS_KEY}.${packId}`) ?? ''
+		} catch {
+			stored = ''
+		}
+		key = ref(stored)
+		accessKeys.set(packId, key)
+	}
+	return key
+}
+
+export function writeFeaturedPackAccessKey(packId: string, value: string) {
+	const trimmed = value.trim()
+	useFeaturedPackAccessKey(packId).value = trimmed
+	try {
+		if (trimmed) {
+			window.localStorage.setItem(`${ACCESS_KEY}.${packId}`, trimmed)
+		} else {
+			window.localStorage.removeItem(`${ACCESS_KEY}.${packId}`)
+		}
 	} catch {
 		return
 	}

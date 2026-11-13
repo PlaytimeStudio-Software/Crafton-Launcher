@@ -4,6 +4,7 @@ import {
 	ChevronUpIcon,
 	DownloadIcon,
 	FolderOpenIcon,
+	KeyIcon,
 	PlayIcon,
 	ServerIcon,
 	TriangleAlertIcon,
@@ -15,7 +16,7 @@ import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { FEATURED_PACK_REPO } from '@/config/featured-pack'
+import type { FeaturedPack } from '@/config/featured-pack'
 import {
 	clearAppliedSettings,
 	comparePackFiles,
@@ -25,8 +26,10 @@ import {
 	featured_pack_mod_files,
 	featured_pack_remove_mods,
 	type FeaturedPackDownload,
-	featuredPackRecord as record,
-	writeFeaturedPackRecord,
+	useFeaturedPackAccessKey,
+	useFeaturedPackRecord,
+	writeFeaturedPackAccessKey,
+	writeFeaturedPackRecord as writeRecord,
 } from '@/helpers/featured-pack'
 import {
 	install_create_modpack_instance,
@@ -46,7 +49,26 @@ import { instanceListQueryOptions } from '@/pages/instance/query-options'
 import { injectAppEvents } from '@/providers/app-events'
 import CraftonLogo from '@/shared/branding/crafton-logo.vue'
 
-const props = withDefaults(defineProps<{ compact?: boolean }>(), { compact: false })
+const props = withDefaults(defineProps<{ pack: FeaturedPack; compact?: boolean }>(), {
+	compact: false,
+})
+
+const repo = props.pack.repo
+const record = useFeaturedPackRecord(props.pack.id)
+const accessKey = useFeaturedPackAccessKey(props.pack.id)
+const token = computed(() => (props.pack.requiresKey ? accessKey.value || null : null))
+const keyDraft = ref('')
+const editingKey = ref(false)
+
+function writeFeaturedPackRecord(value: Parameters<typeof writeRecord>[1]) {
+	writeRecord(props.pack.id, value)
+}
+
+function saveKey() {
+	writeFeaturedPackAccessKey(props.pack.id, keyDraft.value)
+	keyDraft.value = ''
+	editingKey.value = false
+}
 
 const router = useRouter()
 const queryClient = useQueryClient()
@@ -54,12 +76,23 @@ const { handleError } = injectNotificationManager()
 const appEvents = injectAppEvents()
 
 const releaseQuery = useQuery({
-	queryKey: ['featured-pack', FEATURED_PACK_REPO],
-	queryFn: () => featured_pack_latest(FEATURED_PACK_REPO),
+	// The key itself stays out of the query key: a saved change refetches through the watcher below.
+	queryKey: computed(() => ['featured-pack', repo, !!token.value]),
+	queryFn: () => featured_pack_latest(repo, token.value),
+	enabled: computed(() => !props.pack.requiresKey || !!token.value),
 	staleTime: 1000 * 60 * 10,
 	retry: 1,
 })
+watch(token, (value, previous) => {
+	if (value && previous && value !== previous) releaseQuery.refetch()
+})
 const release = computed(() => releaseQuery.data.value ?? null)
+const keyRejected = computed(
+	() => !!props.pack.requiresKey && !!token.value && releaseQuery.isError.value,
+)
+const needsKey = computed(
+	() => !!props.pack.requiresKey && (!token.value || keyRejected.value || editingKey.value),
+)
 
 const instancesQuery = useQuery(instanceListQueryOptions())
 const installedInstance = computed(() => {
@@ -71,7 +104,9 @@ const instanceId = computed(() => installedInstance.value?.id ?? null)
 const updateAvailable = computed(
 	() => !!installedInstance.value && !!release.value && release.value.tag !== record.value?.tag,
 )
-const title = computed(() => installedInstance.value?.name ?? release.value?.name ?? '')
+const title = computed(
+	() => installedInstance.value?.name ?? release.value?.name ?? props.pack.name,
+)
 const releaseNotes = computed(() => release.value?.notes?.trim() || '')
 
 const serverQuery = useQuery({
@@ -140,7 +175,7 @@ function refreshInstanceQueries() {
 async function installPack() {
 	busy.value = true
 	try {
-		const download = await featured_pack_download(FEATURED_PACK_REPO)
+		const download = await featured_pack_download(repo, token.value)
 		const packFiles = await packFilesFor(download)
 		const job = await install_create_modpack_instance({ type: 'fromFile', path: download.path })
 		const newInstanceId = installJobInstanceId(job)
@@ -159,7 +194,7 @@ async function installPack() {
 async function reinstallPack() {
 	const instance = installedInstance.value
 	if (!instance) return
-	const download = await featured_pack_download(FEATURED_PACK_REPO)
+	const download = await featured_pack_download(repo, token.value)
 	const packFiles = await packFilesFor(download)
 	const job = await install_pack_to_existing_instance(instance.id, {
 		type: 'fromFile',
@@ -246,7 +281,7 @@ watch(
 	async ([instance, outdated]) => {
 		if (!instance || outdated || record.value?.packFiles || busy.value) return
 		try {
-			const download = await featured_pack_download(FEATURED_PACK_REPO)
+			const download = await featured_pack_download(repo, token.value)
 			if (download.release.tag !== record.value?.tag) return
 			const packFiles = await packFilesFor(download)
 			if (packFiles && record.value) {
@@ -262,7 +297,7 @@ watch(
 
 <template>
 	<div
-		v-if="release || installedInstance"
+		v-if="release || installedInstance || needsKey"
 		class="flex flex-col gap-3 rounded-2xl border border-solid border-surface-5 bg-bg-raised p-4"
 		:class="props.compact ? 'w-[min(32rem,90vw)]' : 'w-full'"
 	>
@@ -290,7 +325,8 @@ watch(
 				</span>
 			</div>
 			<div class="flex shrink-0 items-center gap-2">
-				<template v-if="!installedInstance">
+				<template v-if="!installedInstance && !release" />
+				<template v-else-if="!installedInstance">
 					<Button type="colored" color="brand" :disabled="busy" @click="installPack">
 						<DownloadIcon />
 						{{ busy ? 'Installing...' : 'Install' }}
@@ -328,6 +364,42 @@ watch(
 				</template>
 			</div>
 		</div>
+
+		<div
+			v-if="needsKey"
+			class="flex flex-wrap items-center gap-2 rounded-xl bg-surface-3 p-3 text-sm"
+		>
+			<KeyIcon class="shrink-0 text-brand" />
+			<span class="grow text-primary">
+				<template v-if="keyRejected">
+					That access key was not accepted. Check it or ask the server owner for a new one.
+				</template>
+				<template v-else>
+					This modpack is private. Enter the access key the server owner gave you.
+				</template>
+			</span>
+			<input
+				v-model="keyDraft"
+				type="password"
+				autocomplete="off"
+				spellcheck="false"
+				placeholder="Access key"
+				class="w-64"
+				@keyup.enter="keyDraft.trim() && saveKey()"
+			/>
+			<Button type="colored" color="brand" :disabled="!keyDraft.trim()" @click="saveKey">
+				Save key
+			</Button>
+			<Button v-if="editingKey" @click="editingKey = false">Cancel</Button>
+		</div>
+		<button
+			v-else-if="props.pack.requiresKey"
+			class="flex cursor-pointer items-center gap-1 self-start border-none bg-transparent p-0 text-xs text-secondary"
+			@click="editingKey = true"
+		>
+			<KeyIcon />
+			Change access key
+		</button>
 
 		<div v-if="updateAvailable" class="flex flex-col gap-2 rounded-xl bg-surface-3 p-3 text-sm">
 			<div class="flex flex-wrap items-center gap-2">

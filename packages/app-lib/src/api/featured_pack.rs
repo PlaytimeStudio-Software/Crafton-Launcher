@@ -5,7 +5,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::ErrorKind;
 use crate::State;
-use crate::util::fetch::{fetch, fetch_json, write};
+use crate::util::fetch::{REQWEST_CLIENT, fetch, fetch_json, write};
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
 pub struct FeaturedPackRelease {
@@ -16,6 +16,9 @@ pub struct FeaturedPackRelease {
     pub asset_name: String,
     #[serde(skip_serializing)]
     pub asset_url: String,
+    /// API download link, the only one that works for a private repository.
+    #[serde(skip_serializing)]
+    pub asset_api_url: String,
 }
 
 #[derive(Deserialize)]
@@ -50,7 +53,39 @@ struct GithubRelease {
 #[derive(Deserialize)]
 struct GithubAsset {
     name: String,
+    url: String,
     browser_download_url: String,
+}
+
+/// A private pack repository is read with an access key (a GitHub token that
+/// can only read that repository). The key is kept on the player's computer
+/// and passed in by the frontend; it is never part of the launcher itself.
+fn access_key(token: Option<&str>) -> Option<&str> {
+    token.map(str::trim).filter(|token| !token.is_empty())
+}
+
+async fn github_get(
+    url: &str,
+    token: &str,
+    accept: &str,
+) -> crate::Result<reqwest::Response> {
+    let response = REQWEST_CLIENT
+        .get(url)
+        .header("Accept", accept)
+        .header("X-GitHub-Api-Version", "2022-11-28")
+        .bearer_auth(token)
+        .send()
+        .await
+        .map_err(input_error)?;
+    match response.status().as_u16() {
+        200..=299 => Ok(response),
+        401 | 403 | 404 => Err(input_error(
+            "The access key was not accepted for this modpack. Check the key or ask for a new one.",
+        )),
+        status => Err(input_error(format!(
+            "GitHub answered with status {status}"
+        ))),
+    }
 }
 
 fn validate_repo(repo: &str) -> crate::Result<()> {
@@ -72,22 +107,33 @@ fn validate_repo(repo: &str) -> crate::Result<()> {
     }
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(token))]
 pub async fn latest_release(
     repo: &str,
+    token: Option<&str>,
 ) -> crate::Result<Option<FeaturedPackRelease>> {
     validate_repo(repo)?;
-    let state = State::get().await?;
-    let releases: Vec<GithubRelease> = fetch_json(
-        Method::GET,
-        &format!("https://api.github.com/repos/{repo}/releases?per_page=10"),
-        None,
-        None,
-        None,
-        &state.fetch_semaphore,
-        &state.pool,
-    )
-    .await?;
+    let url =
+        format!("https://api.github.com/repos/{repo}/releases?per_page=10");
+    let releases: Vec<GithubRelease> = if let Some(token) = access_key(token) {
+        github_get(&url, token, "application/vnd.github+json")
+            .await?
+            .json()
+            .await
+            .map_err(input_error)?
+    } else {
+        let state = State::get().await?;
+        fetch_json(
+            Method::GET,
+            &url,
+            None,
+            None,
+            None,
+            &state.fetch_semaphore,
+            &state.pool,
+        )
+        .await?
+    };
 
     Ok(releases
         .into_iter()
@@ -107,26 +153,36 @@ pub async fn latest_release(
                 published_at: release.published_at,
                 asset_name: asset.name,
                 asset_url: asset.browser_download_url,
+                asset_api_url: asset.url,
             })
         }))
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(token))]
 pub async fn download_latest(
     repo: &str,
+    token: Option<&str>,
 ) -> crate::Result<(FeaturedPackRelease, PathBuf)> {
-    let release = latest_release(repo).await?.ok_or_else(|| {
+    let release = latest_release(repo, token).await?.ok_or_else(|| {
         ErrorKind::InputError(format!("{repo} has no modpack release"))
     })?;
     let state = State::get().await?;
-    let bytes = fetch(
-        &release.asset_url,
-        None,
-        None,
-        &state.fetch_semaphore,
-        &state.pool,
-    )
-    .await?;
+    let bytes = if let Some(token) = access_key(token) {
+        github_get(&release.asset_api_url, token, "application/octet-stream")
+            .await?
+            .bytes()
+            .await
+            .map_err(input_error)?
+    } else {
+        fetch(
+            &release.asset_url,
+            None,
+            None,
+            &state.fetch_semaphore,
+            &state.pool,
+        )
+        .await?
+    };
 
     let file_name: String = release
         .asset_name

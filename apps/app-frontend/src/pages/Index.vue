@@ -12,6 +12,7 @@ import { libraryScrollTop } from '@/components/ui/library/view-state'
 import WelcomeScreen from '@/components/ui/WelcomeScreen.vue'
 import RecentWorldsList from '@/components/ui/world/RecentWorldsList.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { FEATURED_PACKS } from '@/config/featured-pack'
 import { useHiddenInstances } from '@/features/library/hidden-instances/use-hidden-instances'
 import { traceStartupStep } from '@/helpers/startup-debug'
 import { instanceListQueryOptions } from '@/pages/instance/query-options'
@@ -104,7 +105,7 @@ function openPageContextMenu(event: MouseEvent) {
 		class="flex flex-col gap-3 p-6"
 		@contextmenu="openPageContextMenu"
 	>
-		<FeaturedPackCard />
+		<FeaturedPackCard v-for="pack in FEATURED_PACKS" :key="pack.id" :pack="pack" />
 		<RecentWorldsList
 			v-if="recentInstances?.length > 0 && appSettings.showJumpIn"
 			:recent-instances="recentInstances"

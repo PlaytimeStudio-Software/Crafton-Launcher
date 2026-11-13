@@ -4,6 +4,7 @@ import { Button, defineMessages, IntlFormatted, SplitButton, useVIntl } from '@c
 import { computed, inject, onMounted, onUnmounted, ref } from 'vue'
 
 import FeaturedPackCard from '@/components/ui/FeaturedPackCard.vue'
+import { FEATURED_PACKS } from '@/config/featured-pack'
 import CraftonLogo from '@/shared/branding/crafton-logo.vue'
 
 const showCreationModal = inject<() => void>('showCreationModal')
@@ -121,7 +122,7 @@ onUnmounted(() => {
 						{{ formatMessage(messages.welcomeDescription) }}
 					</p>
 				</div>
-				<FeaturedPackCard compact />
+				<FeaturedPackCard v-for="pack in FEATURED_PACKS" :key="pack.id" :pack="pack" compact />
 				<div class="flex w-72 flex-col items-center gap-4">
 					<SplitButton
 						type="colored"

@@ -45,7 +45,10 @@ This builds the signed installer and publishes it to this repository's releases,
 
 ## Workshop SMP modpack
 
-The home screen installs and updates the latest `.mrpack` release from `PlaytimeStudio-Software/Workshop-SMP`, set in `apps/app-frontend/src/config/featured-pack.ts`. Memory and Java arguments are left to the player.
+The home screen shows one card per pack listed in `apps/app-frontend/src/config/featured-pack.ts`. Each card installs and updates the latest `.mrpack` release of its GitHub repository. Memory and Java arguments are left to the player.
+
+- `PlaytimeStudio-Software/Workshop-SMP` (Minecraft 1.21.1) is public.
+- `PlaytimeStudio-Software/Workshop-SMP-26` (Minecraft 26.3) is private. A pack marked `requiresKey` asks the player once for an access key: a GitHub fine-grained token that can only read that repository. The key is stored on the player's computer and sent only to GitHub. It is never part of this repository or of the installer.
 
 ## Data
 

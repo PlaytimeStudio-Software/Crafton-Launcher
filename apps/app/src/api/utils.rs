@@ -62,8 +62,9 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
 #[tauri::command]
 pub async fn featured_pack_latest(
     repo: &str,
+    token: Option<&str>,
 ) -> Result<Option<crafton_core::featured_pack::FeaturedPackRelease>> {
-    Ok(crafton_core::featured_pack::latest_release(repo).await?)
+    Ok(crafton_core::featured_pack::latest_release(repo, token).await?)
 }
 
 #[derive(Serialize)]
@@ -75,9 +76,10 @@ pub struct FeaturedPackDownload {
 #[tauri::command]
 pub async fn featured_pack_download(
     repo: &str,
+    token: Option<&str>,
 ) -> Result<FeaturedPackDownload> {
     let (release, path) =
-        crafton_core::featured_pack::download_latest(repo).await?;
+        crafton_core::featured_pack::download_latest(repo, token).await?;
     Ok(FeaturedPackDownload { release, path })
 }
 
