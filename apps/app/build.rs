@@ -333,6 +333,8 @@ fn main() {
                         "featured_pack_mod_files",
                         "featured_pack_instance_mods",
                         "featured_pack_remove_mods",
+                        "featured_pack_github_start",
+                        "featured_pack_github_poll",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,

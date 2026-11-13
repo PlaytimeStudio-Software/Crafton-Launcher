@@ -55,6 +55,8 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
             featured_pack_mod_files,
             featured_pack_instance_mods,
             featured_pack_remove_mods,
+            featured_pack_github_start,
+            featured_pack_github_poll,
         ])
         .build()
 }
@@ -81,6 +83,24 @@ pub async fn featured_pack_download(
     let (release, path) =
         crafton_core::featured_pack::download_latest(repo, token).await?;
     Ok(FeaturedPackDownload { release, path })
+}
+
+#[tauri::command]
+pub async fn featured_pack_github_start(
+    client_id: &str,
+) -> Result<crafton_core::featured_pack::GithubDeviceCode> {
+    Ok(crafton_core::featured_pack::github_device_start(client_id).await?)
+}
+
+#[tauri::command]
+pub async fn featured_pack_github_poll(
+    client_id: &str,
+    device_code: &str,
+) -> Result<crafton_core::featured_pack::GithubDevicePoll> {
+    Ok(
+        crafton_core::featured_pack::github_device_poll(client_id, device_code)
+            .await?,
+    )
 }
 
 #[tauri::command]

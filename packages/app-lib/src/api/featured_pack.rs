@@ -82,9 +82,9 @@ async fn github_get(
         401 | 403 | 404 => Err(input_error(
             "The access key was not accepted for this modpack. Check the key or ask for a new one.",
         )),
-        status => Err(input_error(format!(
-            "GitHub answered with status {status}"
-        ))),
+        status => {
+            Err(input_error(format!("GitHub answered with status {status}")))
+        }
     }
 }
 
@@ -104,6 +104,116 @@ fn validate_repo(repo: &str) -> crate::Result<()> {
         Ok(())
     } else {
         Err(ErrorKind::InputError(format!("invalid repository: {repo}")).into())
+    }
+}
+
+/// First step of GitHub's device sign-in: the code the player types on github.com.
+#[derive(Serialize, Deserialize, Debug, Clone)]
+pub struct GithubDeviceCode {
+    pub device_code: String,
+    pub user_code: String,
+    pub verification_uri: String,
+    pub expires_in: u64,
+    pub interval: u64,
+}
+
+#[derive(Serialize, Debug, Clone)]
+#[serde(tag = "status", rename_all = "snake_case")]
+pub enum GithubDevicePoll {
+    /// The player has not approved the sign-in yet.
+    Pending,
+    /// Asked too often: wait longer between checks.
+    SlowDown,
+    Expired,
+    Denied,
+    Authorized {
+        token: String,
+    },
+}
+
+#[derive(Deserialize)]
+struct GithubTokenResponse {
+    access_token: Option<String>,
+    error: Option<String>,
+    error_description: Option<String>,
+}
+
+fn validate_client_id(client_id: &str) -> crate::Result<()> {
+    if !client_id.is_empty()
+        && client_id
+            .chars()
+            .all(|c| c.is_ascii_alphanumeric() || "-_.".contains(c))
+    {
+        Ok(())
+    } else {
+        Err(input_error("invalid GitHub app client id"))
+    }
+}
+
+async fn github_login_post<T: serde::de::DeserializeOwned>(
+    url: &str,
+    form: &[(&str, &str)],
+) -> crate::Result<T> {
+    REQWEST_CLIENT
+        .post(url)
+        .header("Accept", "application/json")
+        .form(form)
+        .send()
+        .await
+        .map_err(input_error)?
+        .json()
+        .await
+        .map_err(input_error)
+}
+
+/// Starts a GitHub sign-in for the launcher's GitHub App. `client_id` is the
+/// app's public client id; the device flow needs no client secret.
+#[tracing::instrument]
+pub async fn github_device_start(
+    client_id: &str,
+) -> crate::Result<GithubDeviceCode> {
+    validate_client_id(client_id)?;
+    github_login_post(
+        "https://github.com/login/device/code",
+        &[("client_id", client_id)],
+    )
+    .await
+}
+
+/// Checks whether the player has approved the sign-in started by
+/// [`github_device_start`]. On approval the token is returned to the frontend,
+/// which keeps it on this computer like a pasted access key.
+#[tracing::instrument(skip(device_code))]
+pub async fn github_device_poll(
+    client_id: &str,
+    device_code: &str,
+) -> crate::Result<GithubDevicePoll> {
+    validate_client_id(client_id)?;
+    let response: GithubTokenResponse = github_login_post(
+        "https://github.com/login/oauth/access_token",
+        &[
+            ("client_id", client_id),
+            ("device_code", device_code),
+            ("grant_type", "urn:ietf:params:oauth:grant-type:device_code"),
+        ],
+    )
+    .await?;
+    if let Some(token) = response.access_token.filter(|t| !t.is_empty()) {
+        return Ok(GithubDevicePoll::Authorized { token });
+    }
+    match response.error.as_deref() {
+        Some("authorization_pending") => Ok(GithubDevicePoll::Pending),
+        Some("slow_down") => Ok(GithubDevicePoll::SlowDown),
+        Some("expired_token") => Ok(GithubDevicePoll::Expired),
+        Some("access_denied") => Ok(GithubDevicePoll::Denied),
+        other => Err(input_error(format!(
+            "GitHub sign-in failed: {}",
+            response
+                .error_description
+                .as_deref()
+                .or(other)
+                .unwrap_or("unknown error")
+        ))),
     }
 }
 

@@ -2,7 +2,9 @@
 import {
 	ChevronDownIcon,
 	ChevronUpIcon,
+	CopyIcon,
 	DownloadIcon,
+	ExternalIcon,
 	FolderOpenIcon,
 	KeyIcon,
 	PlayIcon,
@@ -13,7 +15,8 @@ import {
 } from '@crafton/assets'
 import { Button, injectNotificationManager } from '@crafton/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
-import { computed, ref, watch } from 'vue'
+import { openUrl } from '@tauri-apps/plugin-opener'
+import { computed, onUnmounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 import type { FeaturedPack } from '@/config/featured-pack'
@@ -21,6 +24,8 @@ import {
 	clearAppliedSettings,
 	comparePackFiles,
 	featured_pack_download,
+	featured_pack_github_poll,
+	featured_pack_github_start,
 	featured_pack_instance_mods,
 	featured_pack_latest,
 	featured_pack_mod_files,
@@ -69,6 +74,63 @@ function saveKey() {
 	keyDraft.value = ''
 	editingKey.value = false
 }
+
+// GitHub sign-in (device flow): the player approves on github.com and the launcher receives a token
+// that is stored and used exactly like a pasted access key.
+const clientId = props.pack.githubAppClientId ?? ''
+const signIn = ref<{ userCode: string; url: string } | null>(null)
+const signInError = ref('')
+const showKeyBox = ref(!clientId)
+let signInRun = 0
+
+async function startSignIn() {
+	const run = ++signInRun
+	signInError.value = ''
+	try {
+		const code = await featured_pack_github_start(clientId)
+		if (run !== signInRun) return
+		signIn.value = { userCode: code.user_code, url: code.verification_uri }
+		void openUrl(code.verification_uri)
+		let wait = Math.max(code.interval, 5)
+		const deadline = Date.now() + code.expires_in * 1000
+		while (run === signInRun && Date.now() < deadline) {
+			await new Promise((resolve) => setTimeout(resolve, wait * 1000))
+			if (run !== signInRun) return
+			const result = await featured_pack_github_poll(clientId, code.device_code)
+			if (run !== signInRun) return
+			if (result.status === 'authorized') {
+				writeFeaturedPackAccessKey(props.pack.id, result.token)
+				editingKey.value = false
+				signIn.value = null
+				return
+			}
+			if (result.status === 'slow_down') wait += 5
+			if (result.status === 'denied') {
+				signInError.value = 'The sign-in was cancelled on GitHub.'
+				break
+			}
+			if (result.status === 'expired') break
+		}
+		if (run !== signInRun) return
+		signIn.value = null
+		if (!signInError.value) signInError.value = 'The sign-in code expired. Try again.'
+	} catch (error) {
+		if (run !== signInRun) return
+		signIn.value = null
+		handleError(error as Error)
+	}
+}
+
+function cancelSignIn() {
+	signInRun++
+	signIn.value = null
+}
+
+function copySignInCode() {
+	if (signIn.value) void navigator.clipboard.writeText(signIn.value.userCode)
+}
+
+onUnmounted(cancelSignIn)
 
 const router = useRouter()
 const queryClient = useQueryClient()
@@ -370,27 +432,67 @@ watch(
 			class="flex flex-wrap items-center gap-2 rounded-xl bg-surface-3 p-3 text-sm"
 		>
 			<KeyIcon class="shrink-0 text-brand" />
-			<span class="grow text-primary">
-				<template v-if="keyRejected">
-					That access key was not accepted. Check it or ask the server owner for a new one.
+			<template v-if="signIn">
+				<span class="grow text-primary">
+					Enter this code on GitHub to sign in:
+					<span class="select-all font-mono text-base font-bold text-contrast">
+						{{ signIn.userCode }}
+					</span>
+				</span>
+				<Button @click="copySignInCode">
+					<CopyIcon />
+					Copy code
+				</Button>
+				<Button @click="openUrl(signIn.url)">
+					<ExternalIcon />
+					Open GitHub
+				</Button>
+				<Button @click="cancelSignIn">Cancel</Button>
+			</template>
+			<template v-else>
+				<span class="grow text-primary">
+					<template v-if="signInError">{{ signInError }}</template>
+					<template v-else-if="keyRejected">
+						This account or access key can't open the modpack. Ask the server owner for access.
+					</template>
+					<template v-else-if="clientId">
+						This modpack is private. Sign in with the GitHub account the server owner invited.
+					</template>
+					<template v-else>
+						This modpack is private. Enter the access key the server owner gave you.
+					</template>
+				</span>
+				<Button v-if="clientId" type="colored" color="brand" @click="startSignIn">
+					Sign in with GitHub
+				</Button>
+				<template v-if="showKeyBox">
+					<input
+						v-model="keyDraft"
+						type="password"
+						autocomplete="off"
+						spellcheck="false"
+						placeholder="Access key"
+						class="w-64"
+						@keyup.enter="keyDraft.trim() && saveKey()"
+					/>
+					<Button
+						:type="clientId ? 'base' : 'colored'"
+						:color="clientId ? undefined : 'brand'"
+						:disabled="!keyDraft.trim()"
+						@click="saveKey"
+					>
+						Save key
+					</Button>
 				</template>
-				<template v-else>
-					This modpack is private. Enter the access key the server owner gave you.
-				</template>
-			</span>
-			<input
-				v-model="keyDraft"
-				type="password"
-				autocomplete="off"
-				spellcheck="false"
-				placeholder="Access key"
-				class="w-64"
-				@keyup.enter="keyDraft.trim() && saveKey()"
-			/>
-			<Button type="colored" color="brand" :disabled="!keyDraft.trim()" @click="saveKey">
-				Save key
-			</Button>
-			<Button v-if="editingKey" @click="editingKey = false">Cancel</Button>
+				<button
+					v-else
+					class="cursor-pointer border-none bg-transparent p-0 text-xs text-secondary underline"
+					@click="showKeyBox = true"
+				>
+					Use an access key instead
+				</button>
+				<Button v-if="editingKey" @click="editingKey = false">Cancel</Button>
+			</template>
 		</div>
 		<button
 			v-else-if="props.pack.requiresKey"
@@ -398,7 +500,7 @@ watch(
 			@click="editingKey = true"
 		>
 			<KeyIcon />
-			Change access key
+			{{ clientId ? 'Change sign-in' : 'Change access key' }}
 		</button>
 
 		<div v-if="updateAvailable" class="flex flex-col gap-2 rounded-xl bg-surface-3 p-3 text-sm">

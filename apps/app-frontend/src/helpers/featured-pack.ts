@@ -52,6 +52,29 @@ export async function featured_pack_download(repo: string, token?: string | null
 	})
 }
 
+export interface GithubDeviceCode {
+	device_code: string
+	user_code: string
+	verification_uri: string
+	expires_in: number
+	interval: number
+}
+
+export type GithubDevicePoll =
+	| { status: 'pending' | 'slow_down' | 'expired' | 'denied' }
+	| { status: 'authorized'; token: string }
+
+export async function featured_pack_github_start(clientId: string) {
+	return await invoke<GithubDeviceCode>('plugin:utils|featured_pack_github_start', { clientId })
+}
+
+export async function featured_pack_github_poll(clientId: string, deviceCode: string) {
+	return await invoke<GithubDevicePoll>('plugin:utils|featured_pack_github_poll', {
+		clientId,
+		deviceCode,
+	})
+}
+
 export async function featured_pack_mod_files(path: string) {
 	return await invoke<string[]>('plugin:utils|featured_pack_mod_files', { path })
 }
