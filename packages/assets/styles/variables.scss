@@ -447,34 +447,34 @@ html {
 
 .ender-mode {
 	@extend .dark-mode;
-	--surface-1: #0e1514;
-	--surface-1-5: #111918;
-	--surface-2: #141d1c;
-	--surface-2-5: #172221;
-	--surface-3: #1b2827;
-	--surface-4: #253534;
-	--surface-5: #324442;
-	--color-text-primary: #ecf8f5;
-	--color-text-default: #c2d4d0;
-	--color-text-tertiary: #93aaa5;
-	--color-button-border: rgba(180, 140, 240, 0.18);
-	--color-divider-dark: #4c605c;
-	--color-brand: #2fe0b0;
-	--color-brand-highlight: rgba(47, 224, 176, 0.18);
-	--color-brand-shadow: rgba(47, 224, 176, 0.5);
+	--surface-1: #100c18;
+	--surface-1-5: #140f1e;
+	--surface-2: #181224;
+	--surface-2-5: #1c152b;
+	--surface-3: #221a33;
+	--surface-4: #2e2444;
+	--surface-5: #3d3158;
+	--color-text-primary: #f3eefc;
+	--color-text-default: #d0c6e2;
+	--color-text-tertiary: #a497bd;
+	--color-button-border: rgba(180, 120, 250, 0.18);
+	--color-divider-dark: #574a72;
+	--color-brand: #b77cff;
+	--color-brand-highlight: rgba(183, 124, 255, 0.18);
+	--color-brand-shadow: rgba(183, 124, 255, 0.5);
 	--brand-gradient-bg: linear-gradient(
 		0deg,
 		rgba(20, 10, 36, 0.25) 0%,
-		rgba(122, 79, 208, 0.1) 100%
+		rgba(150, 90, 230, 0.1) 100%
 	);
-	--brand-gradient-strong-bg: linear-gradient(270deg, #0a0f0e 10%, #16132a 100%);
-	--brand-gradient-border: rgba(180, 140, 240, 0.2);
-	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(14, 21, 20, 0), #0e1514 80%);
-	--color-gradient-button-bg: linear-gradient(180deg, #2c3e3c 0%, #253534 100%);
-	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #9a6cf0 100%);
-	--splash-tint-top: rgba(122, 79, 208, 0.25);
-	--splash-tint-bottom: rgba(6, 20, 18, 0.5);
-	--splash-overlay: rgba(14, 21, 20, 0.64);
+	--brand-gradient-strong-bg: linear-gradient(270deg, #0c0914 10%, #1a1230 100%);
+	--brand-gradient-border: rgba(183, 124, 255, 0.2);
+	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(16, 12, 24, 0), #100c18 80%);
+	--color-gradient-button-bg: linear-gradient(180deg, #382c52 0%, #2e2444 100%);
+	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #7a4fd0 100%);
+	--splash-tint-top: rgba(150, 90, 230, 0.25);
+	--splash-tint-bottom: rgba(12, 6, 22, 0.5);
+	--splash-overlay: rgba(16, 12, 24, 0.64);
 }
 
 .lapis-mode {

@@ -1487,6 +1487,11 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 }
 </style>
 <style>
+/* Leave room under the page for a floating selection bar, so the last rows can scroll above it. */
+body.floating-action-bar-shown .app-viewport {
+	padding-bottom: 6rem;
+}
+
 .os-theme-dark,
 .os-theme-light {
 	--os-handle-bg: var(--color-scrollbar) !important;
