@@ -1487,9 +1487,10 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 }
 </style>
 <style>
-/* Leave room under the page for a floating selection bar, so the last rows can scroll above it. */
+/* While a selection bar is showing it gets its own strip at the bottom: the scrolling page stops
+   above it, so rows never slide underneath the bar. */
 body.floating-action-bar-shown .app-viewport {
-	padding-bottom: 6rem;
+	height: calc(100% - 5.5rem);
 }
 
 .os-theme-dark,

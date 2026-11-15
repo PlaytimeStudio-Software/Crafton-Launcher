@@ -257,6 +257,13 @@ defineOptions({
 	left: var(--floating-action-bar-left-offset, var(--left-bar-width, 0px));
 	right: var(--floating-action-bar-right-offset, var(--right-bar-width, 0px));
 	transition: bottom 0.25s ease-in-out;
+	/* The frame spans the whole page width; only the bar itself should catch clicks, so rows
+	   beside it stay clickable. */
+	pointer-events: none;
+}
+
+.floating-action-bar > * {
+	pointer-events: auto;
 }
 
 .floating-action-bar--inline {
