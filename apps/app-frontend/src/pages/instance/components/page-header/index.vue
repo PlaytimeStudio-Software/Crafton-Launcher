@@ -1,5 +1,5 @@
 <template>
-	<PageHeader :title="instance.name">
+	<PageHeader :title="instance.name" class="instance-hero">
 		<template #leading>
 			<Avatar
 				:src="iconSrc"
@@ -100,7 +100,7 @@
 				<Button
 					v-else-if="!loading"
 					type="colored"
-					color="brand"
+					color="green"
 					size="xl"
 					native-type="button"
 					@click="emit('play')"
@@ -108,7 +108,7 @@
 					<PlayIcon />
 					{{ formatMessage(commonMessages.playButton) }}
 				</Button>
-				<Button v-else type="colored" color="brand" size="xl" native-type="button" disabled>{{
+				<Button v-else type="colored" color="green" size="xl" native-type="button" disabled>{{
 					formatMessage(messages.starting)
 				}}</Button>
 
@@ -326,3 +326,19 @@ const moreActions = computed<ButtonMenuOption[]>(() => {
 	return actions
 })
 </script>
+
+<style scoped>
+.instance-hero {
+	padding: 1rem 1.25rem;
+	border-radius: var(--radius-xl);
+	border: 1px solid var(--surface-4);
+	background:
+		radial-gradient(70% 140% at 100% 0%, var(--color-brand-highlight) 0%, transparent 60%),
+		linear-gradient(180deg, var(--surface-2-5) 0%, var(--surface-2) 100%);
+	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25);
+}
+
+.instance-hero :deep(img) {
+	border-radius: 1rem;
+}
+</style>

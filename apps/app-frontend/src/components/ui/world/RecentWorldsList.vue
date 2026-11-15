@@ -53,6 +53,8 @@ const messages = defineMessages({
 
 const props = defineProps<{
 	recentInstances: GameInstance[]
+	/** Leave out the collapsible "Jump back in" heading, for when a panel around the list has its own. */
+	bare?: boolean
 }>()
 
 const appSettings = useAppSettings()
@@ -450,7 +452,11 @@ onUnmounted(() => {
 	<Accordion
 		v-if="loading || jumpBackInItems.length > 0"
 		open-by-default
-		button-class="group mt-1 mb-3 flex w-fit cursor-pointer items-center border-0 bg-transparent p-0 text-left"
+		:button-class="
+			bare
+				? '!hidden'
+				: 'group mt-1 mb-3 flex w-fit cursor-pointer items-center border-0 bg-transparent p-0 text-left'
+		"
 	>
 		<template #title>
 			<span class="flex items-center gap-1 text-2xl font-semibold leading-none text-contrast mr-1">
@@ -568,7 +574,7 @@ onUnmounted(() => {
 <style scoped lang="scss">
 .grid-when-huge {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(670px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(min(670px, 100%), 1fr));
 }
 
 .jump-back-in-item {

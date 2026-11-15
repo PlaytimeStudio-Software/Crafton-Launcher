@@ -16,6 +16,14 @@ export default new createRouter({
 			},
 		},
 		{
+			path: '/library',
+			name: 'Library',
+			component: () => import('@/pages/Library.vue'),
+			meta: {
+				manualScroll: true,
+			},
+		},
+		{
 			path: '/hosting/:rest(.*)*',
 			redirect: '/',
 		},

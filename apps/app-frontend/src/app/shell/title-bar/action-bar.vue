@@ -18,7 +18,8 @@
 		</div>
 		<AppUpdateButton />
 		<div
-			class="flex border-solid border-surface-5 text-sm font-medium items-center gap-2 py-1.5 px-3 rounded-xl border"
+			class="running-pill flex border-solid text-sm font-semibold items-center gap-2 py-1.5 px-3 rounded-full border"
+			:class="selectedProcess ? 'running-pill--active' : 'border-surface-5'"
 		>
 			<template v-if="selectedProcess">
 				<OnlineIndicatorIcon />
@@ -519,3 +520,11 @@ onBeforeUnmount(() => {
 	window.removeEventListener('online', handleOnline)
 })
 </script>
+
+<style scoped>
+.running-pill--active {
+	border-color: rgba(74, 222, 128, 0.55);
+	background: linear-gradient(90deg, rgba(74, 222, 128, 0.14) 0%, rgba(74, 222, 128, 0.04) 100%);
+	box-shadow: 0 0 0.6rem rgba(74, 222, 128, 0.25);
+}
+</style>

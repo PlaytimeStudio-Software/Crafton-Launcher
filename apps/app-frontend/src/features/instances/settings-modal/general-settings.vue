@@ -188,7 +188,7 @@ async function removeInstance() {
 		game_version: instance.value.game_version,
 	})
 
-	await router.push({ path: '/' })
+	await router.push({ path: '/library' })
 	await remove(path).catch(handleError)
 }
 

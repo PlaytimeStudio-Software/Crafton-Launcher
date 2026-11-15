@@ -526,7 +526,7 @@ async function deleteSelectedInstance() {
 		loader: selectedInstance.loader,
 		game_version: selectedInstance.game_version,
 	})
-	await router.push({ path: '/' })
+	await router.push({ path: '/library' })
 	await remove(selectedInstance.id).catch((error) => handleError(toError(error)))
 }
 
@@ -616,7 +616,7 @@ watch(instanceId, (currentInstanceId, previousInstanceId) => {
 
 useAppEvent('instance', async (event) => {
 	if (event.instance_id !== instanceId.value || event.event !== 'removed') return
-	if (route.path !== '/') await router.push({ path: '/' })
+	if (route.path !== '/library') await router.push({ path: '/library' })
 })
 
 useAppEvent('process', (event) => {

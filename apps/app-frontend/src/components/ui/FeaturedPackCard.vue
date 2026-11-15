@@ -19,6 +19,7 @@ import { openUrl } from '@tauri-apps/plugin-opener'
 import { computed, onUnmounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
+import homeBanner from '@/assets/redesign/home-banner.webp'
 import type { FeaturedPack } from '@/config/featured-pack'
 import {
 	clearAppliedSettings,
@@ -42,7 +43,7 @@ import {
 	installJobInstanceId,
 	wait_for_install_job,
 } from '@/helpers/install'
-import { run } from '@/helpers/instance'
+import { getInstanceIconUrl, run } from '@/helpers/instance'
 import type { GameInstance } from '@/helpers/types'
 import {
 	get_instance_worlds,
@@ -54,9 +55,13 @@ import { instanceListQueryOptions } from '@/pages/instance/query-options'
 import { injectAppEvents } from '@/providers/app-events'
 import CraftonLogo from '@/shared/branding/crafton-logo.vue'
 
-const props = withDefaults(defineProps<{ pack: FeaturedPack; compact?: boolean }>(), {
-	compact: false,
-})
+const props = withDefaults(
+	defineProps<{ pack: FeaturedPack; compact?: boolean; hero?: boolean }>(),
+	{
+		compact: false,
+		hero: false,
+	},
+)
 
 const repo = props.pack.repo
 const record = useFeaturedPackRecord(props.pack.id)
@@ -170,6 +175,13 @@ const title = computed(
 	() => installedInstance.value?.name ?? release.value?.name ?? props.pack.name,
 )
 const releaseNotes = computed(() => release.value?.notes?.trim() || '')
+const instanceIcon = computed(() => getInstanceIconUrl(installedInstance.value?.icon_path))
+const loaderLabel = computed(() => {
+	const instance = installedInstance.value
+	if (!instance) return ''
+	const loader = instance.loader === 'vanilla' ? 'Minecraft' : instance.loader
+	return `${loader.charAt(0).toUpperCase()}${loader.slice(1)} ${instance.game_version}`
+})
 
 const serverQuery = useQuery({
 	queryKey: computed(() => ['featured-pack-server', instanceId.value]),
@@ -361,9 +373,85 @@ watch(
 	<div
 		v-if="release || installedInstance || needsKey"
 		class="flex flex-col gap-3 rounded-2xl border border-solid border-surface-5 bg-bg-raised p-4"
-		:class="props.compact ? 'w-[min(32rem,90vw)]' : 'w-full'"
+		:class="[props.compact ? 'w-[min(32rem,90vw)]' : 'w-full', { 'featured-hero': props.hero }]"
 	>
-		<div class="flex items-center gap-4">
+		<template v-if="props.hero">
+			<img :src="homeBanner" alt="" class="featured-hero__art" draggable="false" />
+			<div class="featured-hero__content">
+				<div class="flex items-center gap-4">
+					<img
+						v-if="instanceIcon"
+						:src="instanceIcon"
+						alt=""
+						class="featured-hero__icon"
+						draggable="false"
+					/>
+					<CraftonLogo v-else icon-only class="featured-hero__icon" />
+					<div class="flex min-w-0 flex-col gap-1">
+						<span class="featured-hero__tag">Server modpack</span>
+						<span class="featured-hero__title">{{ title }}</span>
+						<span class="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-primary">
+							<span v-if="loaderLabel">{{ loaderLabel }}</span>
+							<span v-if="server" class="flex items-center gap-1.5">
+								<span
+									class="inline-block size-2 rounded-full"
+									:class="serverOnline ? 'bg-brand-green' : 'bg-surface-5'"
+								/>
+								<template v-if="statusQuery.isPending.value">Checking server</template>
+								<template v-else-if="serverOnline">
+									Online<template v-if="players"
+										>: {{ players.online }}/{{ players.max }} players</template
+									>
+								</template>
+								<template v-else>Server offline</template>
+							</span>
+							<span v-if="updateAvailable" class="text-orange">Update: {{ release?.tag }}</span>
+							<span v-else-if="installedInstance">{{ record?.tag }}</span>
+							<span v-else-if="release">{{ release.tag }}</span>
+						</span>
+					</div>
+				</div>
+				<div class="flex flex-wrap items-center gap-2">
+					<template v-if="!installedInstance && !release" />
+					<Button
+						v-else-if="!installedInstance"
+						type="colored"
+						color="green"
+						size="lg"
+						:disabled="busy"
+						@click="installPack"
+					>
+						<DownloadIcon />
+						{{ busy ? 'Installing...' : 'Install' }}
+					</Button>
+					<Button
+						v-else-if="updateAvailable"
+						type="colored"
+						color="green"
+						size="lg"
+						:disabled="busy"
+						@click="updatePack"
+					>
+						<UpdatedIcon />
+						{{ busy ? 'Updating...' : 'Update' }}
+					</Button>
+					<template v-else>
+						<Button type="colored" color="green" size="lg" :disabled="busy" @click="launch(false)">
+							<PlayIcon />
+							Play
+						</Button>
+						<Button v-if="server" size="lg" :disabled="busy || !serverOnline" @click="launch(true)">
+							<ServerIcon />
+							Join Server
+						</Button>
+						<Button v-tooltip="'Open instance'" size="lg" :disabled="busy" @click="openPack">
+							<FolderOpenIcon />
+						</Button>
+					</template>
+				</div>
+			</div>
+		</template>
+		<div v-else class="flex items-center gap-4">
 			<CraftonLogo icon-only class="size-16 shrink-0" />
 			<div class="flex min-w-0 grow flex-col gap-1">
 				<span class="text-xs font-semibold uppercase tracking-wide text-brand">Server modpack</span>
@@ -548,3 +636,85 @@ watch(
 		</div>
 	</div>
 </template>
+
+<style scoped lang="scss">
+.featured-hero {
+	position: relative;
+	overflow: hidden;
+	min-height: 15rem;
+	padding: 1.5rem;
+	border-color: var(--surface-5);
+	background:
+		linear-gradient(90deg, var(--surface-2) 0%, var(--surface-2) 30%, transparent 75%),
+		radial-gradient(80% 90% at 85% 40%, var(--color-brand-highlight) 0%, transparent 70%),
+		linear-gradient(180deg, #1a3a5c 0%, var(--surface-2) 100%);
+	box-shadow:
+		0 0 0 1px var(--color-brand-highlight),
+		0 0.75rem 2rem rgba(0, 0, 0, 0.35);
+}
+
+/* Notices under the hero (sign-in, updates) sit above the artwork. */
+.featured-hero > :not(.featured-hero__art) {
+	position: relative;
+	z-index: 1;
+}
+
+.featured-hero__art {
+	position: absolute;
+	right: -1.5rem;
+	top: 50%;
+	width: min(64%, 46rem);
+	height: auto;
+	max-height: 135%;
+	object-fit: contain;
+	object-position: right center;
+	transform: translateY(-50%);
+	pointer-events: none;
+	user-select: none;
+	-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+	mask-image: linear-gradient(90deg, transparent 0%, #000 22%);
+	filter: drop-shadow(0 1rem 1.5rem rgba(0, 0, 0, 0.5));
+}
+
+.featured-hero__content {
+	position: relative;
+	z-index: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1.25rem;
+	min-height: 12rem;
+	max-width: min(30rem, 52%);
+}
+
+.featured-hero__icon {
+	width: 5.5rem;
+	height: 5.5rem;
+	flex-shrink: 0;
+	border-radius: 1rem;
+	border: 2px solid color-mix(in srgb, var(--color-bronze, #c98a4b) 70%, transparent);
+	box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.45);
+	object-fit: cover;
+}
+
+.featured-hero__tag {
+	align-self: flex-start;
+	padding: 0.15rem 0.5rem;
+	border-radius: 0.35rem;
+	background: var(--color-brand-highlight);
+	border: 1px solid var(--color-brand);
+	color: var(--color-brand);
+	font-size: 0.7rem;
+	font-weight: 800;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.featured-hero__title {
+	font-size: clamp(1.4rem, 2.6vw, 2rem);
+	font-weight: 800;
+	line-height: 1.1;
+	color: var(--color-text-primary);
+	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+</style>

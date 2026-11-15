@@ -1,7 +1,23 @@
 <script setup lang="ts" generic="T extends string">
 import { MoonIcon, RadioButtonCheckedIcon, RadioButtonIcon, SunIcon } from '@crafton/assets'
 
+import deepslateBlock from '@crafton/assets/illustrations/themes/deepslate.webp'
+import diamondBlock from '@crafton/assets/illustrations/themes/diamond.webp'
+import enderBlock from '@crafton/assets/illustrations/themes/ender.webp'
+import grassBlock from '@crafton/assets/illustrations/themes/grass-block.webp'
+import lapisBlock from '@crafton/assets/illustrations/themes/lapis.webp'
+import netheriteBlock from '@crafton/assets/illustrations/themes/netherite.webp'
+
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
+
+const themeBlocks: Record<string, string> = {
+	dark: diamondBlock,
+	grass: grassBlock,
+	ender: enderBlock,
+	lapis: lapisBlock,
+	netherite: netheriteBlock,
+	deepslate: deepslateBlock,
+}
 
 const { formatMessage } = useVIntl()
 
@@ -102,7 +118,13 @@ function getPreviewClass(option: T): string {
 			@click="emit('update:modelValue', option)"
 		>
 			<div class="preview" :class="getPreviewClass(option)" aria-hidden="true">
-				<div class="example-card rounded-lg border border-solid border-surface-4 bg-surface-3">
+				<div v-if="themeBlocks[option]" class="block-preview">
+					<img :src="themeBlocks[option]" alt="" draggable="false" />
+				</div>
+				<div
+					v-else
+					class="example-card rounded-lg border border-solid border-surface-4 bg-surface-3"
+				>
 					<div class="example-icon"></div>
 					<div class="example-text-1"></div>
 					<div class="example-text-2"></div>
@@ -183,6 +205,35 @@ function getPreviewClass(option: T): string {
 		&.deepslate-mode {
 			@extend .deepslate-mode;
 		}
+	}
+
+	.preview .block-preview {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 6.5rem;
+		border-radius: var(--radius-lg);
+		border: 1px solid var(--surface-4);
+		background:
+			radial-gradient(60% 70% at 50% 55%, var(--color-brand-highlight) 0%, transparent 75%),
+			var(--surface-2);
+
+		img {
+			height: 100%;
+			width: auto;
+			filter: drop-shadow(0 0.4rem 0.6rem rgba(0, 0, 0, 0.5));
+			transition: transform 0.2s ease;
+		}
+	}
+
+	.preview-radio:hover .block-preview img,
+	.preview-radio.selected .block-preview img {
+		transform: scale(1.06);
+	}
+
+	.preview-radio.selected .block-preview {
+		border-color: var(--color-brand);
+		box-shadow: 0 0 0.75rem var(--color-brand-shadow);
 	}
 
 	.preview .example-card {

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ContentApi } from '@crafton/api-client'
-import { CheckIcon, CompassIcon, PlusIcon, SpinnerIcon } from '@crafton/assets'
+import { CheckIcon, PlusIcon, SpinnerIcon } from '@crafton/assets'
 import type { BrowseInstallContentType, CardAction, ProjectType, Tags } from '@crafton/ui'
 import {
 	BrowsePageLayout,
@@ -26,6 +26,7 @@ import { computed, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
 import type { LocationQuery } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router'
 
+import browseIcon from '@/assets/redesign/icon-search.webp'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { get_project, get_search_results_v3, get_version_many } from '@/helpers/cache.js'
@@ -60,8 +61,8 @@ watch(
 )
 const breadcrumbMessages = defineMessages({
 	discoverProjectType: {
-		id: 'app.browse.discover-project-type',
-		defaultMessage: 'Discover {projectType}',
+		id: 'app.browse.browse-project-type',
+		defaultMessage: 'Browse {projectType}',
 	},
 })
 const breadcrumbLabel = computed(() => {
@@ -114,7 +115,7 @@ const breadcrumbDefinition = {
 		)}`,
 	label: breadcrumbLabel,
 	to: () => displayedBrowseRoute.value.fullPath,
-	visual: { type: 'icon', component: CompassIcon },
+	visual: { type: 'image', src: browseIcon, alt: '' },
 } satisfies BreadcrumbDefinition
 
 function syncBreadcrumbs() {

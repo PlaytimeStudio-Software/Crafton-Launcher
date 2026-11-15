@@ -187,6 +187,18 @@ function canLeaveCurrentTab(): boolean {
 	return false
 }
 
+function canCloseModal(): boolean {
+	// Wait for a save in progress; otherwise closing discards unsaved changes instead of trapping the window open.
+	if (unsavedChangesController.value?.isSaving()) {
+		unsavedChangesPopup.value?.nudge()
+		return false
+	}
+	if (unsavedChangesController.value?.hasChanges()) {
+		unsavedChangesController.value.reset()
+	}
+	return true
+}
+
 function close(): boolean {
 	return modal.value?.hide() ?? false
 }
@@ -328,7 +340,7 @@ const messages = defineMessages({
 		:tabs="availableTabs"
 		width="928px"
 		max-width="928px"
-		:before-hide="canLeaveCurrentTab"
+		:before-hide="canCloseModal"
 		:before-tab-change="canLeaveCurrentTab"
 		:floating-action-bar-shown="hasUnsavedChanges"
 	>

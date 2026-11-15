@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ImageIcon } from '@crafton/assets'
 import { defineMessages, useVIntl } from '@crafton/ui'
 import { onActivated } from 'vue'
 
+import screenshotsIcon from '@/assets/redesign/icon-screenshots.webp'
 import ScreenshotsPage from '@/components/ui/screenshots-page/index.vue'
 import { useRootBreadcrumb } from '@/shared/breadcrumbs'
 
@@ -17,7 +17,7 @@ const breadcrumb = useRootBreadcrumb({
 	id: 'screenshots',
 	label: formatMessage(messages.screenshots),
 	to: '/screenshots',
-	visual: { type: 'icon', component: ImageIcon },
+	visual: { type: 'image', src: screenshotsIcon, alt: '' },
 })
 onActivated(breadcrumb.reset)
 </script>

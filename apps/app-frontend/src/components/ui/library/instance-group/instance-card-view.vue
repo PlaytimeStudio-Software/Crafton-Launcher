@@ -40,7 +40,7 @@ const versionRef = ref<HTMLElement | null>(null)
 
 <template>
 	<div
-		class="relative flex w-full min-w-0 select-none overflow-clip border border-solid bg-surface-3 text-left transition-[background-color,border-color,filter]"
+		class="library-card relative flex w-full min-w-0 select-none overflow-clip border border-solid text-left transition-[background-color,border-color,filter,box-shadow]"
 		:class="{
 			'flex-row items-center justify-start gap-2.5 rounded-xl p-2.5': compactMode,
 			'flex-col items-start justify-end gap-3 rounded-[20px] p-3': !compactMode,
@@ -98,3 +98,17 @@ const versionRef = ref<HTMLElement | null>(null)
 		<slot name="overlay" :compact="compactMode" />
 	</div>
 </template>
+
+<style scoped>
+.library-card {
+	background: linear-gradient(180deg, var(--surface-3) 0%, var(--surface-2-5) 100%);
+	box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+.library-card:hover {
+	border-color: var(--color-brand);
+	box-shadow:
+		0 0 0.9rem var(--color-brand-highlight),
+		0 0.35rem 1rem rgba(0, 0, 0, 0.25);
+}
+</style>

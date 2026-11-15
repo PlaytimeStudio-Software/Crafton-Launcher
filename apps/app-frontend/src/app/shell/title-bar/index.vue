@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { ChevronLeftIcon, ChevronRightIcon, RightArrowIcon } from '@crafton/assets'
+import { ChevronLeftIcon, ChevronRightIcon } from '@crafton/assets'
 import { defineMessages, IconButton, useVIntl } from '@crafton/ui'
 import { useRouter } from 'vue-router'
-
-import CraftonLogo from '@/shared/branding/crafton-logo.vue'
 
 import AppActionBar from './action-bar.vue'
 import Breadcrumbs from './breadcrumbs.vue'
@@ -12,12 +10,6 @@ import WindowControls from './window-controls.vue'
 defineProps<{
 	canNavigateBack: boolean
 	canNavigateForward: boolean
-	showSidebarToggle: boolean
-	sidebarToggled: boolean
-}>()
-
-const emit = defineEmits<{
-	'toggle-sidebar': []
 }>()
 
 const router = useRouter()
@@ -25,18 +17,16 @@ const { formatMessage } = useVIntl()
 const messages = defineMessages({
 	goBack: { id: 'app.navigation.go-back', defaultMessage: 'Go back' },
 	goForward: { id: 'app.navigation.go-forward', defaultMessage: 'Go forward' },
-	nextImage: { id: 'app.navigation.next-image', defaultMessage: 'Next image' },
 })
 </script>
 
 <template>
 	<div
 		data-tauri-drag-region
-		class="app-title-bar relative z-[2] flex bg-bg-raised pl-1 [grid-area:status] [.mac-traffic-lights_&]:pl-20"
+		class="app-title-bar relative z-[2] flex bg-bg-raised pl-1 [grid-area:status]"
 	>
 		<div data-tauri-drag-region class="flex min-w-0 flex-1 items-center overflow-hidden p-2">
-			<CraftonLogo class="h-7 w-auto shrink-0 text-contrast pointer-events-none" />
-			<div data-tauri-drag-region class="ml-2 flex shrink-0 items-center gap-2">
+			<div data-tauri-drag-region class="flex shrink-0 items-center gap-2">
 				<IconButton
 					type="outlined"
 					:label="formatMessage(messages.goBack)"
@@ -65,16 +55,6 @@ const messages = defineMessages({
 			<Breadcrumbs />
 		</div>
 		<section data-tauri-drag-region class="flex shrink-0 ml-auto items-center">
-			<IconButton
-				v-if="showSidebarToggle"
-				:type="sidebarToggled ? 'base' : 'quiet'"
-				:label="formatMessage(messages.nextImage)"
-				class="mr-3 transition-transform"
-				:class="{ 'rotate-180': !sidebarToggled }"
-				@click="emit('toggle-sidebar')"
-			>
-				<RightArrowIcon />
-			</IconButton>
 			<div class="flex mr-3">
 				<Suspense>
 					<AppActionBar />

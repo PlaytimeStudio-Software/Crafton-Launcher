@@ -232,28 +232,30 @@ function openContextMenu(event: MouseEvent) {
 					size="48px"
 					pad-transparent-corners
 				/>
-				<div class="flex flex-col col-span-2 justify-center gap-1 h-full">
-					<div class="flex items-center gap-1.5">
-						<div class="text-contrast truncate text-base font-semibold">
+				<div
+					class="instance-item-text flex flex-col col-span-2 justify-center gap-1 h-full min-w-0"
+				>
+					<div class="flex min-w-0 items-center gap-1.5">
+						<div class="min-w-0 text-contrast truncate text-base font-semibold">
 							{{ instance.name }}
 						</div>
 						<TagItem
 							v-if="newlyAdded"
-							class="!border-green !bg-bg-green !px-2 !font-medium !text-green"
+							class="new-instance-tag shrink-0 !border-green !bg-bg-green !px-2 !font-medium !text-green"
 						>
 							<SparklesIcon aria-hidden="true" />
 							{{ formatMessage(messages.newInstance) }}
 						</TagItem>
 					</div>
 					<div class="flex items-center gap-1.5 text-sm text-secondary">
-						<span class="flex items-center gap-1 truncate text-secondary">
+						<span class="flex shrink-0 items-center gap-1 text-secondary">
 							{{ loader }}
 							{{ instance.game_version }}
 						</span>
-						<BulletDivider class="shrink-0" />
+						<BulletDivider class="played-meta shrink-0" />
 						<div
 							v-tooltip="!newlyAdded ? formatDateTime(last_played.toDate()) : null"
-							class="w-fit shrink-0"
+							class="played-meta w-fit min-w-0 truncate"
 							:class="{
 								'cursor-help smart-clickable:allow-pointer-events': !newlyAdded,
 							}"
@@ -309,5 +311,19 @@ function openContextMenu(event: MouseEvent) {
 <style scoped>
 .clickable-card:has([data-no-card-click]:hover) {
 	--hover-brightness: 1;
+}
+</style>
+
+<style scoped>
+/* In a narrow panel the instance name matters more than the "New instance" tag. */
+.instance-item-text {
+	container-type: inline-size;
+}
+
+@container (max-width: 15rem) {
+	.new-instance-tag,
+	.played-meta {
+		display: none;
+	}
 }
 </style>

@@ -4,6 +4,7 @@ import { ContextMenu, defineMessages, useVIntl } from '@crafton/ui'
 import { computed, nextTick, onDeactivated, onUnmounted, ref, toRef, watch } from 'vue'
 import Draggable from 'vuedraggable'
 
+import libraryIcon from '@/assets/redesign/icon-library.webp'
 import GroupInstancesModal from '@/components/ui/library/group-instances-modal.vue'
 import InstanceGroup from '@/components/ui/library/instance-group/index.vue'
 import InstanceGroupDnd from '@/components/ui/library/instance-group/instance-group-dnd.vue'
@@ -249,9 +250,15 @@ watch(selectedLibraryInstances, (selectedInstances) => {
 <template>
 	<InstanceGroupDnd :instances="instances">
 		<section data-library-page-background class="flex flex-col gap-3 pb-16 min-h-[500px]">
-			<h2 class="m-0 text-2xl font-semibold text-contrast">
-				{{ formatMessage(messages.library) }}
-			</h2>
+			<div class="flex items-center gap-3">
+				<img :src="libraryIcon" alt="" class="size-11" draggable="false" />
+				<div class="flex flex-col">
+					<h2 class="m-0 text-2xl font-extrabold text-contrast">
+						{{ formatMessage(messages.library) }}
+					</h2>
+					<span class="text-sm text-secondary">Your installed instances and modpacks.</span>
+				</div>
+			</div>
 			<LibraryToolbar />
 			<div
 				v-if="libraryGroupsLoaded && isSearching && visibleInstanceGroups.length === 0"
@@ -316,6 +323,9 @@ watch(selectedLibraryInstances, (selectedInstances) => {
 								<InstanceGroup
 									:animations-ready="animationsReady"
 									:can-drag-reorder="canDragReorderGroups"
+									:show-new-instance-card="
+										!isSearching && instanceGroup.id === draggableGroups.at(-1)?.id
+									"
 									:hide-header="
 										instanceGroup.id === 'group:none' && visibleInstanceGroups.length === 1
 									"
@@ -352,6 +362,9 @@ watch(selectedLibraryInstances, (selectedInstances) => {
 						class="min-w-0"
 					>
 						<InstanceGroup
+							:show-new-instance-card="
+								!isSearching && instanceGroup.id === visibleInstanceGroups.at(-1)?.id
+							"
 							:animations-ready="animationsReady"
 							:hide-header="instanceGroup.key === 'None' && visibleInstanceGroups.length === 1"
 							:instance-group="instanceGroup"

@@ -230,13 +230,13 @@ html {
 .dark-mode,
 .dark,
 :root[data-theme='dark'] {
-	--surface-1: #11161c;
-	--surface-1-5: #141a21;
-	--surface-2: #171e26;
-	--surface-2-5: #1b232c;
-	--surface-3: #1f2832;
-	--surface-4: #2a3542;
-	--surface-5: #384554;
+	--surface-1: #0b1220;
+	--surface-1-5: #0e1627;
+	--surface-2: #111a2e;
+	--surface-2-5: #141f36;
+	--surface-3: #17243d;
+	--surface-4: #20314f;
+	--surface-5: #2d4266;
 
 	--color-red-50: #fff0f1;
 	--color-red-100: #ffe2e6;
@@ -316,9 +316,9 @@ html {
 	--color-gray-950: #303136;
 	--color-gray: var(--color-gray-500);
 
-	--color-text-primary: #eef7f9;
-	--color-text-default: #c3d0d8;
-	--color-text-tertiary: #8fa3b3;
+	--color-text-primary: #eef8fc;
+	--color-text-default: #c2d1e2;
+	--color-text-tertiary: #8ba2c0;
 
 	// ===
 
@@ -327,11 +327,11 @@ html {
 	--color-super-raised-bg: var(--surface-4);
 
 	--color-button-bg: var(--surface-4);
-	--color-button-border: rgba(78, 230, 224, 0.14);
+	--color-button-border: rgba(56, 222, 240, 0.16);
 	--color-scrollbar: var(--surface-5);
 
 	--color-divider: var(--color-button-bg);
-	--color-divider-dark: #4f5f6e;
+	--color-divider-dark: #3d5478;
 
 	--color-base: var(--color-text-default);
 	--color-secondary: var(--color-text-tertiary);
@@ -351,9 +351,11 @@ html {
 	--color-blue-bg: rgba(79, 156, 255, 0.2);
 	--color-purple-bg: rgba(199, 138, 255, 0.2);
 
-	--color-brand: #4ee6e0;
-	--color-brand-highlight: rgba(78, 230, 224, 0.18);
-	--color-brand-shadow: rgba(78, 230, 224, 0.5);
+	--color-brand: #38def0;
+	--color-bronze: #c98a4b;
+	--color-bronze-highlight: rgba(201, 138, 75, 0.2);
+	--color-brand-highlight: rgba(56, 222, 240, 0.16);
+	--color-brand-shadow: rgba(56, 222, 240, 0.45);
 
 	--shadow-inset-lg: inset 0px -2px 2px hsla(221, 39%, 11%, 0.1);
 	--shadow-inset: inset 0px -2px 2px hsla(221, 39%, 11%, 0.05);
@@ -372,21 +374,21 @@ html {
 		rgba(8, 24, 28, 0.25) 0%,
 		rgba(31, 200, 194, 0.08) 100%
 	);
-	--brand-gradient-strong-bg: linear-gradient(270deg, #0a0f14 10%, #121a22 100%);
+	--brand-gradient-strong-bg: linear-gradient(270deg, #070d18 10%, #0f182b 100%);
 	--brand-gradient-button: rgba(255, 255, 255, 0.08);
 	--brand-gradient-border: rgba(78, 230, 224, 0.12);
-	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(17, 22, 28, 0), #11161c 80%);
+	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(11, 18, 32, 0), #0b1220 80%);
 
 	--color-button-bg-selected: var(--color-brand-highlight);
 	--color-button-text-selected: var(--color-brand);
 
-	--color-gradient-button-bg: linear-gradient(180deg, #2f3b49 0%, #2a3542 100%);
+	--color-gradient-button-bg: linear-gradient(180deg, #26395a 0%, #20314f 100%);
 
 	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #1fa0c8 100%);
 
 	--splash-tint-top: rgba(31, 200, 194, 0.25);
 	--splash-tint-bottom: rgba(8, 20, 28, 0.5);
-	--splash-overlay: rgba(17, 22, 28, 0.64);
+	--splash-overlay: rgba(11, 18, 32, 0.64);
 	--splash-cube-opacity: 0.8;
 	--splash-cube-blend: normal;
 

@@ -46,12 +46,15 @@ const props = withDefaults(
 		hideHeader?: boolean
 		instanceGroup: InstanceGroupType
 		selectionAnchorInstanceId?: string | null
+		/** End the grid with a dashed "New instance" card (the last group in the library). */
+		showNewInstanceCard?: boolean
 	}>(),
 	{
 		animationsReady: false,
 		canDragReorder: false,
 		hideHeader: false,
 		selectionAnchorInstanceId: null,
+		showNewInstanceCard: false,
 	},
 )
 
@@ -149,12 +152,13 @@ const cardHeight = computed(() =>
 		? remSize.value * 3.875 + 2
 		: Math.max(0, cardWidth.value) + remSize.value * 3.375,
 )
+const gridSlotCount = computed(
+	() => props.instanceGroup.instances.length + (props.showNewInstanceCard ? 1 : 0),
+)
 const gridHeight = computed(() =>
 	Math.max(
 		45,
-		Math.ceil(props.instanceGroup.instances.length / columnCount.value) *
-			(cardHeight.value + gap.value) -
-			gap.value,
+		Math.ceil(gridSlotCount.value / columnCount.value) * (cardHeight.value + gap.value) - gap.value,
 	),
 )
 const visibleInstances = computed(() => {
@@ -674,8 +678,26 @@ watch([gridHeight, () => props.instanceGroup.instances], () => {
 								"
 							/>
 						</div>
+						<button
+							v-if="
+								showNewInstanceCard &&
+								gridWidth > 0 &&
+								(hideHeader || !isSectionCollapsed(instanceGroup.id))
+							"
+							key="new-instance-card"
+							type="button"
+							class="new-instance-card"
+							:style="{
+								...instancePosition(instanceGroup.instances.length),
+								height: `${cardHeight}px`,
+							}"
+							@click="showCreationModal?.()"
+						>
+							<PlusIcon class="size-10" />
+							<span>New Instance</span>
+						</button>
 						<p
-							v-if="instanceGroup.instances.length === 0"
+							v-else-if="instanceGroup.instances.length === 0"
 							key="empty-group"
 							class="col-span-full m-0 pt-1 pl-0.5 text-base font-base text-secondary opacity-80"
 						>
@@ -717,3 +739,32 @@ watch([gridHeight, () => props.instanceGroup.instances], () => {
 		</template>
 	</NewModal>
 </template>
+
+<style scoped>
+.new-instance-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	border-radius: 20px;
+	border: 2px dashed var(--surface-5);
+	background: transparent;
+	color: var(--color-text-tertiary);
+	font-size: 1rem;
+	font-weight: 700;
+	cursor: pointer;
+	transition:
+		border-color 0.15s ease,
+		color 0.15s ease,
+		background-color 0.15s ease,
+		box-shadow 0.15s ease;
+}
+
+.new-instance-card:hover {
+	border-color: var(--color-brand);
+	color: var(--color-brand);
+	background-color: var(--color-brand-highlight);
+	box-shadow: 0 0 1rem var(--color-brand-highlight);
+}
+</style>

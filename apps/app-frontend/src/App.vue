@@ -1,13 +1,6 @@
 <script setup>
 import { ContentApiError } from '@crafton/api-client'
-import {
-	CompassIcon,
-	ImageIcon,
-	PlayIcon,
-	PlusIcon,
-	RefreshCwIcon,
-	SettingsIcon,
-} from '@crafton/assets'
+import { RefreshCwIcon } from '@crafton/assets'
 import {
 	Admonition,
 	commonMessages,
@@ -41,13 +34,19 @@ import { RouterView, useRoute, useRouter } from 'vue-router'
 import { useRouteLoading } from '@/app/runtime/use-route-loading'
 import AppSidebar from '@/app/shell/sidebar/index.vue'
 import AppTitleBar from '@/app/shell/title-bar/index.vue'
+import emblemWordmark from '@/assets/redesign/emblem-wordmark.webp'
+import homeIcon from '@/assets/redesign/icon-home.webp'
+import libraryIcon from '@/assets/redesign/icon-library.webp'
+import screenshotsIcon from '@/assets/redesign/icon-screenshots.webp'
+import browseIcon from '@/assets/redesign/icon-search.webp'
+import settingsIcon from '@/assets/redesign/icon-settings.webp'
+import sidebarForge from '@/assets/redesign/sidebar-forge.webp'
 import ErrorModal from '@/components/ui/ErrorModal.vue'
 import UnknownPackWarningModal from '@/components/ui/install_flow/UnknownPackWarningModal.vue'
 import MinecraftAuthErrorModal from '@/components/ui/minecraft-auth-error-modal/MinecraftAuthErrorModal.vue'
 import MinecraftRequiredModal from '@/components/ui/minecraft-required-modal/MinecraftRequiredModal.vue'
 import ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyInstalledModal.vue'
-import NavButton from '@/components/ui/NavButton.vue'
-import QuickInstanceSwitcher from '@/components/ui/QuickInstanceSwitcher.vue'
+import NavItem from '@/components/ui/NavItem.vue'
 import SplashScreen from '@/components/ui/SplashScreen.vue'
 import { useCheckDisableMouseover } from '@/composables/macCssFix.js'
 import { useAppEvent } from '@/composables/use-app-event'
@@ -152,17 +151,8 @@ const breadcrumbManager = createBreadcrumbManager()
 provideBreadcrumbManager(breadcrumbManager)
 const APP_LEFT_NAV_WIDTH = '4rem'
 const APP_SIDEBAR_WIDTH = 300
-const sidebarToggled = ref(true)
-watch(
-	() => appSettings.toggleSidebar,
-	(toggleSidebar) => {
-		sidebarToggled.value = !toggleSidebar
-	},
-)
-const forceSidebar = computed(
-	() => route.path.startsWith('/browse') || route.path.startsWith('/project'),
-)
-const sidebarVisible = computed(() => sidebarToggled.value || forceSidebar.value)
+// The account panel on the right is always shown; it no longer has a hide button.
+const sidebarVisible = computed(() => true)
 const notificationManager = new AppNotificationManager()
 provideNotificationManager(notificationManager)
 const { handleError, addNotification } = notificationManager
@@ -276,6 +266,7 @@ window.addEventListener('online', () => {
 
 const os = ref('')
 const isDevEnvironment = ref(false)
+const appVersion = ref('')
 
 const stateInitialized = ref(false)
 const globalSyncedOptionsQuery = useQuery({
@@ -396,6 +387,18 @@ const messages = defineMessages({
 		id: 'app.nav.home',
 		defaultMessage: 'Home',
 	},
+	mainNavigation: {
+		id: 'app.nav.main',
+		defaultMessage: 'Main navigation',
+	},
+	library: {
+		id: 'app.navigation.library',
+		defaultMessage: 'Library',
+	},
+	browse: {
+		id: 'app.nav.browse',
+		defaultMessage: 'Browse',
+	},
 	screenshots: {
 		id: 'app.nav.screenshots',
 		defaultMessage: 'Screenshots',
@@ -454,6 +457,7 @@ async function setupApp() {
 	const dev = await traceStartupStep('Read development mode', isDev)
 	isDevEnvironment.value = dev
 	const version = await traceStartupStep('Read app version', getVersion)
+	appVersion.value = version
 	appSettings.nativeDecorations = native_decorations
 	if (os.value !== 'MacOS') {
 		await traceStartupStep('Apply window decorations', () =>
@@ -1097,62 +1101,67 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		/>
 		<UnknownPackWarningModal ref="unknownPackWarningModal" />
 		<InstanceActionModals ref="instanceActionModals" />
-		<div
-			class="app-grid-navbar bg-bg-raised flex flex-col p-[0.5rem] pt-0 gap-[0.25rem] w-[--left-bar-width]"
+		<nav
+			class="app-grid-navbar flex flex-col gap-1 px-3 pb-3 w-[--left-bar-width]"
+			:aria-label="formatMessage(messages.mainNavigation)"
 		>
-			<NavButton
-				v-tooltip.right="formatMessage(messages.home)"
+			<div data-tauri-drag-region class="app-sidebar-logo">
+				<img
+					:src="emblemWordmark"
+					alt="Crafton Launcher"
+					class="pointer-events-none"
+					draggable="false"
+				/>
+			</div>
+			<NavItem
 				to="/"
+				:icon="homeIcon"
+				:label="formatMessage(messages.home)"
 				:is-primary="(route) => route.path === '/'"
 				:is-subpage="
-					() =>
-						(route.path.startsWith('/browse') || route.path.startsWith('/project')) && route.query.i
+					(route) =>
+						!!(
+							(route.path.startsWith('/browse') || route.path.startsWith('/project')) &&
+							route.query.i
+						)
 				"
-			>
-				<PlayIcon class="ml-0.5" />
-			</NavButton>
-			<NavButton
-				v-tooltip.right="formatMessage(commonMessages.discoverContentLabel)"
+			/>
+			<NavItem
+				to="/library"
+				:icon="libraryIcon"
+				:label="formatMessage(messages.library)"
+				:is-primary="(route) => route.path === '/library'"
+				:is-subpage="(route) => route.path.startsWith('/instance')"
+			/>
+			<NavItem
 				to="/browse/modpack"
-				:is-primary="() => route.path.startsWith('/browse') && !route.query.i && !route.query.sid"
+				:icon="browseIcon"
+				:label="formatMessage(messages.browse)"
+				:is-primary="
+					(route) => route.path.startsWith('/browse') && !route.query.i && !route.query.sid
+				"
 				:is-subpage="
 					(route) => route.path.startsWith('/project') && !route.query.i && !route.query.sid
 				"
-			>
-				<CompassIcon />
-			</NavButton>
-			<NavButton
+			/>
+			<NavItem
 				v-if="globalSyncedOptionsQuery.data.value?.screenshots"
-				v-tooltip.right="formatMessage(messages.screenshots)"
 				to="/screenshots"
-			>
-				<ImageIcon />
-			</NavButton>
-			<suspense>
-				<QuickInstanceSwitcher>
-					<NavButton
-						v-tooltip.right="formatMessage(messages.createNewInstance)"
-						:to="() => installationModal?.show()"
-						:disabled="offline"
-					>
-						<PlusIcon />
-					</NavButton>
-				</QuickInstanceSwitcher>
-			</suspense>
-			<NavButton
-				v-tooltip.right="formatMessage(commonMessages.settingsLabel)"
+				:icon="screenshotsIcon"
+				:label="formatMessage(messages.screenshots)"
+				:is-primary="(route) => route.path === '/screenshots'"
+			/>
+			<NavItem
 				:to="settingsActions.openSettings"
-			>
-				<SettingsIcon />
-			</NavButton>
-		</div>
-		<AppTitleBar
-			:can-navigate-back="canNavigateBack"
-			:can-navigate-forward="canNavigateForward"
-			:show-sidebar-toggle="!forceSidebar && appSettings.toggleSidebar"
-			:sidebar-toggled="sidebarToggled"
-			@toggle-sidebar="sidebarToggled = !sidebarToggled"
-		/>
+				:icon="settingsIcon"
+				:label="formatMessage(commonMessages.settingsLabel)"
+			/>
+			<div data-tauri-drag-region class="app-sidebar-art">
+				<img :src="sidebarForge" alt="" class="pointer-events-none" draggable="false" />
+				<span v-if="appVersion" class="app-sidebar-version">v{{ appVersion }}</span>
+			</div>
+		</nav>
+		<AppTitleBar :can-navigate-back="canNavigateBack" :can-navigate-forward="canNavigateForward" />
 	</div>
 	<div
 		v-if="stateInitialized"
@@ -1264,13 +1273,17 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 .app-grid-layout,
 .app-contents {
 	--top-bar-height: 3rem;
-	--left-bar-width: 4rem;
+	--left-bar-width: 14rem;
 	--right-bar-width: 300px;
+
+	@media (max-width: 960px) {
+		--left-bar-width: 4.5rem;
+	}
 }
 
 .app-grid-layout {
 	display: grid;
-	grid-template: 'status status' 'nav dummy';
+	grid-template: 'nav status' 'nav dummy';
 	grid-template-columns: auto 1fr;
 	grid-template-rows: auto minmax(0, 1fr);
 	position: relative;
@@ -1284,9 +1297,71 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	min-height: 0;
 	position: relative;
 	z-index: 2;
+	overflow: hidden;
+	background:
+		radial-gradient(120% 60% at 50% 100%, var(--color-brand-highlight) 0%, transparent 70%),
+		var(--color-raised-bg);
 
 	> :deep(*) {
 		flex-shrink: 0;
+	}
+}
+
+.app-sidebar-logo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: calc(var(--top-bar-height) + 2.5rem);
+	padding: 0.5rem 0.25rem 0.75rem;
+
+	img {
+		max-width: 100%;
+		max-height: 100%;
+		filter: drop-shadow(0 0 0.6rem var(--color-brand-shadow));
+	}
+
+	:global(.mac-traffic-lights) & {
+		padding-top: 2rem;
+	}
+}
+
+.app-sidebar-art {
+	position: relative;
+	margin-top: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 1rem;
+
+	img {
+		/* Logo and nav take about 24rem; the forge gets what is left, up to 13rem. */
+		height: min(13rem, calc(100vh - 25rem));
+		width: auto;
+		max-width: 80%;
+		object-fit: contain;
+		filter: drop-shadow(0 0.5rem 1rem rgba(0, 0, 0, 0.6));
+	}
+}
+
+.app-sidebar-version {
+	margin-top: 0.25rem;
+	font-size: 0.8rem;
+	font-weight: 700;
+	color: var(--color-text-tertiary);
+}
+
+@media (max-width: 960px), (max-height: 560px) {
+	.app-sidebar-art img {
+		display: none;
+	}
+}
+
+@media (max-width: 960px) {
+	.app-sidebar-logo img {
+		object-fit: cover;
+		object-position: left;
+		width: 3rem;
+		height: 3rem;
 	}
 }
 
