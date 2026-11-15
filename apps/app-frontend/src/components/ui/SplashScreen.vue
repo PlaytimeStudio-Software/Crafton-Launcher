@@ -93,7 +93,7 @@ useAppEvent('loading', (e) => {
 	inset: 0;
 	z-index: 10000;
 
-	--splash-cube-image: url('@/assets/branding/crafton-logo.png');
+	--splash-cube-image: url('@/assets/branding/splash-background.png');
 }
 
 .splash-fade-leave-active {
