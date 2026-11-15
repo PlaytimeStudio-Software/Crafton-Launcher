@@ -187,6 +187,8 @@ defineExpose({
 	setLoginDisabled,
 	login,
 	loginDisabled,
+	avatarUrl: computed(() => avatarUrl.value),
+	accountName: computed(() => selectedAccount.value?.profile.name ?? null),
 })
 
 await refreshValues()

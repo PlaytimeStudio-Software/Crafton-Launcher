@@ -9,6 +9,9 @@ export interface MinecraftAccountsActions {
 	setEquippedSkin: (skin: Skin) => Promise<void>
 	setLoginDisabled: (disabled: boolean) => void
 	login: () => Promise<void>
+	/** Head of the selected account's skin (Steve when nobody is signed in). */
+	readonly avatarUrl: string
+	readonly accountName: string | null
 }
 
 export const [injectMinecraftAccounts, provideMinecraftAccounts] = createContext<

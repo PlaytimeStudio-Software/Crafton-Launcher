@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { defineMessages, useScrollIndicator, useVIntl } from '@crafton/ui'
+import { ChevronRightIcon } from '@crafton/assets'
+import { defineMessages, IconButton, useScrollIndicator, useVIntl } from '@crafton/ui'
 import { OverlayScrollbars } from 'overlayscrollbars'
 import { computed, onMounted, onScopeDispose, ref } from 'vue'
 
+import { useAccountPanel } from '@/composables/use-account-panel'
 import { useTheme } from '@/composables/use-theme'
 import AccountsCard from '@/features/minecraft-accounts/accounts-card.vue'
 import type { MinecraftAccountsActions } from '@/features/minecraft-accounts/context'
@@ -19,6 +21,7 @@ const emit = defineEmits<{
 
 const { formatMessage } = useVIntl()
 const appTheme = useTheme()
+const accountPanel = useAccountPanel()
 const { hasLoggedIntoMinecraft } = injectOnboardingChecklist()
 const accounts = ref<InstanceType<typeof AccountsCard> | null>(null)
 const scrollContainer = ref<HTMLElement | null>(null)
@@ -46,6 +49,8 @@ const minecraftAccounts = computed<MinecraftAccountsActions | null>(() => {
 		setEquippedSkin: card.setEquippedSkin,
 		setLoginDisabled: card.setLoginDisabled,
 		login: card.login,
+		avatarUrl: card.avatarUrl,
+		accountName: card.accountName,
 	}
 })
 
@@ -62,6 +67,10 @@ const messages = defineMessages({
 	playingAs: {
 		id: 'app.sidebar.playing-as',
 		defaultMessage: 'Playing as',
+	},
+	hidePanel: {
+		id: 'app.sidebar.hide-panel',
+		defaultMessage: 'Hide this panel',
 	},
 })
 </script>
@@ -90,9 +99,21 @@ const messages = defineMessages({
 						v-show="hasLoggedIntoMinecraft"
 						class="p-4 border-0 border-b-[1px] border-[--brand-gradient-border] border-solid"
 					>
-						<h3 class="text-base text-primary font-medium m-0">
-							{{ formatMessage(messages.playingAs) }}
-						</h3>
+						<div class="flex items-center justify-between gap-2">
+							<h3 class="text-base text-primary font-medium m-0">
+								{{ formatMessage(messages.playingAs) }}
+							</h3>
+							<IconButton
+								v-if="accountPanel.canHide.value"
+								v-tooltip.left="formatMessage(messages.hidePanel)"
+								type="quiet"
+								size="sm"
+								:label="formatMessage(messages.hidePanel)"
+								@click="accountPanel.hide()"
+							>
+								<ChevronRightIcon />
+							</IconButton>
+						</div>
 						<Suspense>
 							<AccountsCard ref="accounts" />
 						</Suspense>
