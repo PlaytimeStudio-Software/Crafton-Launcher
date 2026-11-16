@@ -59,8 +59,15 @@ impl RpcServerBuilder {
                     handlers: self.handlers,
                     waiting_responses: waiting_responses.clone(),
                 };
-                if let Err(e) = server.run(socket).await {
-                    tracing::error!("Failed to run RPC server: {e}");
+                match server.run(socket).await {
+                    Ok(()) => {}
+                    // The game dropping its end of the socket when it closes is a normal disconnect.
+                    Err(e) if is_disconnect(&e) => {
+                        tracing::debug!(
+                            "RPC connection closed by the game: {e}"
+                        );
+                    }
+                    Err(e) => tracing::error!("Failed to run RPC server: {e}"),
                 }
                 waiting_responses.lock().unwrap().clear();
             })
@@ -147,6 +154,23 @@ impl Drop for RpcServer {
     fn drop(&mut self) {
         self.abort_handle.abort();
     }
+}
+
+/// True when the error is the other side going away (reset/aborted/broken pipe), not a real failure.
+fn is_disconnect(error: &crate::Error) -> bool {
+    use std::io::ErrorKind;
+    error
+        .chain()
+        .filter_map(|cause| cause.downcast_ref::<std::io::Error>())
+        .any(|e| {
+            matches!(
+                e.kind(),
+                ErrorKind::ConnectionReset
+                    | ErrorKind::ConnectionAborted
+                    | ErrorKind::BrokenPipe
+                    | ErrorKind::UnexpectedEof
+            )
+        })
 }
 
 struct RunningRpcServer {

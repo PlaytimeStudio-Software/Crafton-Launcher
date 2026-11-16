@@ -126,6 +126,9 @@ export type FilterValue = {
 
 export type DependencyType = 'required' | 'optional' | 'embedded'
 
+/** Query params the app uses for browse context rather than as search filters. */
+const BROWSE_CONTEXT_PARAMS = new Set(['i', 'ai', 'sid'])
+
 const DEPENDENCY_TYPE_FIELDS: Record<DependencyType, string> = {
 	required: 'required_dependency_project_ids',
 	optional: 'optional_dependency_project_ids',
@@ -1050,7 +1053,11 @@ export function useSearch(
 		for (const key of Object.keys(route.query).filter((key) => !readParams.has(key))) {
 			const types = filters.value.filter((type) => type.query_param === key)
 			if (types.length === 0) {
-				console.error(`Unknown filter type: ${key}`)
+				// The app passes its own browse context through the query (i = target instance, ai = hide
+				// installed, sid = server); those are not search filters, so don't report them.
+				if (!BROWSE_CONTEXT_PARAMS.has(key)) {
+					console.error(`Unknown filter type: ${key}`)
+				}
 				continue
 			}
 
